@@ -1,0 +1,179 @@
+<!-- START search-filter-form -->
+<div
+  class="panel panel-murali panel-default print-credit-document-search-filter">
+  <div class="panel-heading">
+    <span class="">Filter documents</span>
+  </div>
+  <div class="panel-body">
+    <form
+      class="form-horizontal"
+      name="creditDocumentForm"
+      novalidate="novalidate"
+      role="form"
+      ng-submit="ctrl.SearchCreditDocuments(null, null, null, null, true)">
+      <div class="row">
+        <!--First Column -->
+        <div class="col-lg-5 col-md-6">
+          <div class="form-group">
+            <div class="col-md-4 col-lg-3">
+              <label class="control-label">{{ 'creditingDocSearchCriteria.company' | translate }}
+                <span class="murali-asterisk"> *</span>
+              </label>
+            </div>
+            <div class="col-md-8 col-lg-9 fieldValueCellalignment">
+              <span class="" id="companyNo">{{ctrl.selectCompanies[ctrl.selectedCompany - 1].name}}
+              </span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 col-lg-3">
+              <label class=" control-label" for="ImporterNo">{{
+                'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}</label>
+            </div>
+            <div class="col-md-8 col-lg-9"><input
+              class="form-control"
+              id="importerNo"
+              min="0"
+              name="importerno"
+              ng-maxlength="7"
+              ng-minlength="1"
+              focus-if
+              ng-model="ctrl.creditDocumentForm.importerno"
+              ng-pattern="ctrl.OnlyNumbers"
+              ng-trim="true"
+              placeholder="{{ 'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}"
+              type="text">
+              <div
+                class="has-error"
+                ng-if="creditDocumentForm.importerno.$touched && creditDocumentForm.importerno.$error"
+                ng-messages="creditDocumentForm.importerno.$error">
+                <div
+                  ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 col-lg-3">
+              <label class="control-label" for="dealerNo">{{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}</label>
+            </div>
+            <div class="col-md-8 col-lg-9"><input
+              class="form-control"
+              id="dealerNo"
+              name="dealerno"
+              ng-maxlength="6"
+              ng-model="ctrl.creditDocumentForm.dealerno"
+              ng-trim="true"
+              ng-pattern="ctrl.DealerPattern"
+              placeholder="{{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}"
+              type="text">
+              <div
+                class="has-error"
+                ng-if="creditDocumentForm.dealerno.$touched && creditDocumentForm.dealerno.$error"
+                ng-messages="creditDocumentForm.dealerno.$error">
+                <div ng-if="creditDocumentForm.dealerno.$error.pattern">
+                  <p class="help-block">{{"VALIDATION.ERROR.ALPHANUMERIC" | translate}}</p>
+                </div>
+                <div
+                  ng-if="!creditDocumentForm.dealerno.$error.pattern"
+                  ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 col-lg-3">
+              <label class="control-label" for="droplistMenuBrand">{{ 'creditingDocSearchCriteria.brand' | translate }}</label>
+            </div>
+            <div class="col-md-8 col-lg-9">
+              <select
+                class="form-control"
+                id="droplistMenuBrand"
+                ng-model="ctrl.creditDocumentForm.selectedbrandkeyval"
+                ng-options="option.key as option.displayText for option in ctrl.brandlist"></select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-5">
+          <div class="form-group">
+            <div class="col-md-4 col-lg-4">
+              <label class="control-label" for="creditdocumentNo">{{ 'creditingDocSearchCriteria.creditDocNo' | translate }}</label>
+            </div>
+            <div class="col-md-8 col-lg-8">
+              <input
+                class="form-control"
+                id="creditdocumentNo"
+                name="creditdocumentno"
+                ng-maxlength="18"
+                ng-minlength="7"
+                ng-model="ctrl.creditDocumentForm.creditdocumentno"
+                ng-pattern="ctrl.OnlyNumbers"
+                ng-trim="true"
+                placeholder="{{ 'creditingDocSearchCriteria.creditDocNo' | translate }}"
+                type="text">
+              <div
+                class="has-error"
+                ng-if="creditDocumentForm.creditdocumentno.$touched && creditDocumentForm.creditdocumentno.$error"
+                ng-messages="creditDocumentForm.creditdocumentno.$error">
+                <div
+                  ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group has-feedback">
+            <div class="col-md-4 col-lg-4">
+              <label class="control-label" for="creditingDateFrom">{{ 'creditingDocSearchCriteria.creditingDateFromTo' | translate }}</label>
+            </div>
+            <div class="col-sm-4 onerightpad">
+              <div
+                class="input-group"
+                datetimepicker="datetimepicker"
+                id="creditingDateFrom"
+                name="creditingdatefrom"
+                ng-model="ctrl.creditDocumentForm.creditingdatefrom"
+                options="ctrl.datePickerOptions">
+                <input class="form-control" placeholder="dd/MM/yy" type="text"/>
+                <span class="input-group-addon">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+            <div class="col-sm-4 noleftpad">
+              <div
+                class="input-group"
+                datetimepicker="datetimepicker"
+                id="creditingDateTo"
+                name="creditingdateto"
+                ng-model="ctrl.creditDocumentForm.creditingdateto"
+                options="ctrl.datePickerOptions">
+                <input class="form-control" placeholder="dd/MM/yy" type="text"/>
+                <span class="input-group-addon">
+                  <i class="fa fa-calendar" aria-hidden="true"></i>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 col-lg-4">
+              <label class="control-label" for="droplistMenuMime">{{ 'creditingDocSearchCriteria.mimeType' | translate }}</label>
+            </div>
+            <div class="col-sm-8">
+              <select
+                class="form-control"
+                id="droplistMenuMime"
+                ng-model="ctrl.creditDocumentForm.selectmimetypekeyval"
+                ng-options="option.key as option.displayText for option in ctrl.contenttypes"></select>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 col-lg-4"></div>
+            <div class="col-sm-8 alignright">
+              <button
+                class="btn btn-success btn-sm"
+                ng-disabled="creditDocumentForm.$invalid"
+                type="submit">Filter</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

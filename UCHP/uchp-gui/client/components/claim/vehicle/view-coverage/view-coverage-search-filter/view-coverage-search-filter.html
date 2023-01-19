@@ -1,0 +1,321 @@
+<!-- START search-filter-form -->
+<div class="panel panel-murali panel-default view-coverage-search-filter">
+  <div class="panel-heading">
+    <span class="">Search
+      <a
+        class="btn btn-xs btn-primary btn-collapse"
+        data-toggle="collapse"
+        href="#panel-wrapper-collapse"></a>
+    </span>
+  </div>
+  <div class="panel-wrapper collapse in" id="panel-wrapper-collapse">
+    <div class="header-murali">
+      <h5 class="">Vehicle</h5>
+    </div>
+    <div class="panel-body">
+      <form
+        class="form-horizontal"
+        id="viewCoverageForm"
+        name="viewCoverageForm"
+        ng-submit="ctrl.SearchViewCoverage(ctrl.viewCoverageForm)"
+        role="form">
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="registrationNo">{{ 'LABEL.regNo.' + ctrl.selectedCompany | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <input
+                  class="form-control"
+                  id="registrationNo"
+                  focus-if
+                  name="registrationno"
+                  ng-required="!ctrl.viewCoverageForm.marketchassisno && !ctrl.viewCoverageForm.chassisseries && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandmarketkeyval && !ctrl.viewCoverageForm.marketingtype && !ctrl.viewCoverageForm.marketingchassisno && !ctrl.viewCoverageForm.selectedbrandunitkeyval && !ctrl.viewCoverageForm.brandunitno"
+                  ng-disabled="ctrl.viewCoverageForm.marketchassisno || ctrl.viewCoverageForm.chassisseries || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandmarketkeyval || ctrl.viewCoverageForm.marketingtype || ctrl.viewCoverageForm.marketingchassisno || ctrl.viewCoverageForm.selectedbrandunitkeyval || ctrl.viewCoverageForm.brandunitno"
+                  ng-maxlength="9"
+                  ng-model="ctrl.viewCoverageForm.registrationno"
+                  placeholder="{{ 'LABEL.regNo.' + ctrl.selectedCompany | translate }}"
+                  type="text"/>
+                <div
+                  class="has-error"
+                  ng-if="viewCoverageForm.registrationno.$error && viewCoverageForm.registrationno.$touched"
+                  ng-messages="viewCoverageForm.registrationno.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="RepairDate">{{ 'VIEW_COVERAGE.MODAL.VALID_THIS_DATE' | translate }}</label>
+              </div>
+              <div class="col-md-6 col-lg-5">
+                <div
+                  class="input-group"
+                  datetimepicker="datetimepicker"
+                  id="RepairDate"
+                  name="RepairDate"
+                  ng-model="ctrl.viewCoverageForm.repairDate"
+                  options="ctrl.datePickerOptions">
+                  <input class="form-control" placeholder="dd/MM/yy" type="text"/>
+                  <span class="input-group-addon">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="chassisseries">{{ 'LABEL.CHASSI.' + ctrl.selectedCompany | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <div ng-class="ctrl.isVce ? 'col-sm-8' : 'col-sm-4'" class="noleftpad">
+                  <input
+                    class="form-control"
+                    id="chassisSeries"
+                    name="chassisseries"
+                    ng-required="!ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandmarketkeyval && !ctrl.viewCoverageForm.marketingtype && !ctrl.viewCoverageForm.marketingchassisno && !ctrl.viewCoverageForm.selectedbrandunitkeyval && !ctrl.viewCoverageForm.brandunitno"
+                    ng-disabled="ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandmarketkeyval || ctrl.viewCoverageForm.marketingtype || ctrl.viewCoverageForm.marketingchassisno || ctrl.viewCoverageForm.selectedbrandunitkeyval || ctrl.viewCoverageForm.brandunitno"
+                    ng-maxlength="ctrl.chassiSerieMaxlength"
+                    ng-pattern="ctrl.AlphaNumeric"
+                    ng-model="ctrl.viewCoverageForm.chassisseries"
+                    placeholder="Series"
+                    type="text"/>
+                  <div
+                    class="has-error"
+                    ng-if="!viewCoverageForm.chassisseries.$error.pattern && viewCoverageForm.chassisseries.$error && viewCoverageForm.chassisseries.$touched"
+                    ng-messages="viewCoverageForm.chassisseries.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                  <div
+                    class="has-error"
+                    ng-if="viewCoverageForm.chassisseries.$error.pattern && viewCoverageForm.chassisseries.$touched">
+                    <div>
+                      <p class="help-block">{{"VALIDATION.ERROR.ALPHANUMERIC" | translate}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div ng-class="ctrl.isVce ? 'col-sm-4' : 'col-sm-8'" class="nopad">
+                  <input
+                    class="form-control"
+                    id="marketchassisno"
+                    name="marketchassisno"
+                    ng-required="!ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandmarketkeyval && !ctrl.viewCoverageForm.marketingtype && !ctrl.viewCoverageForm.marketingchassisno && !ctrl.viewCoverageForm.selectedbrandunitkeyval && !ctrl.viewCoverageForm.brandunitno"
+                    ng-disabled="ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandmarketkeyval || ctrl.viewCoverageForm.marketingtype || ctrl.viewCoverageForm.marketingchassisno || ctrl.viewCoverageForm.selectedbrandunitkeyval || ctrl.viewCoverageForm.brandunitno"
+                    ng-maxlength="ctrl.chassiNoMaxlength"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    ng-model="ctrl.viewCoverageForm.marketchassisno"
+                    placeholder="Number"
+                    type="text"/>
+                  <div
+                    class="has-error"
+                    ng-if="viewCoverageForm.marketchassisno.$error && viewCoverageForm.marketchassisno.$touched"
+                    ng-messages="viewCoverageForm.marketchassisno.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="vin">{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <input
+                  class="form-control"
+                  id="vin"
+                  name="vehiclevin"
+                  ng-required="!ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.marketchassisno && !ctrl.viewCoverageForm.chassisseries && !ctrl.viewCoverageForm.selectedbrandmarketkeyval && !ctrl.viewCoverageForm.marketingtype && !ctrl.viewCoverageForm.marketingchassisno && !ctrl.viewCoverageForm.selectedbrandunitkeyval && !ctrl.viewCoverageForm.brandunitno"
+                  ng-disabled="ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.marketchassisno || ctrl.viewCoverageForm.chassisseries || ctrl.viewCoverageForm.selectedbrandmarketkeyval || ctrl.viewCoverageForm.marketingtype || ctrl.viewCoverageForm.marketingchassisno || ctrl.viewCoverageForm.selectedbrandunitkeyval || ctrl.viewCoverageForm.brandunitno"
+                  ng-maxlength="17"
+                  ng-model="ctrl.viewCoverageForm.vehiclevin"
+                  placeholder="{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}"
+                  type="text"/>
+                <div
+                  class="has-error"
+                  ng-if="viewCoverageForm.vehiclevin.$error && viewCoverageForm.vehiclevin.$touched"
+                  ng-messages="viewCoverageForm.vehiclevin.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="droplistMenuBrandMarket">{{ 'VIEW_COVERAGE.MODAL.BRAND' | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <select
+                  class="form-control"
+                  id="droplistMenuBrandMarket"
+                  name="selectedbrandmarketkeyval"
+                  ng-required="!ctrl.isVpcOrVce && !ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.marketchassisno && !ctrl.viewCoverageForm.chassisseries && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandunitkeyval && !ctrl.viewCoverageForm.brandunitno"
+                  ng-disabled="ctrl.isVpcOrVce || ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.marketchassisno || ctrl.viewCoverageForm.chassisseries || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandunitkeyval || ctrl.viewCoverageForm.brandunitno"
+                  ng-model="ctrl.viewCoverageForm.selectedbrandmarketkeyval"
+                  ng-options="option.key as option.displayText for option in ctrl.brandlist">
+                  <!--<option style="display:none" value="">< Select Brand ></option>-->
+                </select>
+                <div
+                  class="has-error"
+                  ng-if="viewCoverageForm.selectedbrandmarketkeyval.$error && viewCoverageForm.selectedbrandmarketkeyval.$touched"
+                  ng-messages="viewCoverageForm.selectedbrandmarketkeyval.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="marketingType">{{ 'VIEW_COVERAGE.MODAL.MARKETINGTYPE' | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <input
+                  class="form-control"
+                  id="marketingType"
+                  name="marketingtype"
+                  ng-required="!ctrl.isVpcOrVce && !ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.marketchassisno && !ctrl.viewCoverageForm.chassisseries && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandunitkeyval && !ctrl.viewCoverageForm.brandunitno"
+                  ng-disabled="ctrl.isVpcOrVce || ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.marketchassisno || ctrl.viewCoverageForm.chassisseries || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandunitkeyval || ctrl.viewCoverageForm.brandunitno"
+                  ng-maxlength="8"
+                  ng-model="ctrl.viewCoverageForm.marketingtype"
+                  placeholder="{{ 'VIEW_COVERAGE.MODAL.MARKETINGTYPE' | translate }}"
+                  type="text"/>
+                <div
+                  class="has-error"
+                  ng-if="viewCoverageForm.marketingtype.$error && viewCoverageForm.marketingtype.$touched"
+                  ng-messages="viewCoverageForm.marketingtype.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="chassisNo">{{ 'LABEL.CHASSI_NO.' + ctrl.selectedCompany | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <input
+                  class="form-control"
+                  id="chassisNo"
+                  name="marketingchassisno"
+                  ng-required="!ctrl.isVpcOrVce && !ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.marketchassisno && !ctrl.viewCoverageForm.chassisseries && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandunitkeyval && !ctrl.viewCoverageForm.brandunitno"
+                  ng-disabled="ctrl.isVpcOrVce || ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.marketchassisno || ctrl.viewCoverageForm.chassisseries || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandunitkeyval || ctrl.viewCoverageForm.brandunitno"
+                  ng-maxlength="6"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  ng-model="ctrl.viewCoverageForm.marketingchassisno"
+                  placeholder="{{ 'LABEL.CHASSI_NO.' + ctrl.selectedCompany | translate }}"
+                  type="text"/>
+                <div
+                  class="has-error"
+                  ng-if="viewCoverageForm.marketingchassisno.$error && viewCoverageForm.marketingchassisno.$touched"
+                  ng-messages="viewCoverageForm.marketingchassisno.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="droplistMenuBrandUnit">{{ 'VIEW_COVERAGE.MODAL.BRAND' | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <select
+                  class="form-control"
+                  id="droplistMenuBrandUnit"
+                  name="droplistMenuBrandUnit"
+                  ng-required="!ctrl.isVpcOrVce && !ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.marketchassisno && !ctrl.viewCoverageForm.chassisseries && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandmarketkeyval && !ctrl.viewCoverageForm.marketingtype && !ctrl.viewCoverageForm.marketingchassisno"
+                  ng-disabled="ctrl.isVpcOrVce || ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.marketchassisno || ctrl.viewCoverageForm.chassisseries || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandmarketkeyval || ctrl.viewCoverageForm.marketingtype || ctrl.viewCoverageForm.marketingchassisno"
+                  ng-model="ctrl.viewCoverageForm.selectedbrandunitkeyval"
+                  ng-options="option.key as option.displayText for option in ctrl.brandlist">
+                  <!--<option style="display:none" value="">< Select Brand ></option>-->
+                </select>
+                <div
+                  class="has-error"
+                  ng-if="viewCoverageForm.droplistMenuBrandUnit.$error && viewCoverageForm.droplistMenuBrandUnit.$touched"
+                  ng-messages="viewCoverageForm.droplistMenuBrandUnit.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <div class="col-md-5 col-lg-4">
+                <label class="control-label" for="brandunitno">{{ 'VIEW_COVERAGE.MODAL.UNITNO' | translate }}
+                  <span class="murali-asterisk"> *</span>
+                </label>
+              </div>
+              <div class="col-md-7 col-lg-8">
+                <input
+                  class="form-control"
+                  id="brandUnitNo"
+                  name="brandunitno"
+                  ng-required="!ctrl.isVpcOrVce && !ctrl.viewCoverageForm.registrationno && !ctrl.viewCoverageForm.marketchassisno && !ctrl.viewCoverageForm.chassisseries && !ctrl.viewCoverageForm.vehiclevin && !ctrl.viewCoverageForm.selectedbrandmarketkeyval && !ctrl.viewCoverageForm.marketingtype && !ctrl.viewCoverageForm.marketingchassisno"
+                  ng-disabled="ctrl.isVpcOrVce || ctrl.viewCoverageForm.registrationno || ctrl.viewCoverageForm.marketchassisno || ctrl.viewCoverageForm.chassisseries || ctrl.viewCoverageForm.vehiclevin || ctrl.viewCoverageForm.selectedbrandmarketkeyval || ctrl.viewCoverageForm.marketingtype || ctrl.viewCoverageForm.marketingchassisno"
+                  ng-maxlength="16"
+                  ng-model="ctrl.viewCoverageForm.brandunitno"
+                  placeholder="{{ 'VIEW_COVERAGE.MODAL.UNITNO' | translate }}"
+                  type="text"/>
+                <div
+                  class="has-error"
+                  ng-if="viewCoverageForm.brandunitno.$error && viewCoverageForm.brandunitno.$touched"
+                  ng-messages="viewCoverageForm.brandunitno.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row content-footer">
+          <button
+            class="btn btn-success btn-sm"
+            ng-disabled="viewCoverageForm.$invalid"
+            type="submit">
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- END search-filter-form -->

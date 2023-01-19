@@ -1,0 +1,21 @@
+<!-- START grid -->
+<form name="ctrl.form">
+  <div class="table-responsive murali-table">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:10%">{{"CLAIM.STATUS" | translate}}</th>
+        <th style="width:10%">{{"CLAIM.MODIFIED_TIME" | translate}}</th>
+        <th style="width:80%">{{"CLAIM.MODIFIED_BY" | translate}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr ng-repeat="row in ctrl.historyList">
+        <td>{{row.changeType}}</td>
+        <td>{{row.modifyTime}}</td>
+        <td>{{row.modifiedBy}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</form>

@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="RegressionTestSuite" parallel="none" allow-return-values="true" thread-count="2">
+  <parameter name="appURL" value="https://uchp-test1.got.volvo.net/uchp/client/" />
+  <parameter name="userName" value="XY45607" />
+  <parameter name="passWord" value="baldo123" />
+  <parameter name="userContextForImporter" value="TextBox"/>
+  <parameter name="userContextForDealer" value="TextBox"/>
+  <parameter name="Company" value="Volvo Truck Corporation" />
+  <listeners>
+       <listener class-name="com.volvo.in.commonlibrary.ListenerClass"/>
+  </listeners>
+<!--=======================================================================================================================  -->
+  <test name="VehicleModule_ViewCoverage" thread-count="6">
+  <parameter name="browserType" value="chrome" />
+    <parameter name="testDataFileName" value="ViewCoverage.xlsx" />
+    <classes>
+      <class name="com.volvo.in.vehicle.ViewCoverage_TC">
+        <methods>
+          <include name="TC_02_ViewCoverageforVehicle_ChassisNumber" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+<test name="VehicleModule_ViewRepairHistory" thread-count="7">
+<parameter name="browserType" value="chrome" />
+    <parameter name="testDataFileName" value="ViewRepairHistoryData.xlsx" />
+    <classes>
+      <class name="com.volvo.in.vehicle.ViewRepairHistory_TC">
+        <methods>
+          <include name="TC_02_ViewRepairHistoryforVehicle_ChassisNumber" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+   
+  <test name="CreditingModule_CreateOutStandingClaimSummaryCompany" thread-count="2">
+  <parameter name="browserType" value="chrome" />
+    <parameter name="testDataFileName" value="CreateOutstandingClaimSummaryCompany.xlsx" />
+    <parameter name="userName" value="XY45608" />
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummaryCompany_TC">
+      </class>
+    </classes>
+  </test>
+
+  <test name="CreditingModule_PrintOutStandingClaimSummaryCompany" thread-count="2">
+  <parameter name="browserType" value="chrome" />
+    <parameter name="userName" value="XY45608" />
+    <parameter name="testDataFileName" value="PrintOutstandingClaimSummaryCompany.xlsx" />
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummaryCompany_TC">
+        <methods>
+          <include name="TC_001_printOutstandingClaimSummaryCompany_CreationDate" />
+          <include name="TC_001_printOutstandingClaimSummaryCompany_GridValidation" />
+        </methods>
+      </class>
+    </classes>
+  </test>  
+  
+  <test name="VehicleModule_ViewContractCoverage" thread-count="3">
+  <parameter name="browserType" value="chrome" />
+    <parameter name="testDataFileName" value="ViewContractCoverage.xlsx" />
+    <classes>
+      <class name="com.volvo.in.vehicle.ViewContractCoverage_TC">
+        <methods>
+          <include name="TC_02_ViewContractCoverage_ElementTypeService" />
+          <include name="TC_03_ViewContractCoverage_ElementTypeRepair" />
+        </methods>
+      </class>
+    </classes>
+  </test> 
+
+  <test name="VehicleModule_CreateCampaign" thread-count="4">
+  <parameter name="browserType" value="chrome" />
+    <parameter name="testDataFileName" value="NewCampaign.xlsx" />
+    <parameter name="secondaryDataFileName" value="NewClaimJob.xlsx" />
+    <parameter name="userName" value="XY45623" />
+    <parameter name="ClaimHandlerCentral" value="XY45608" />
+    <classes>
+      <class name="com.volvo.in.campaign.CreateCampaign_TC">
+       <methods>
+          <include name="RT_Campaign_001_CreationOfCampaign" />
+          <include name="RT_Campaign_003_CreationOfCampaignClaim" />
+          <include name="RT_Campaign_002_CreationOfCampaignWithoutPartsAndTSU" />
+          <include name="RT_Campaign_004_SearchCampaign" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+ <test name="TMAModule_CreateNewMaterialRequest" thread-count="8">
+  <parameter name="browserType" value="firefox" />
+    <parameter name="testDataFileName" value="NewMaterialRequestAndNewClaim.xlsx" />
+    <parameter name="userName" value="XY45622" />
+    <parameter name="passWord" value="baldo123" />
+    <classes>
+        <class name="com.volvo.in.tma.NewMaterialRequest_TC"> 
+        </class>    
+    </classes>
+  </test>
+
+  <test name="InspectorReport_CreateNewInspectorReport" thread-count="5">
+  <parameter name="browserType" value="firefox" />
+    <parameter name="testDataFileName" value="NewInspectorReport.xlsx" />
+    <parameter name="userName" value="XY45618" />
+    <parameter name="passWord" value="baldo123" />
+    <classes>
+      <class name="com.volvo.in.inspectorreport.NewInspectorReport_TC">
+        <methods>
+          <include name="RT102_24_CreateInspectorReport_Warranty" />
+          <include name="TC_03_VerifyCreatedInspectorReportIsPickedForContractClaim"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+
+
+   <test name="TMAModule_SearchTMAInformation" thread-count="4">
+   <parameter name="browserType" value="firefox" />
+    <parameter name="testDataFileName" value="SearchTMAInformation.xlsx" />
+    <parameter name="userName" value="XY45621" />
+    <parameter name="passWord" value="baldo123" />
+    <classes>
+      <class name="com.volvo.in.tma.SearchTMAInformation_TC">
+        <methods>
+          <include name="RT_TMA_005_SearchTMAinformationWithImporterDealerRefNoJobNoAndMatReqID" />
+          <include name="RT_TMA_005_SearchTMAinformationWithDecisionAndStatus" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+    
+  <test name="ClaimModule_ListClaimJobs_VTC" thread-count="32">
+  <parameter name="browserType" value="firefox" />
+  <parameter name="userName" value="XY45608" />
+    <parameter name="testDataFileName" value="ListClaimJobs.xlsx" />
+    <classes>
+      <class name="com.volvo.in.claim.ListClaimJobs_TC">
+        <methods>
+          <include name="TC02_ListClaimJobs_SearchAndVerifyClaimStatusInTMADecisiontab"/>
+          <include name="TC03_ListClaimJobs_SearchAndVerifyTypeOfConcernRegDateInNotEvaluated"/>	
+          <include name="TC04_ListClaimJobs_SearchAndVerifyChassisIDRepDateInNotFinished"/>	
+        </methods>
+      </class>
+     </classes> 
+   </test> 
+   
+ <test name="ClaimModule_ManageClaimJobsFromListClaimJobs" thread-count="8">
+  <parameter name="browserType" value="firefox" />
+    <parameter name="testDataFileName" value="ListClaimJobs.xlsx"/>
+    <parameter name="secondaryDataFileName" value="ManageClaimJobs.xlsx"/>
+    <parameter name="userName" value="XY45608" />
+    <classes>
+      <class name="com.volvo.in.claim.ManageClaimJobs_TC">
+      	<methods>          
+          <include name="TC01_SearchAndVerifyRefNoRepDateInNotFinishedAndOpenClaimJob"/>
+          <include name="RT102_16_ReturnClaimWarranty"/>
+        </methods>
+      </class>
+    </classes>
+  </test> 
+
+ <test name="CreditingModule_CreateOutstandingClaimsummary" thread-count="5">
+ <parameter name="browserType" value="firefox" />
+    <parameter name="testDataFileName" value="CreateOutstandingClaimSummary.xlsx" />
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_CreateOutstandingClaimSummary_MultipleBrand" />
+        </methods>
+      </class>
+    </classes>
+  </test> 
+  
+  <test name="CreditingModule_PrintOutstandingClaimSummary" thread-count="6" >
+  <parameter name="browserType" value="firefox" />
+    <parameter name="testDataFileName" value="PrintOutstandingClaimSummary.xlsx" />
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummary_TC">
+        <methods>
+          <include name="TC_005_printOutstandingClaimSummary_MultiBrand" />
+        </methods>
+      </class>
+    </classes>
+  </test> 
+
+  <test name="ClaimModule_NewClaimJob" thread-count="40">
+    <parameter name="browserType" value="firefox" />
+    <parameter name="testDataFileName" value="NewClaimJob.xlsx" />
+    <classes>
+      <class name="com.volvo.in.claim.NewClaimJob_TC">
+        <methods>
+          <include name="TC01_CreateVehicleWarrantyClaimJob" />
+          <include name="TC02_CreatePartsClaimJobWithoutVehicle" />
+          <include name="TC_06_CreateServiceContractClaimJobWhereCAFGreaterthanContractDefinition"/>
+        </methods>
+      </class>
+    </classes>
+  </test>
+
+  <test name="ClaimModule_NewClaimJobContract" thread-count="1">
+  <parameter name="browserType" value="chrome" />
+  <parameter name="testDataFileName" value="NewClaimJob.xlsx" />
+  <parameter name="userName" value="XY45616" />
+  <classes>
+    <class name="com.volvo.in.claim.NewClaimJob_TC">
+      <methods>
+        <include name="TC_01_CreateContractClaimJobAndVerifyPartsPriceFetchingWithDiffrentPriceSourceCombinationSequenceYes" />
+      </methods>
+    </class>
+  </classes>
+</test> 
+   
+ <test name="ClaimModule_AdvanceSearchVTC"  thread-count="17">
+ <parameter name="browserType" value="chrome" />
+  <parameter name="testDataFileName" value="AdvanceSearch.xlsx" />
+  <classes>
+    <class name="com.volvo.in.claim.AdvanceSearch_TC">
+      <methods>
+        <include name="TC_001_SearchWithImpDealerImpRefNoAndStatus" />
+        <include name="TC_004_SearchWithImpAndRepairDate" />
+      </methods>
+    </class>
+  </classes>
+</test> 
+
+<test name="scheduleCrediting"  thread-count="4">
+  <parameter name="browserType" value="chrome" />
+    <parameter name="testDataFileName" value="crediting.xlsx" />
+    <parameter name="secondaryDataFileName" value="NewClaimJob.xlsx" />
+    <parameter name="userName" value="XY45620" />
+    <parameter name="passWord" value="baldo123" />
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOrModifyCrediting_TC">
+        <methods>
+          <include name="TC_22_Verify_Importer_Level_Crediting_Is_Successful_For_Crediting_Type_16" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+  
+  <test name="PrintCreditDocuments" thread-count="8">
+  <parameter name="browserType" value="chrome" />
+    <parameter name="testDataFileName" value="PrintCreditDocument.xlsx" />
+    <classes>
+      <class name="com.volvo.in.crediting.PrintCreditDocument_TC">
+        <methods>
+          <include name="TC_001_PrintCreditDocument_SearchWithImporter" />
+        </methods>
+      </class>
+    </classes>
+  </test>
+  </suite>
+  

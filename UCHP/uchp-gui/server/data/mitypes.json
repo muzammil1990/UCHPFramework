@@ -1,0 +1,18 @@
+[
+  {
+    "key": "1",
+    "displayText": "Send"
+  },
+  {
+    "key": "2",
+    "displayText": "Hold"
+  },
+  {
+    "key": "3",
+    "displayText": "Scrap"
+  },
+  {
+    "key": "4",
+    "displayText": "No Material"
+  }
+]

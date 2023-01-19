@@ -1,0 +1,59 @@
+<div class="claim-job-item-attachment">
+  <form name="fileUpload">
+    <div class="row">
+      <div class="col-md-12 form-group">
+        <label class="btn btn-success btn-file">
+          <input
+            accept="{{ctrl.accept}}"
+            base-sixty-four-input="base-sixty-four-input"
+            do-not-parse-if-oversize="do-not-parse-if-oversize"
+            maxnum="{{ctrl.maxFiles}}"
+            maxsize="{{ctrl.maxSize}}"
+            multiple="multiple"
+            name="fileInput"
+            ng-model="ctrl.files"
+            on-after-validate="ctrl.uploadFile"
+            style="display: none;"
+            type="file">
+          <i aria-hidden="true" class="fa fa-file"></i>
+          Browse
+        </label>
+        <!--   {{fileUpload.fileInput.$error}} -->
+        <button
+          class="btn btn-success"
+          ng-click="ctrl.uploadFiles()"
+          ng-disabled="ctrl.tempList.length === 0 || fileUpload.$invalid">
+          <i aria-hidden="true" class="fa fa-upload"></i>
+          Upload</button>
+        <div class="has-error" ng-if="fileUpload.fileInput.$error.accept">
+          <p class="help-block">{{'FILEINPUT.ERROR.PATTERN' | translate}}</p>
+        </div>
+        <div class="has-error" ng-if="fileUpload.fileInput.$error.maxnum">
+          <p class="help-block">{{'FILEINPUT.ERROR.MAXNUM' | translate}}</p>
+        </div>
+        <div class="has-error" ng-if="fileUpload.fileInput.$error.maxsize">
+          <p class="help-block">{{'FILEINPUT.ERROR.MAXSIZE' | translate}}</p>
+        </div>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4" ng-show="ctrl.tempList.length != 0">
+        <div class="media" ng-repeat="attachment in ctrl.tempList">
+          <div class="media-left media-middle">
+            <img
+              class="media-object"
+              ng-if="attachment.mimeType.indexOf('image') !== -1"
+              src="data:image/png;base64,{{attachment.attachment}}">
+          </div>
+          <div class="media-body">
+            <span class="media-heading">{{attachment.name}}</span>
+            <button class="btn btn-danger pull-right" ng-click="ctrl.removeFile($index)">
+              <i aria-hidden="true" class="fa fa-trash"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

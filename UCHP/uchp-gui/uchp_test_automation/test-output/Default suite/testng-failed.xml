@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test name="Default test(failed)">
+    <classes>
+      <class name="com.volvo.in.coverage.NewCoverage_TC">
+        <methods>
+          <include name="RT_Coverage_001_AdministrateCoverage_Coverage"/>
+          <include name="setUp"/>
+          <include name="afterSuite"/>
+          <include name="logoutAfterMethod"/>
+          <include name="RT_Coverage_002_AdministrateCoverage_CoveragePerVehicleRule"/>
+          <include name="loginBeforeMethod"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.volvo.in.coverage.NewCoverage_TC -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->

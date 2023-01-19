@@ -1,0 +1,195 @@
+<div class="claim-job-item">
+  <div
+    ng-class="'alert alert-warning'"
+    ng-show="ctrl.claimJob.claimValidationErrorTextDTOList.length > 0"
+    type="warning"
+    uib-alert="uib-alert">
+    <button class="close" ng-click="ctrl.closeAlert($index)" type="button">
+      <i class="fa fa-remove-circle"></i>
+    </button>
+    <h4>The claim job is saved but contains the following check errors</h4>
+    <ul>
+      <li ng-repeat="alert in ctrl.claimJob.claimValidationErrorTextDTOList">
+        <strong>{{alert.errorTxt}}</strong>
+      </li>
+    </ul>
+    <p>The above errors need to be corrected before the claim job is released.</p>
+  </div>
+  <div class="panel panel-default repair-header-information">
+    <div class="panel-heading">
+      <span class="">Repair header information</span>
+    </div>
+    <div class="panel-body">
+      <div class="table-responsive murali-table">
+        <table class="table table-condensed">
+          <tbody>
+          <tr>
+            <td colspan="1">
+              <b>Importer</b>
+            </td>
+            <td colspan="1">
+                <span>
+                  {{ctrl.claimJob.claimRepairHeaderDTO.repairingImporter}}
+                  <span ng-if="ctrl.claimJob.claimRepairHeaderDTO.repairingImporterName">
+                    -
+                  </span>
+                  {{ctrl.claimJob.claimRepairHeaderDTO.repairingImporterName}}
+                </span>
+            </td>
+            <td colspan="1">
+              <b>Repair order number</b>
+            </td>
+            <td colspan="1">
+              {{ctrl.claimJob.claimRepairHeaderDTO.repairOrderNo}}
+            </td>
+            <td colspan="1">
+              <b>Chassis Id</b>
+            </td>
+            <td colspan="1">
+              {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.chassisNo}}
+            </td>
+            <td colspan="1">
+              <b>Using customer</b>
+            </td>
+            <td colspan="1">
+                <span>
+                  {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.customerNo}}
+                  <span ng-if="ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.customerName">
+                    -
+                  </span>
+                  {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.customerName}}
+                </span>
+            </td>
+            <td colspan="1">
+              <a href="#" ng-click="$event.preventDefault();ctrl.viewRepairHistory()">
+                <i aria-hidden="true" class="fa fa-eye"></i>
+                View repair history</a>
+            </td>
+            <td colspan="1">
+              <a href="#" ng-click="$event.preventDefault();ctrl.viewCampaign()">
+                <i aria-hidden="true" class="fa fa-eye"></i>
+                View campaign</a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="1">
+              <b>Dealer</b>
+            </td>
+            <td colspan="1">
+                <span>
+                  {{ctrl.claimJob.claimRepairHeaderDTO.repairingDealer}}
+                  <span ng-if="ctrl.claimJob.claimRepairHeaderDTO.repairingDealerName">
+                    -
+                  </span>
+                  {{ctrl.claimJob.claimRepairHeaderDTO.repairingDealerName}}
+                </span>
+            </td>
+            <td colspan="1">
+              <b>Repair date</b>
+            </td>
+            <td colspan="1">
+              {{ctrl.claimJob.claimRepairHeaderDTO.repairDate | date:'dd/MM/yyyy'}}
+            </td>
+            <td colspan="1">
+              <b>Mileage ({{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.mileageUnit}})</b>
+            </td>
+            <td colspan="1">
+              {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.vehicleMilage}}
+            </td>
+            <td colspan="1">
+              <b>Marketing type</b>
+            </td>
+            <td colspan="1">
+              {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.marketType}}
+            </td>
+            <td colspan="1">
+              <a href="#" ng-click="$event.preventDefault();ctrl.viewTechnicalData()">
+                <i aria-hidden="true" class="fa fa-eye"></i>
+                View technical data</a>
+            </td>
+            <td colspan="1">
+              <a href="#" ng-click="$event.preventDefault();ctrl.viewGDR()">
+                <i aria-hidden="true" class="fa fa-eye"></i>
+                View GDR</a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="1">
+              <b>Reference number</b>
+            </td>
+            <td colspan="1">
+              {{ctrl.claimJob.claimRepairHeaderDTO.refNo}}
+            </td>
+            <td colspan="1">
+              <b>Registration date</b>
+            </td>
+            <td colspan="1">
+              {{ctrl.claimJob.claimRepairHeaderDTO.registrationDate | date:'dd/MM/yyyy'}}
+            </td>
+            <td colspan="1">
+              <b>Age</b>
+            </td>
+            <td colspan="3">
+              {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.ageVehicle}}
+            </td>
+            <td colspan="1">
+              <a href="#" ng-click="$event.preventDefault();ctrl.viewCoverage()">
+                <i aria-hidden="true" class="fa fa-eye"></i>
+                View coverage</a>
+            </td>
+            <td colspan="1">
+              <a href="#" ng-click="$event.preventDefault();ctrl.viewPHV()">
+                <i aria-hidden="true" class="fa fa-print"></i>
+                View PHV</a>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="9"></td>
+            <td colspan="1">
+              <a href="#" ng-click="$event.preventDefault();ctrl.viewPrintableVersion()">
+                <i aria-hidden="true" class="fa fa-print"></i>
+                View printable version</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+<hr/>
+<uib-tabset active="ctrl.selected">
+<uib-tab heading="Claim job information" index="0">
+    <claim-job-item-information fresh="ctrl.fresh"></claim-job-item-information>
+  </uib-tab>
+<uib-tab select="ctrl.selectTab('Labour')" heading="Labour" index="1">
+    <claim-job-item-labour fresh="ctrl.fresh"></claim-job-item-labour>
+  </uib-tab>
+  <uib-tab select="ctrl.selectTab('Material')" heading="Material" index="2">
+    <claim-job-item-material fresh="ctrl.fresh"></claim-job-item-material>
+  </uib-tab>
+  <uib-tab heading="Travel expenses" index="3" select="ctrl.selectTab('Travel')" ng-show="ctrl.showTravelTab">
+    <claim-job-item-travel fresh="ctrl.fresh"></claim-job-item-travel>
+  </uib-tab>
+  <uib-tab select="ctrl.selectTab('Cost')" heading="Other costs" index="4">
+     <claim-job-item-other-costs fresh="ctrl.fresh"></claim-job-item-other-costs>
+   </uib-tab>
+   <uib-tab select="ctrl.selectTab('Remarks')" heading="Remarks" index="5">
+     <claim-job-item-remarks fresh="ctrl.fresh"></claim-job-item-remarks>
+   </uib-tab>
+  <uib-tab select="ctrl.selectTab('History')" heading="History" index="6">
+    <claim-job-item-history fresh="ctrl.fresh"></claim-job-item-history>
+  </uib-tab>
+  <uib-tab heading="Attachment" index="7">
+    <claim-job-item-attachment fresh="ctrl.fresh"></claim-job-item-attachment>
+  </uib-tab>
+  <uib-tab heading="CostTransaction" index="8" select="ctrl.selectTab('CostTransaction')" ng-show="ctrl.showCostTransactionTab">
+    <claim-job-item-cost-transaction fresh="ctrl.fresh"></claim-job-item-cost-transaction>
+  </uib-tab>
+  <uib-tab heading="InspectorReport" index="9" select="ctrl.selectTab('InspectorReport')" ng-show="ctrl.showInspectorReportTab">
+    <claim-job-item-inspector-report fresh="ctrl.fresh"></claim-job-item-inspector-report>
+  </uib-tab>
+  <uib-tab heading="Assessment" index="10" select="ctrl.selectTab('Assessment')" ng-show="ctrl.showAssessmentTab">
+    <claim-job-item-assessment fresh="ctrl.fresh"></claim-job-item-assessment>
+  </uib-tab>
+</uib-tabset>

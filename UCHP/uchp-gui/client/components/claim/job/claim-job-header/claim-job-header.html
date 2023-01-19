@@ -1,0 +1,241 @@
+<div class="claim-job-header">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="">Repair header information</span>
+    </div>
+    <div class="panel-body">
+    <div class="table-responsive murali-table">
+      <table class="table table-condensed">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+      <tbody>
+      <tr>
+        <td colspan="1">
+          <b>Importer</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.repairingImporter}}
+            <span ng-if="ctrl.claimJob.claimRepairHeaderDTO.repairingImporterName">
+              -
+            </span>
+          {{ctrl.claimJob.claimRepairHeaderDTO.repairingImporterName}}</td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Dealer</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.repairingDealer}}
+            <span ng-if="ctrl.claimJob.claimRepairHeaderDTO.repairingDealerName">
+              -
+            </span>
+          {{ctrl.claimJob.claimRepairHeaderDTO.repairingDealerName}}</td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Reference number</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.refNo}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Repair order number</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.repairOrderNo}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Repair date</b>
+        </td>
+        <td colspan="1">
+          {{ctrl.claimJob.claimRepairHeaderDTO.repairDate | date:'dd/MM/yyyy'}}
+        </td>
+        <td colspan="1">
+          <b>Company</b>
+        </td>
+        <td colspan="1">
+          {{'company.' + ctrl.claimJob.claimRepairHeaderDTO.companyNo | translate}}
+        </td>
+        <td colspan="6"></td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Registration date</b>
+        </td>
+        <td colspan="1">
+          {{ctrl.claimJob.claimRepairHeaderDTO.registrationDate | date:'dd/MM/yyyy'}}
+        </td>
+        <td colspan="1">
+          <b>Currency</b>
+        </td>
+        <td colspan="1">
+          {{ctrl.claimJob.claimRepairHeaderDTO.currency}}
+          ({{ctrl.claimJob.claimRepairHeaderDTO.exchangeRate}})</td>
+        <td colspan="6"></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+  </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <span class="">Vehicle identification</span>
+      </div>
+      <div class="panel-body">
+    <div class="table-responsive murali-table">
+      <table class="table table-condensed">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+      <tbody>
+      <tr>
+        <td colspan="1">
+          <b>Registration number</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.registrationNo}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Chassis Id</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.chassisSeries}}
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.chassisNo}}</td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>VIN</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.vin}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Brand</b>
+        </td>
+        <td colspan="1">
+          <select ng-if="ctrl.makeList.length > 0">
+            <option ng-model="ctrl.make" ng-repeat="make in ctrl.makeList" ng-value="make">{{'make.' + make | translate}}</option>
+          </select>
+          <span ng-if="ctrl.makeList.length == 0">{{ctrl.make}}</span>
+        </td>
+        <td colspan="1">
+          <b>Marketing type</b>
+        </td>
+        <td colspan="1">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.marketType}}
+        </td>
+        <td colspan="1">
+          <b>Chassis no.</b>
+        </td>
+        <td colspan="1">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.chassisNo}}
+        </td>
+        <td colspan="5">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Mileage ({{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.mileageUnit}})</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.vehicleMilage}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Operating hours</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.operatingHours}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Age</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.ageVehicle}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Update vehicle information</b>
+        </td>
+        <td colspan="9">
+          <input
+            ng-model="ctrl.claimJob.claimRepairHeaderDTO.updateVehicleInformation"
+            type="checkbox"></td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Delivering importer</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.deliveringImporter}}
+            <span
+              ng-if="ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.deliveringImporterName">
+              -
+            </span>
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.deliveringImporterName}}</td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Delivering dealer</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.deliveringDealer}}
+            <span
+              ng-if="ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.deliveringDealerName">
+              -
+            </span>
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.deliveringDealerName}}</td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Delivery date</b>
+        </td>
+        <td colspan="5">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.deliveringDate}}
+        </td>
+      </tr>
+      <tr>
+        <td colspan="1">
+          <b>Using Customer</b>
+        </td>
+        <td colspan="9">
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.customerNo}}
+            <span ng-if="ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.customerName">
+              -
+            </span>
+          {{ctrl.claimJob.claimRepairHeaderDTO.vehicleDTO.customerName}}</td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,1889 @@
+
+
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="row bgColor">
+          <div class="col-sm-1">Sort</div>
+          <div class="col-sm-4">Field</div>
+          <div class="col-sm-1">Include</div>
+          <div class="col-sm-4">Value</div>
+        </div>
+        <div class="header-murali">
+          <h5 class="alignMarginTop header_bgColor">Claim job information</h5>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="row bgColor">
+          <div class="col-sm-1">Sort</div>
+          <div class="col-sm-4">Field</div>
+          <div class="col-sm-1">Include</div>
+          <div class="col-sm-4">Value</div>
+        </div>
+        <div class="header-murali">
+          <h5 class="alignMarginTop header_bgColor">Vehicle information</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel-body advanced-search-filter">
+      <form
+        class="form-horizontal"
+        id="advancedSearchForm"
+        name="advancedSearchForm"
+        novalidate="novalidate"
+        role="form">
+        <!--Begins Form fields for Claim job information -->
+        <div class="row">
+          <!-- First Column -->
+          <div class="col-lg-6">
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="companyNo">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.COMPANY' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.companynoinc" ng-checked="true" disabled="disabled">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                {{ctrl.selectCompanies[ctrl.selectedCompany - 1].name}}
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="repairingImporter">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'LABEL.IMPORTER.' + ctrl.selectedCompany  | translate }}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.repairingimporterinc" ng-checked="true" disabled="disabled">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <input
+                  class="form-control"
+                  id="repairingImporter"
+                  name="repairingimporter"
+                  ng-model="ctrl.advancedSearchForm.repairingimporter"
+                  ng-trim="true"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  ng-maxlength="7"
+                  ng-minlength="1"
+                  placeholder="{{ 'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="advancedSearchForm.repairingimporter.$touched && advancedSearchForm.repairingimporter.$error"
+                  ng-messages="advancedSearchForm.repairingimporter.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" disabled="disabled" ng-model="advancedSearchForm.orderBy" value="repairingImporterName">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }} name
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.repairingimpoeternameinc"/>
+              </div>
+              <div class="col-sm-6"></div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="repairingDealer">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.repairingdealerinc" ng-checked="true" disabled="disabled">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                  <input
+                    class="form-control"
+                    id="dealerNo"
+                    name="dealerno"
+                    ng-model="ctrl.advancedSearchForm.dealerno"
+                    ng-trim="true"
+                    ng-maxlength="6"
+                    ng-minlength="3"
+                    placeholder="{{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.dealerno.$touched && advancedSearchForm.dealerno.$error"
+                    ng-messages="advancedSearchForm.dealerno.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" disabled="disabled" ng-model="advancedSearchForm.orderBy" value="repairingDealerName">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }} name
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.repairingdealernameinc"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment"></div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="refNo">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.REFERENCENUMBER' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.refnoinc" ng-checked="true" disabled="disabled">
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="refNoFrom"
+                    name="refnofrom"
+                    ng-maxlength="12"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    placeholder="From"
+                    ng-model="ctrl.advancedSearchForm.refnofrom"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.refnofrom.$touched && advancedSearchForm.refnofrom.$error"
+                    ng-messages="advancedSearchForm.refnofrom.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="refNoTo"
+                    name="refnoto"
+                    ng-maxlength="12"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    placeholder="To"
+                    ng-model="ctrl.advancedSearchForm.refnoto"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.refnoto.$touched && advancedSearchForm.refnoto.$error"
+                    ng-messages="advancedSearchForm.refnoto.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" disabled="disabled" ng-model="advancedSearchForm.orderBy" value="jobNo">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.JOBNO' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.jobnoinc" ng-checked="true" disabled="disabled">
+              </div>
+              <div class="col-sm-6"></div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="repairDate">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="repairDateFrom">
+                {{ 'ADVANCED_SEARCH.MODAL.REPAIRDATE' | translate }}
+              </label></div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.repairdateinc" />
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="repairDateFrom"
+                    name="repairdatefrom"
+                    class="input-group"
+                    ng-model="ctrl.advancedSearchForm.repairdatefrom"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon-calendar glyphicon">
+                        </span>
+                      </span>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="repairDateTo"
+                    name="repairDateTo"
+                    class="input-group"
+                    ng-model="ctrl.advancedSearchForm.repairdateto"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="registrationDate">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.REGISTRATIONDATE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.registrationdateinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="registrationDateFrom"
+                    name="registrationdatefrom"
+                    class="input-group"
+                    ng-model="ctrl.advancedSearchForm.registrationdatefrom"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon-calendar glyphicon">
+                        </span>
+                      </span>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="registrationDateTo"
+                    name="registrationdateto"
+                    class="input-group"
+                    ng-model="ctrl.advancedSearchForm.registrationdateto"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                      <span class="input-group-addon">
+                        <span class="glyphicon-calendar glyphicon">
+                        </span>
+                      </span>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" disabled="disabled" ng-model="advancedSearchForm.orderBy" value="defectCode">
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.DEFECTCODE' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.defectcodeinc"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <input
+                    class="form-control"
+                    id="defectCodes"
+                    name="defectcodes"
+                    ng-model="ctrl.advancedSearchForm.defectcode"
+                    ng-trim="true"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    ng-maxlength="2"
+                    placeholder="Defect code"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.defectcodes.$touched && advancedSearchForm.defectcodes.$error"
+                    ng-messages="advancedSearchForm.defectcodes.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="scc">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.SCC' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.sccinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="SCC"
+                    name="scc"
+                    ng-model="ctrl.advancedSearchForm.scc"
+                    ng-trim="true"
+                    ng-maxlength="5"
+                    placeholder="SCC"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.scc.$touched && advancedSearchForm.scc.$error"
+                    ng-messages="advancedSearchForm.scc.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <input type="checkbox" ng-model="advancedSearchForm.scccasesensitive" />
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="repairOrderNo">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.REPAIRORDERNO' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.repairordernoinc" />
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="repairOrderNoFrom"
+                    name="repairOrderNofrom"
+                    class="input-group"
+                    placeholder="From"
+                    ng-model="ctrl.advancedSearchForm.repairordernofrom"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                      <span class="input-group-addon">
+                      <span class="glyphicon-calendar glyphicon">
+                      </span>
+                      </span>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="repairOrderNoTo"
+                    name="repairOrderNoto"
+                    placeholder="To"
+                    class="input-group"
+                    ng-model="ctrl.advancedSearchForm.repairordernoto"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                      <span class="input-group-addon">
+                      <span class="glyphicon-calendar glyphicon">
+                      </span>
+                      </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="claimJobStatus">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.STATUS' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.claimjobstatusinc" />
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                  <select
+                    class="form-control"
+                    id="claimJobStatuses"
+                    name="claimjobstatuses"
+                    ng-model="ctrl.advancedSearchForm.claimJobStatuses"
+                    ng-options="option.key as option.displayText for option in ctrl.advancedsearchcriteria.claimJobStatuses">
+                  </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio"  ng-model="advancedSearchForm.orderBy" value="typeOfClaim"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.TYPE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.typeofclaiminc"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                  <select
+                    class="form-control"
+                    id="typeOfClaim"
+                    name="typeofclaim"
+                    ng-model="ctrl.advancedSearchForm.typeofclaim"
+                    ng-options="option.key as option.displayText for option in ctrl.advancedsearchcriteria.claimJobTypes">
+                  </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="searchType"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.SELECTSEARCHTYPE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.searchtypeinc"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <select
+                  class="form-control"
+                  id="claimSearchTypes"
+                  name="claimsearchtypes"
+                  ng-model="ctrl.advancedSearchForm.claimSearchTypes"
+                  ng-options="option.key as option.displayText for option in ctrl.advancedsearchcriteria.claimSearchTypes">
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="functionGroup">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.FUNCTIONGROUP' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.functiongroupinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="functionGroupFrom"
+                    name="functiongroupfrom"
+                    ng-maxlength="4"
+                    placeholder="From"
+                    ng-model="ctrl.advancedSearchForm.functiongroupfrom"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.functiongroupfrom.$touched && advancedSearchForm.functiongroupfrom.$error"
+                    ng-messages="advancedSearchForm.functiongroupfrom.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="functionGroupTo"
+                    name="functiongroupto"
+                    placeholder="To"
+                    ng-maxlength="4"
+                    ng-model="ctrl.advancedSearchForm.functiongroupto"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.functiongroupto.$touched && advancedSearchForm.functiongroupto.$error"
+                    ng-messages="advancedSearchForm.functiongroupto.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="forced" disabled="disabled">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.FORCED' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.forcedinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input type="checkbox" ng-model="advancedSearchForm.forced" />
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="scenarioName" disabled="disabled">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.SCENARIONAME' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.scenarionameinc"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <input
+                  class="form-control"
+                  id="scenarioName"
+                  name="scenarioname"
+                  ng-model="ctrl.advancedSearchForm.scenarioname"
+                  ng-trim="true"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  ng-maxlength="5"
+                  placeholder="scenario Name"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="advancedSearchForm.scenarioname.$touched && advancedSearchForm.scenarioname.$error"
+                  ng-messages="advancedSearchForm.scenarioname.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="scenarioDescription" disabled="disabled">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.SCENARIODESCRIPTION' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.scenariodescriptioninc"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment"></div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="followUpCode" />
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.FOLLOWUPCODE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.followupcodeinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="followUpCodeFrom"
+                    name="followupcodefrom"
+                    placeholder="From"
+                    ng-maxlength="3"
+                    ng-model="ctrl.advancedSearchForm.followupcodefrom"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.followupcodefrom.$touched && advancedSearchForm.followupcodefrom.$error"
+                    ng-messages="advancedSearchForm.followupcodefrom.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="followUpCodeTo"
+                    name="followupcodeto"
+                    placeholder="To"
+                    ng-maxlength="3"
+                    ng-model="ctrl.advancedSearchForm.followupcodeto"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.followupcodeto.$touched && advancedSearchForm.followupcodeto.$error"
+                    ng-messages="advancedSearchForm.followupcodeto.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!--Ends Form fields for Claim job information -->
+
+            <!--Begins Form fields for Remarks-->
+            <div class="row paddingLeft15" >
+                <div class="header-murali header_bgColor alignMarginTop">
+                  <h5 class="alignMarginTop">Remarks</h5>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-1">
+                    <input type="radio" ng-model="advancedSearchForm.orderBy" value="noteToDealer" disabled="disabled">
+                  </div>
+                  <div class="col-sm-4 fieldValueCellalignment">
+                    <label class="control-label" for="">
+                      {{ 'ADVANCED_SEARCH.MODAL.NOTETODEALER' | translate}}
+                    </label>
+                  </div>
+                  <div class="col-sm-1 fieldValueCellalignment">
+                    <input type="checkbox" ng-model="advancedSearchForm.noteTodealerinc"/>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="col-sm-6 removePaddingLeft"></div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-1">
+                    <input type="radio" ng-model="advancedSearchForm.orderBy" value="complaint" disabled="disabled">
+                  </div>
+                  <div class="col-sm-4 fieldValueCellalignment">
+                    <label class="control-label" for="">
+                      {{ 'ADVANCED_SEARCH.MODAL.COMPLAINT' | translate}}
+                    </label>
+                  </div>
+                  <div class="col-sm-1 fieldValueCellalignment">
+                    <input type="checkbox" ng-model="advancedSearchForm.complaintinc"/>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="col-sm-6 removePaddingLeft"></div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-1">
+                    <input type="radio" ng-model="advancedSearchForm.orderBy" value="cause" disabled="disabled">
+                  </div>
+                  <div class="col-sm-4 fieldValueCellalignment">
+                    <label class="control-label" for="">
+                      {{ 'ADVANCED_SEARCH.MODAL.CAUSE' | translate}}
+                    </label>
+                  </div>
+                  <div class="col-sm-1 fieldValueCellalignment">
+                    <input type="checkbox" ng-model="advancedSearchForm.causeinc"/>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="col-sm-6 removePaddingLeft"></div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <div class="col-sm-1">
+                    <input type="radio" ng-model="advancedSearchForm.orderBy" value="correction" disabled="disabled">
+                  </div>
+                  <div class="col-sm-4 fieldValueCellalignment">
+                    <label class="control-label" for="">
+                      {{ 'ADVANCED_SEARCH.MODAL.CORRECTION' | translate}}
+                    </label>
+                  </div>
+                  <div class="col-sm-1 fieldValueCellalignment">
+                    <input type="checkbox" ng-model="advancedSearchForm.correctioninc"/>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="col-sm-6 removePaddingLeft"></div>
+                  </div>
+                </div>
+              </div>
+            <!--Ends Form fields for Remarks-->
+
+            <!--Begins Form fields for Decision-->
+            <div class="row paddingLeft15">
+                <div class="header-murali header_bgColor alignMarginTop">
+                  <h5 class="alignMarginTop">Decision</h5>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-1">
+                    <input type="radio" ng-model="advancedSearchForm.orderBy" value="returnCode" disabled="disabled">
+                  </div>
+                  <div class="col-sm-4 fieldValueCellalignment">
+                    <label class="control-label" for="">
+                      {{ 'ADVANCED_SEARCH.MODAL.RETURNCODE' | translate}}
+                    </label>
+                  </div>
+                  <div class="col-sm-1 fieldValueCellalignment">
+                    <input type="checkbox" ng-model="advancedSearchForm.returncodeinc"/>
+                  </div>
+                  <div class="col-sm-4 fieldValueCellalignment">
+                    <input
+                      class="form-control"
+                      id="returnCode"
+                      name="returncode"
+                      ng-model="ctrl.advancedSearchForm.returncode"
+                      ng-trim="true"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-maxlength="3"
+                      placeholder="Return code"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.returncode.$touched && advancedSearchForm.returncode.$error"
+                      ng-messages="advancedSearchForm.returncode.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+            </div>
+            <!--Ends Form fields for Decision-->
+          </div>
+
+  <!--Begins Form fields for Vehicle information-->
+          <div class="col-sm-6 paddingLeft30">
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="chassisSeries" />
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.CHASSISSERIES.' + ctrl.selectedCompany  | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.chassisseriesinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="ChassisSeries"
+                    name="chassisseries"
+                    placeholder="Chassis series"
+                    ng-maxlength="5"
+                    ng-model="ctrl.advancedSearchForm.chassisseries"
+                    ng-pattern="ctrl.AlphaNumeric"
+                    ng-maxlength="ctrl.chassiSerieMaxlength"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.chassisseries.$touched && advancedSearchForm.chassisseries.$error"
+                    ng-messages="advancedSearchForm.chassisseries.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 removePaddingLeft">
+                  <input type="checkbox" ng-model="advancedSearchForm.chassisseriescasesensitive"/>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="chassisNo"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.CHASSISNO.' + ctrl.selectedCompany  | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.chassisnoinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="ChassisNoFrom"
+                    name="chassisnofrom"
+                    placeholder="From"
+                    ng-model="ctrl.advancedSearchForm.chassisnofrom"
+                    ng-pattern="ctrl.AlphaNumeric"
+                    ng-maxlength="ctrl.chassiSerieMaxlength"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.chassisnofrom.$touched && advancedSearchForm.chassisnofrom.$error"
+                    ng-messages="advancedSearchForm.chassisnofrom.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="ChassisNoTo"
+                    name="chassisnoto"
+                    placeholder="To"
+                    ng-maxlength="6"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    ng-model="ctrl.advancedSearchForm.chassisnoto"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.chassisnoto.$touched && advancedSearchForm.chassisnoto.$error"
+                    ng-messages="advancedSearchForm.chassisnoto.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="vin"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.vininc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="VIN"
+                    name="vin"
+                    placeholder="{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}"
+                    ng-maxlength="17"
+                    ng-model="ctrl.advancedSearchForm.vin"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.vin.$touched && advancedSearchForm.vin.$error"
+                    ng-messages="advancedSearchForm.vin.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="vehicleAge"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.VEHICLEAGE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.vehicleageinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="VehicleAgeFrom"
+                    name="vehicleagefrom"
+                    placeholder="From"
+                    ng-maxlength="10"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    ng-model="ctrl.advancedSearchForm.vehicleagefrom"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.vehicleagefrom.$touched && advancedSearchForm.vehicleagefrom.$error"
+                    ng-messages="advancedSearchForm.vehicleagefrom.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="VehicleAgeTo"
+                    name="vehicleageto"
+                    placeholder="To"
+                    ng-maxlength="10"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    ng-model="ctrl.advancedSearchForm.vehicleageto"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.vehicleageto.$touched && advancedSearchForm.vehicleageto.$error"
+                    ng-messages="advancedSearchForm.vehicleageto.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="operatingHours"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.OPERATINGHOURS' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.operatinghoursinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft"></div>
+                <div class="col-sm-6 removePaddingLeft"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="vehicleMilage"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.VEHICLEMILAGE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.vehiclemilageinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft"></div>
+                <div class="col-sm-6 removePaddingLeft"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="deliveryDate">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.DELIVERYDATE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.deliverydateinc"/>
+              </div>
+            <div class="col-sm-6">
+              <div class="col-sm-6 removePaddingLeft">
+                <div
+                  datetimepicker="datetimepicker"
+                  id="deliveryDateFrom"
+                  name="deliverydatefrom"
+                  class="input-group"
+                  ng-model="ctrl.advancedSearchForm.deliverydatefrom"
+                  options="ctrl.datePickerOptions">
+                    <input
+                    class="form-control"
+                    placeholder="dd/MM/yy"
+                    type="text"/>
+                    <span class="input-group-addon">
+                    <span class="glyphicon-calendar glyphicon">
+                    </span>
+                    </span>
+                </div>
+              </div>
+              <div class="col-sm-6 removePaddingLeft">
+              <div
+                  datetimepicker="datetimepicker"
+                  id="deliveryDateTo"
+                  name="deliverydateto"
+                  class="input-group"
+                  ng-model="ctrl.advancedSearchForm.deliverydateto"
+                  options="ctrl.datePickerOptions">
+                    <input
+                    class="form-control"
+                    placeholder="dd/MM/yy"
+                    type="text"/>
+                      <span class="input-group-addon">
+                      <span class="glyphicon-calendar glyphicon">
+                      </span></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="marketType" />
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.MARKETINGTYPE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.markettypeinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="MarketingType"
+                    name="marketingtype"
+                    ng-maxlength="8"
+                    placeholder="Marketing Type"
+                    ng-model="ctrl.advancedSearchForm.marketingtype"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.marketingtype.$touched && advancedSearchForm.marketingtype.$error"
+                    ng-messages="advancedSearchForm.marketingtype.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+
+                <div class="col-sm-6 removePaddingLeft">
+                  <input type="checkbox" ng-checked="true" ng-model="advancedSearchForm.markettypecasesensitive"/>
+                </div>
+              </div>
+            </div>
+
+          <!-- End of Vehicle information -->
+
+          <!-- Begin of Cost information -->
+            <div class="row paddingLeft15">
+                <div class="header-murali header_bgColor alignMarginTop">
+                  <h5 class="alignMarginTop">{{ 'ADVANCED_SEARCH.MODAL.COSTINFORMATION' | translate}}</h5>
+                </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="debitCodeActive" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.DEBITCODE_ACTIVE' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.debitcodeactiveinc" />
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="debitCodeFrom"
+                      name="debitcodefrom"
+                      placeholder="From"
+                      ng-maxlength="3"
+                      ng-model="ctrl.advancedSearchForm.debitcodeactivefrom"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.debitcodefrom.$touched && advancedSearchForm.debitcodefrom.$error"
+                      ng-messages="advancedSearchForm.debitcodefrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="debitCodeTo"
+                      name="debitcodeto"
+                      placeholder="To"
+                      ng-maxlength="3"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-model="ctrl.advancedSearchForm.debitcodeactiveto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.debitcodeto.$touched && advancedSearchForm.debitcodeto.$error"
+                      ng-messages="advancedSearchForm.debitcodeto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="rejectCode" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.REJECTCODE' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.rejectcodeinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-4 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="rejectCodeFrom"
+                      name="rejectcodefrom"
+                      placeholder="From"
+                      ng-maxlength="6"
+                      ng-model="ctrl.advancedSearchForm.rejectcodefrom"
+                      ng-pattern="ctrl.AlphaNumeric"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.rejectcodefrom.$touched && advancedSearchForm.rejectcodefrom.$error"
+                      ng-messages="advancedSearchForm.rejectcodefrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="rejectCodeTo"
+                      name="rejectcodeto"
+                      placeholder="To"
+                      ng-maxlength="6"
+                      ng-pattern="ctrl.AlphaNumeric"
+                      ng-model="ctrl.advancedSearchForm.rejectcodeto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.rejectcodeto.$touched && advancedSearchForm.rejectcodeto.$error"
+                      ng-messages="advancedSearchForm.rejectcodeto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 removePaddingLeft">
+                    <input type="checkbox" ng-checked="true" ng-model="advancedSearchForm.rejectcodecasesensitive"/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="labourNetTotal" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.LABOURNETTOTAL' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.labournettotalinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="labournettotalFrom"
+                      name="labournettotalfrom"
+                      placeholder="From"
+                      ng-maxlength="10"
+                      ng-model="ctrl.advancedSearchForm.labournettotalfrom"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.labournettotalfrom.$touched && advancedSearchForm.labournettotalfrom.$error"
+                      ng-messages="advancedSearchForm.labournettotalfrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="labourNetTotalTo"
+                      name="labournettotalto"
+                      placeholder="To"
+                      ng-maxlength="10"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-model="ctrl.advancedSearchForm.labournettotalto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.labournettotalto.$touched && advancedSearchForm.labournettotalto.$error"
+                      ng-messages="advancedSearchForm.labournettotalto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="materialNetTotal" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.MATERIALNETTOTAL' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.materialnettotalinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="materialnettotalFrom"
+                      name="materialnettotalfrom"
+                      placeholder="From"
+                      ng-model="ctrl.advancedSearchForm.materialnettotalfrom"
+                      ng-maxlength="10"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.materialnettotalfrom.$touched && advancedSearchForm.materialnettotalfrom.$error"
+                      ng-messages="advancedSearchForm.materialnettotalfrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="materialNetTotalTo"
+                      name="materialnettotalto"
+                      placeholder="To"
+                      ng-maxlength="10"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-model="ctrl.advancedSearchForm.materialnettotalto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.materialnettotalto.$touched && advancedSearchForm.materialnettotalto.$error"
+                      ng-messages="advancedSearchForm.materialnettotalto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="otherCostNetTotal" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.OTHERCOSTNETTOTAL' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.othercostnettotalinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="otherCostnettotalFrom"
+                      name="othercostnettotalfrom"
+                      placeholder="From"
+                      ng-model="ctrl.advancedSearchForm.othercostnettotalfrom"
+                      ng-maxlength="10"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.othercostnettotalfrom.$touched && advancedSearchForm.othercostnettotalfrom.$error"
+                      ng-messages="advancedSearchForm.othercostnettotalfrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="otherCostNetTotalTo"
+                      name="othercostnettotalto"
+                      placeholder="To"
+                      ng-maxlength="10"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-model="ctrl.advancedSearchForm.othercostnettotalto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.othercostnettotalto.$touched && advancedSearchForm.othercostnettotalto.$error"
+                      ng-messages="advancedSearchForm.othercostnettotalto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="form-group" ng-if="ctrl.selectedCompany === '6'">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="travelNetTotal" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.TRAVELNETTOTAL' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.travelnettotalinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="travelNetTotalFrom"
+                      name="travelnettotalfrom"
+                      placeholder="From"
+                      ng-model="ctrl.advancedSearchForm.travelnettotalfrom"
+                      ng-maxlength="10"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.travelnettotalfrom.$touched && advancedSearchForm.travelnettotalfrom.$error"
+                      ng-messages="advancedSearchForm.travelnettotalfrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="travelNetTotalTo"
+                      name="travelnettotalto"
+                      placeholder="To"
+                      ng-maxlength="10"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-model="ctrl.advancedSearchForm.travelnettotalto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.travelnettotalto.$touched && advancedSearchForm.travelnettotalto.$error"
+                      ng-messages="advancedSearchForm.travelnettotalto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="currency" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.CURRENCY' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.currencyinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft"></div>
+                  <div class="col-sm-6 removePaddingLeft"></div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="labourHours" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.LABOURHOURS' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.labourhoursinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="labourHoursFrom"
+                      name="labourhoursfrom"
+                      placeholder="From"
+                      ng-maxlength="5"
+                      ng-model="ctrl.advancedSearchForm.labourhoursfrom"
+                      ng-pattern="ctrl.AlphaNumeric"
+                      ng-maxlength="ctrl.chassiSerieMaxlength"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.labourhoursfrom.$touched && advancedSearchForm.labourhoursfrom.$error"
+                      ng-messages="advancedSearchForm.labourhoursfrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="labourHoursTo"
+                      name="labourhoursto"
+                      placeholder="To"
+                      ng-maxlength="6"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-model="ctrl.advancedSearchForm.labourhoursto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.labourhoursto.$touched && advancedSearchForm.labourhoursto.$error"
+                      ng-messages="advancedSearchForm.labourhoursto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="creditedDate" disabled="disabled">
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.CREDITEDDATE' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.crediteddateinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <div
+                      datetimepicker="datetimepicker"
+                      id="creditedDateFrom"
+                      name="crediteddatefrom"
+                      class="input-group"
+                      ng-model="ctrl.advancedSearchForm.crediteddatefrom"
+                      options="ctrl.datePickerOptions">
+                      <input
+                        class="form-control"
+                        placeholder="dd/MM/yy"
+                        type="text"/>
+                    <span class="input-group-addon">
+                    <span class="glyphicon-calendar glyphicon">
+                    </span>
+                    </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-6 removePaddingLeft">
+                    <div
+                      datetimepicker="datetimepicker"
+                      id="creditedDateTo"
+                      name="crediteddateto"
+                      class="input-group"
+                      ng-model="ctrl.advancedSearchForm.crediteddateto"
+                      options="ctrl.datePickerOptions">
+                      <input
+                        class="form-control"
+                        placeholder="dd/MM/yy"
+                        type="text"/>
+                      <span class="input-group-addon">
+                      <span class="glyphicon-calendar glyphicon">
+                      </span></span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="debitCodeHistory" disabled="disabled"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.DEBITCODE_HISTORY' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.debitcodehistoryinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="debitCodeHistoryFrom"
+                      name="debitcodehistoryfrom"
+                      placeholder="From"
+                      ng-maxlength="5"
+                      ng-model="ctrl.advancedSearchForm.debitcodehistoryfrom"
+                      ng-pattern="ctrl.AlphaNumeric"
+                      ng-maxlength="ctrl.chassiSerieMaxlength"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.debitcodehistoryfrom.$touched && advancedSearchForm.debitcodehistoryfrom.$error"
+                      ng-messages="advancedSearchForm.debitcodehistoryfrom.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="debitCodeHistoryTo"
+                      name="debitcodehistoryto"
+                      placeholder="To"
+                      ng-maxlength="6"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-model="ctrl.advancedSearchForm.debitcodehistoryto"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.debitcodehistoryto.$touched && advancedSearchForm.debitcodehistoryto.$error"
+                      ng-messages="advancedSearchForm.debitcodehistoryto.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          <!-- End of Cost information -->
+
+
+
+          <!-- Begin of Material information -->
+          <div class="row paddingLeft15">
+
+              <div class="header-murali header_bgColor alignMarginTop">
+                <h5 class="alignMarginTop">
+                  {{ 'ADVANCED_SEARCH.MODAL.MATERIALINFORMATION' | translate}}
+                </h5>
+              </div>
+
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="tmaStatus">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.TMASTATUS' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.tmastatusinc"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <select
+                  class="form-control"
+                  id="tmaStatuses"
+                  name="tmaStatuses"
+                  ng-model="ctrl.advancedSearchForm.tmaStatuses"
+                    ng-options="option.key as option.displayText for option in ctrl.advancedsearchcriteria.tmaStatuses">
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="miDate">
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.MIDATE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.midateinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="MIDateFrom"
+                    name="midatefrom"
+                    class="input-group"
+                    ng-model="ctrl.advancedSearchForm.midatefrom"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                    <span class="input-group-addon">
+                    <span class="glyphicon-calendar glyphicon">
+                    </span>
+                    </span>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <div
+                    datetimepicker="datetimepicker"
+                    id="MIDateTo"
+                    name="midateto"
+                    class="input-group"
+                    ng-model="ctrl.advancedSearchForm.midateto"
+                    options="ctrl.datePickerOptions">
+                    <input
+                      class="form-control"
+                      placeholder="dd/MM/yy"
+                      type="text"/>
+                      <span class="input-group-addon">
+                      <span class="glyphicon-calendar glyphicon">
+                      </span></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="partsFitted"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.PARTSFITTEDDATE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.partsfitteddateinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft"></div>
+                <div class="col-sm-6 removePaddingLeft"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="partsMilage"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.PARTSMILAGE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.partsmilageinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft"></div>
+                <div class="col-sm-6 removePaddingLeft"></div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="causalPartPrefix"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.CAUSALPARTPREFIX' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.causalpartprefixinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="causalPartPrefix"
+                    name="causalpartprefix"
+                    placeholder="Causal part prefix"
+                    ng-maxlength="3"
+                    ng-model="ctrl.advancedSearchForm.causalpartprefix"
+                    ng-pattern="ctrl.OnlyNumbers"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.causalpartprefix.$touched && advancedSearchForm.causalpartprefix.$error"
+                    ng-messages="advancedSearchForm.causalpartprefix.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <input type="checkbox" ng-model="advancedSearchForm.causalpartprefixcasesensitive"/>
+                </div>
+              </div>
+            </div>
+
+              <div class="form-group">
+                <div class="col-sm-1">
+                  <input type="radio" ng-model="advancedSearchForm.orderBy" value="causalPartNo"/>
+                </div>
+                <div class="col-sm-4 fieldValueCellalignment">
+                  <label class="control-label" for="">
+                    {{ 'ADVANCED_SEARCH.MODAL.CAUSALPARTNO' | translate}}
+                  </label>
+                </div>
+                <div class="col-sm-1 fieldValueCellalignment">
+                  <input type="checkbox" ng-model="advancedSearchForm.causalpartnoinc"/>
+                </div>
+                <div class="col-sm-6">
+                  <div class="col-sm-6 removePaddingLeft">
+                    <input
+                      class="form-control"
+                      id="causalPartNoSeries"
+                      name="causalpartnoseries"
+                      placeholder="Causal part no."
+                      ng-model="ctrl.advancedSearchForm.causalpartno"
+                      ng-pattern="ctrl.AlphaNumeric"
+                      ng-maxlength="ctrl.causalpartnoSerieMaxlength"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="advancedSearchForm.causalpartnoseries.$touched && advancedSearchForm.causalpartnoseries.$error"
+                      ng-messages="advancedSearchForm.causalpartnoseries.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                    </div>
+                    <div class="col-sm-6 removePaddingLeft">
+                      <input type="checkbox" ng-model="advancedSearchForm.causalpartnocasesensitive"/>
+                    </div>
+                  </div>
+              </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="causalPartName" disabled="disabled"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.CAUSALPARTNAME' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.causalpartnameinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft">
+                  <input
+                    class="form-control"
+                    id="causalPartName"
+                    name="causalpartname"
+                    placeholder="Causal part name"
+                    ng-maxlength="5"
+                    ng-model="ctrl.advancedSearchForm.causalpartname"
+                    ng-pattern="ctrl.AlphaNumeric"
+                    ng-maxlength="ctrl.causalpartnoSerieMaxlength"
+                    type="text">
+                  <div
+                    class="has-error"
+                    ng-if="advancedSearchForm.causalpartname.$touched && advancedSearchForm.causalpartname.$error"
+                    ng-messages="advancedSearchForm.causalpartname.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+                <div class="col-sm-6 removePaddingLeft">
+                  <input type="checkbox" ng-model="advancedSearchForm.causalpartnamecasesensitive"/>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-1">
+                <input type="radio" ng-model="advancedSearchForm.orderBy" value="miName" disabled="disabled"/>
+              </div>
+              <div class="col-sm-4 fieldValueCellalignment">
+                <label class="control-label" for="">
+                  {{ 'ADVANCED_SEARCH.MODAL.MINAME' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-1 fieldValueCellalignment">
+                <input type="checkbox" ng-model="advancedSearchForm.minameinc"/>
+              </div>
+              <div class="col-sm-6">
+                <div class="col-sm-6 removePaddingLeft"></div>
+                <div class="col-sm-6 removePaddingLeft"></div>
+              </div>
+            </div>
+
+
+          </div>
+
+            <!-- End of Material information -->
+
+       </div>
+
+    </div>
+
+        <div class="row floatRight">
+          <div class="form-group">
+            <div class="col-md-12">
+              <button
+                class="btn btn-success btn-sm"
+                ng-disabled="advancedSearchForm.$invalid"
+                ng-click="ctrl.postAdvancedSearchClaimsForm()"
+                type="button">Search</button>
+              </div>
+            </div>
+          </div>
+
+
+    </form>
+  </div>
+</div>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Functional Testsuite" parallel="false">
+  <listeners>
+    <listener class-name="com.volvo.in.commonlibrary.ListenerClass" />
+  </listeners>
+  <parameter name="appURL"
+    value="https://uchp-test1.got.volvo.net/uchp/client/" />
+  <parameter name="browserType" value="chrome" />
+ <!--   <parameter name="browserType" value="IE" /> -->
+ <!--parameter name="browserType" value="mozilla" /-->
+   
+    
+    <test name="Claim Module - Advance search VTC">
+   <parameter name="Company" value="Volvo Truck Corporation" />
+    <classes>
+      <class name="com.volvo.in.claim.AdvanceSearch_TC">
+        <methods>
+         <!--include name="TC_001_SearchWithImpDealerImpRefNoAndStatus" />
+          <include name="TC_002_SearchWithImpDealerRefNoAndSearchType" />
+          <include name="TC_003_SearchWithImpDealerRefNoAndTMAStatus" /--> 
+          <include name="TC_004_SearchWithImpAndRepairDate" />
+          <!--include name="TC_005_SearchWithImpAndCreditedDate" />
+          <include name="TC_006_SearchWithRepairDateAndClaimStatus" />
+          <include name="TC_007_SearchWithRepairOrderNumberClaimStatusAndTMAStatus" />-->
+        </methods>
+      </class>
+     </classes> 
+   </test> 
+    
+  
+<!--
+   follow up code, debit code, material grps
+  <test name="Crediting Module VTC">
+   <parameter name="Company" value="VTC" />
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_CreateOutstandingClaimSummary_MultipleBrand" />
+          <include name="TC_002_CreateOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_003_CreateOutstandingClaimSummary_ValidateModelDailogue" /> 
+          <include name="TC_004_CreateOutstandingClaimSummary_MackBrand" />
+          <include name="TC_005_CreateOutstandingClaimSummary_UDBrand" />
+          <include name="TC_006_CreateOutstandingClaimSummary_EicherBrand" />
+          <include name="TC_007_CreateOutstandingClaimSummary_RenaultBrand" />
+        </methods>
+      </class>
+     </classes> 
+   </test>   
+   
+  <test name="Crediting Module VBC">
+   <parameter name="Company" value="VBC" />    
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_CreateOutstandingClaimSummary_MultipleBrand" />
+          <include name="TC_002_CreateOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_003_CreateOutstandingClaimSummary_ValidateModelDailogue" />
+        </methods>
+      </class>
+     </classes> 
+   </test>   
+   
+   <test name="Crediting Module VCE">
+   <parameter name="Company" value="VCE" />    
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_CreateOutstandingClaimSummary_MultipleBrand" />
+          <include name="TC_002_CreateOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_003_CreateOutstandingClaimSummary_ValidateModelDailogue" />
+          <include name="TC_004_CreateOutstandingClaimSummary_SDLGBrand" />
+          <include name ="TC_005_CreateOutstandingClaimSummary_TerexBrand" />
+        </methods>
+      </class>
+     </classes> 
+   </test>  
+      
+   <test name="Crediting Module NAT">
+   <parameter name="Company" value="NAT" />    
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_CreateOutstandingClaimSummary_MultipleBrand" />
+          <include name="TC_002_CreateOutstandingClaimSummary_VolvoBrand" />
+          <exclude name="TC_003_CreateOutstandingClaimSummary_ValidateModelDailogue" />
+          <include name="TC_004_CreateOutstandingClaimSummary_MackBrand" />
+          <include name ="TC_005_CreateOutstandingClaimSummary_UDBrand" />
+          <include name ="TC_006_CreateOutstandingClaimSummary_EicherBrand" />
+        </methods>
+      </class>
+     </classes> 
+   </test>      
+   
+   <test name="Crediting Module UD">
+   <parameter name="Company" value="UD" />    
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_CreateOutstandingClaimSummary_MultipleBrand" />
+          <include name="TC_002_CreateOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_003_CreateOutstandingClaimSummary_ValidateModelDailogue" />
+          <include name="TC_004_CreateOutstandingClaimSummary_MackBrand" />
+          <include name ="TC_005_CreateOutstandingClaimSummary_UDBrand" />
+          <include name ="TC_006_CreateOutstandingClaimSummary_EicherBrand" />
+        </methods>
+      </class>
+     </classes> 
+   </test>   
+   
+   <test name="Crediting Module Penta">
+   <parameter name="Company" value="Penta" />    
+    <classes>
+      <class name="com.volvo.in.crediting.CreateOutstandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_CreateOutstandingClaimSummary_MultipleBrand" />
+          <include name="TC_002_CreateOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_003_CreateOutstandingClaimSummary_ValidateModelDailogue" />
+        </methods>
+      </class>
+     </classes> 
+   </test>  
+  
+ 
+ 
+   <test name = "Crediting module print outstanding claim summary for VTC">
+   <parameter name="Company" value="VTC" /> 
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_printOutstandingClaimSummary_VolvoBrand" />
+          <exclude name="TC_002_verifyTheListOfBrandNames" />
+          <exclude name="TC_003_FilterWithImporterDealerCreationDate" />
+          <exclude name="TC_004_filterWithImporterDealerBrandDownloadDocument" />
+          <exclude name="TC_005_printOutstandingClaimSummary_MultiBrand" />
+          <exclude name="TC_006_printOutstandingClaimSummary_MackBrand" />
+          <exclude name="TC_007_printOutstandingClaimSummary_UDBrand" />
+          <exclude name="TC_008_printOutstandingClaimSummary_EicherBrand" />
+          <exclude name="TC_009_printOutstandingClaimSummary_RenaultBrand" />
+        </methods>
+      </class>   
+    </classes>
+  </test>
+  
+   <test name = "Crediting module print outstanding claim summary for VBC">
+   <parameter name="Company" value="VBC" /> 
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_printOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_002_verifyTheListOfBrandNames" />
+          <include name="TC_003_FilterWithImporterDealerCreationDate" />
+          <exclude name="TC_004_filterWithImporterDealerBrandDownloadDocument" />
+        </methods>
+      </class>   
+    </classes>
+  </test>
+  
+   <test name = "Crediting module print outstanding claim summary for VCE">
+   <parameter name="Company" value="VCE" /> 
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_printOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_002_verifyTheListOfBrandNames" />
+          <include name="TC_003_FilterWithImporterDealerCreationDate" />
+          <exclude name="TC_004_filterWithImporterDealerBrandDownloadDocument" />
+          <include name ="TC_005_printOutstandingClaimSummary_MultiBrand" />
+          <include name="TC_010_printOutstandingClaimSummary_SDLG" />
+          <include name="TC_011_printOutstandingClaimSummary_Terex" />
+        </methods>
+      </class>   
+    </classes>
+  </test>
+  
+   <test name = "Crediting module print outstanding claim summary for NAT">
+   <parameter name="Company" value="NAT" /> 
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_printOutstandingClaimSummary_VolvoBrand" />
+          <exclude name="TC_002_verifyTheListOfBrandNames" />
+          <exclude name="TC_003_FilterWithImporterDealerCreationDate" />
+          <exclude name="TC_004_filterWithImporterDealerBrandDownloadDocument" />
+          <exclude name="TC_005_printOutstandingClaimSummary_MultiBrand" />
+          <exclude name="TC_006_printOutstandingClaimSummary_MackBrand" />
+          <exclude name="TC_007_printOutstandingClaimSummary_UDBrand" />
+          <include name="TC_008_printOutstandingClaimSummary_EicherBrand" />
+        </methods>
+      </class>   
+    </classes>
+  </test>
+  
+   <test name = "Crediting module print outstanding claim summary for UD">
+   <parameter name="Company" value="UD" /> 
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_printOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_002_verifyTheListOfBrandNames" />
+          <include name="TC_003_FilterWithImporterDealerCreationDate" />
+          <exclude name="TC_004_filterWithImporterDealerBrandDownloadDocument" />
+          <include name="TC_005_printOutstandingClaimSummary_MultiBrand" />
+          <include name="TC_006_printOutstandingClaimSummary_MackBrand" />
+          <include name="TC_007_printOutstandingClaimSummary_UDBrand" />
+          <include name="TC_008_printOutstandingClaimSummary_EicherBrand" />
+        </methods>
+      </class>   
+    </classes>
+  </test>
+  
+  <test name = "Crediting module print outstanding claim summary for Penta">
+   <parameter name="Company" value="Penta" /> 
+    <classes>
+      <class name="com.volvo.in.crediting.PrintOutStandingClaimSummary_TC">
+        <methods>
+          <include name="TC_001_printOutstandingClaimSummary_VolvoBrand" />
+          <include name="TC_002_verifyTheListOfBrandNames" />
+          <include name="TC_003_FilterWithImporterDealerCreationDate" />
+          <exclude name="TC_004_filterWithImporterDealerBrandDownloadDocument" />
+          <include name="TC_005_printOutstandingClaimSummary_MultiBrand" />
+        </methods>
+      </class>   
+    </classes>
+  </test>
+   -->
+</suite>  
+
+  
+

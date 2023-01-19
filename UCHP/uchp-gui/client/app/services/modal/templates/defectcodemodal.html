@@ -1,0 +1,30 @@
+<div class="defect-code-modal">
+  <div class="modal-header">
+    <button type="button" class="close" ng-click="vm.closeModal()" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <h4 class="modal-title">Maintain defect code</h4>
+    <div class="modal-body">
+      <div class="table-responsive murali-table" style="height: 500px; overflow: auto">
+        <table class="table table-condensed table-striped table-bordered">
+          <thead>
+          <tr>
+            <th>
+              Defect code
+            </th>
+            <th>
+              Description
+            </th>
+          </tr>
+          </thead>
+          <tr ng-repeat="d in vm.simpleList" ng-click="vm.setCode(d)" style="cursor: pointer">
+            <td>
+              <a href>{{d.defectCode}}</a>
+            </td>
+            <td>{{d.description}}</td>
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+    <base href="/uchp">
+    <title>UCHP</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+    <!-- build:css(client) app/vendor.css -->
+      <!-- bower:css -->
+      <link rel="stylesheet" href="bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+      <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+      <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.css" />
+      <link rel="stylesheet" href="bower_components/angular-ui-grid/ui-grid.min.css" />
+      <link rel="stylesheet" href="bower_components/isteven-angular-multiselect/isteven-multi-select.css" />
+      <link rel="stylesheet" href="bower_components/angular-toastr/dist/angular-toastr.css" />
+      <link rel="stylesheet" href="bower_components/nya-bootstrap-select/dist/css/nya-bs-select.css" />
+      <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css({.tmp,client}) app/app.css -->
+      <link rel="stylesheet" href="app/app.css">
+      <!-- injector:css -->
+      <!-- endinjector -->
+    <!-- endbuild -->
+  </head>
+  <body ng-app="uchpClientAngularApp" ng-cloak>
+    <!--[if lt IE 7]>
+      <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+    <div ui-view="navbar"></div>
+    <div class="container-fluid" id="content" ui-view="content"></div>
+
+    <footer></footer>
+    <!--[if lt IE 9]>
+    <script src="bower_components/es5-shim/es5-shim.js"></script>
+    <script src="bower_components/json3/lib/json3.min.js"></script>
+    <![endif]-->
+    <!-- build:js({client,node_modules}) app/vendor.js -->
+      <!-- bower:js -->
+      <script src="bower_components/jquery/dist/jquery.js"></script>
+      <script src="bower_components/angular/angular.js"></script>
+      <script src="bower_components/angular-animate/angular-animate.js"></script>
+      <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+      <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/angular-breadcrumb/release/angular-breadcrumb.js"></script>
+      <script src="bower_components/angular-cookies/angular-cookies.js"></script>
+      <script src="bower_components/moment/moment.js"></script>
+      <script src="bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+      <script src="bower_components/angular-eonasdan-datetimepicker/dist/angular-eonasdan-datetimepicker.js"></script>
+      <script src="bower_components/angular-loading-bar/build/loading-bar.js"></script>
+      <script src="bower_components/angular-messages/angular-messages.js"></script>
+      <script src="bower_components/angular-resource/angular-resource.js"></script>
+      <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+      <script src="bower_components/angular-translate/angular-translate.js"></script>
+      <script src="bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+      <script src="bower_components/angular-translate-storage-cookie/angular-translate-storage-cookie.js"></script>
+      <script src="bower_components/angular-translate-storage-local/angular-translate-storage-local.js"></script>
+      <script src="bower_components/angular-ui-grid/ui-grid.js"></script>
+      <script src="bower_components/angular-ui-grid/ui-grid.min.js"></script>
+      <script src="bower_components/angular-ui-router.stateHelper/statehelper.js"></script>
+      <script src="bower_components/file-saver/FileSaver.js"></script>
+      <script src="bower_components/isteven-angular-multiselect/isteven-multi-select.js"></script>
+      <script src="bower_components/lodash/lodash.js"></script>
+      <script src="bower_components/postal/lib/postal.js"></script>
+      <script src="bower_components/postal.request-response/lib/postal.request-response.min.js"></script>
+      <script src="bower_components/postal.request-response/lib/postal.request-response.js"></script>
+      <script src="bower_components/contra/dist/contra.js"></script>
+      <script src="bower_components/angular-jwt/dist/angular-jwt.js"></script>
+      <script src="bower_components/hello/dist/hello.all.js"></script>
+      <script src="bower_components/angular-translate-loader-partial/angular-translate-loader-partial.js"></script>
+      <script src="bower_components/angular-toastr/dist/angular-toastr.tpls.js"></script>
+      <script src="bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+      <script src="bower_components/ng-focus-if/focusIf.js"></script>
+      <script src="bower_components/nya-bootstrap-select/dist/js/nya-bs-select.js"></script>
+      <script src="bower_components/angular-bootstrap-confirm/dist/angular-bootstrap-confirm.js"></script>
+      <script src="bower_components/angular-base64-upload/src/angular-base64-upload.js"></script>
+      <!-- endbower -->
+    <!-- endbuild -->
+    <script src="bower_components/moment/min/moment-with-locales.min.js"></script>
+    <script src="bower_components/moment-timezone/builds/moment-timezone-with-data-2010-2020.js"></script>
+
+    <script src="bower_components/angular-moment/angular-moment.js"></script>
+    <!-- build:js({.tmp,client}) app/app.js -->
+      <script src="app/app.js"></script>
+      <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+      <!-- injector:js -->
+      <script src="components/claim/claims/new-claim-job/new-claim-job-controller.js"></script>
+      <script src="app/adapters/i.rest.adapter.service.js"></script>
+      <script src="app/directives/clearondisabled/clearondisabled.directive.js"></script>
+      <script src="app/directives/updateonenter/updateonenter.directive.js"></script>
+      <script src="app/filters/filename/filename.filter.js"></script>
+      <script src="app/filters/sce/sce.filter.js"></script>
+      <script src="app/routes/app.route.js"></script>
+      <script src="app/routes/campaign.js"></script>
+      <script src="app/routes/claim.route.js"></script>
+      <script src="app/routes/credits.route.js"></script>
+      <script src="app/services/cache/cache.service.js"></script>
+      <script src="app/services/dateutil/dateutil.service.js"></script>
+      <script src="app/services/dateutil/idateutil.service.js"></script>
+      <script src="app/services/decorator/router.decorator.js"></script>
+      <script src="app/services/dispatcher/dispatcher.provider.js"></script>
+      <script src="app/services/dispatcher/dispatcher.service.js"></script>
+      <script src="app/services/dispatcher/i.dispatcher.provider.js"></script>
+      <script src="app/services/dispatcher/i.dispatcher.service.js"></script>
+      <script src="app/services/interceptor/iinterceptor.service.js"></script>
+      <script src="app/services/interceptor/interceptor.provider.js"></script>
+      <script src="app/services/interceptor/interceptor.service.js"></script>
+      <script src="app/services/modal/i.modal.service.js"></script>
+      <script src="app/services/modal/modal.service.js"></script>
+      <script src="app/services/newclaim/i.newclaim.service.js"></script>
+      <script src="app/services/newclaim/newclaim.service.js"></script>
+      <script src="app/services/notification/i.notification.service.js"></script>
+      <script src="app/services/notification/notification.service.js"></script>
+      <script src="app/services/security/auth.service.js"></script>
+      <script src="app/services/security/iauth.service.js"></script>
+      <script src="app/services/security/iping.federate.config.js"></script>
+      <script src="app/services/security/oauth.provider.js"></script>
+      <script src="app/services/security/ping.federate.config.js"></script>
+      <script src="app/services/util/iutil.js"></script>
+      <script src="app/services/util/util.service.js"></script>
+      <script src="app/stores/brand/brand.store.js"></script>
+      <script src="app/stores/brand/i.brand.store.js"></script>
+      <script src="app/stores/cache/i.cache.service.js"></script>
+      <script src="app/stores/contenttype/contenttype.store.js"></script>
+      <script src="app/stores/contenttype/i.contenttype.store.js"></script>
+      <script src="app/stores/midocuments/i.mi.document.store.js"></script>
+      <script src="app/stores/midocuments/mi.document.store.js"></script>
+      <script src="app/stores/printdeliverynotedocument/i.print.deliverynote.document.store.js"></script>
+      <script src="app/stores/printdeliverynotedocument/print.deliverynote.document.store.js"></script>
+      <script src="app/stores/selectcompanies/company.model.js"></script>
+      <script src="app/stores/selectcompanies/i.selectcompanies.store.js"></script>
+      <script src="app/stores/selectcompanies/selectcompanies.store.js"></script>
+      <script src="components/account/models/user.model.js"></script>
+      <script src="components/account/settings/settings.controller.js"></script>
+      <script src="components/account/sign-in/sign-in.controller.js"></script>
+      <script src="components/account/sign-up/sign-up.controller.js"></script>
+      <script src="components/account/stores/iuser.store.js"></script>
+      <script src="components/account/stores/user.store.js"></script>
+      <script src="components/campaign/dealer-outstanding-campaigns/dealer-outstanding-campaigns-list/dealer-outstanding-campaigns-list.controller.js"></script>
+      <script src="components/campaign/dealer-outstanding-campaigns/dealer-outstanding-campaigns-search-filter/dealer-outstanding-campaigns-search-filter.controller.js"></script>
+      <script src="components/campaign/dealer-outstanding-campaigns/dealer-outstanding-campaigns.controller.js"></script>
+      <script src="components/campaign/dealer-outstanding-campaigns/models/dealeroutstandingcampaigns.model.js"></script>
+      <script src="components/claim/claims/advanced-search/advanced-search-filter/advanced-search-filter.controller.js"></script>
+      <script src="components/claim/claims/advanced-search/advanced-search-filter/advanced-search-filter.js"></script>
+      <script src="components/claim/claims/advanced-search/advanced-search-list/advanced-search-list.controller.js"></script>
+      <script src="components/claim/claims/advanced-search/advanced-search-list/advanced-search-list.js"></script>
+      <script src="components/claim/claims/advanced-search/advanced-search.controller.js"></script>
+      <script src="components/claim/claims/advanced-search/advanced-search.js"></script>
+      <script src="components/claim/claims/advanced-search/models/advancedsearch.model.js"></script>
+      <script src="components/claim/claims/advanced-search/models/advancedsearchcriteria.model.js"></script>
+      <script src="components/claim/claims/advanced-search/models/claimjobstatuses.model.js"></script>
+      <script src="components/claim/claims/advanced-search/models/tmastatuses.model.js"></script>
+      <script src="components/claim/claims/advanced-search/stores/advancedsearch.store.js"></script>
+      <script src="components/claim/claims/advanced-search/stores/advancedsearchcriteria.store.js"></script>
+      <script src="components/claim/claims/advanced-search/stores/i.advancedsearch.store.js"></script>
+      <script src="components/claim/claims/advanced-search/stores/i.advancedsearchcriteria.store.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-list/list-claim-jobs-appealstatus/list-claim-jobs-appealstatus.controller.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-list/list-claim-jobs-list.controller.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-list/list-claim-jobs-materialinstruction/list-claim-jobs-materialinstruction.controller.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-list/list-claim-jobs-notfinished/list-claim-jobs-notfinished.controller.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-list/list-claim-jobs-search-tab/list-claim-jobs-search-tab.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/list-claim-jobs-search-filter.controller.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/list-claim-jobs-search-filter.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/models/claimjobtypes.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/models/claimlistsearchcriteria.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/models/claimsearchtypes.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/models/miprintstatuses.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/models/mitypes.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/models/standardclaimsearchresult.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/models/typeofclaims.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/list-claim-jobs.controller.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/models/appealstatuses.model.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/stores/claimsearchcriteria.store.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/stores/i.claimsearchcriteria.store.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/stores/i.standardclaimsearchresult.store.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/stores/i.tabclaimsearchresult.store.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/stores/standardclaimsearchresult.store.js"></script>
+      <script src="components/claim/claims/list-claim-jobs/stores/tabclaimsearchresult.store.js"></script>
+      <script src="components/claim/claims/new-claim-job/models/newclaimjob.model.js"></script>
+      <script src="app/adapters/rest.adapter.service.js"></script>
+      <script src="components/claim/claims/new-claim-job/new-claim-job-form/new-claim-job-form-controller.js"></script>
+      <script src="components/claim/claims/new-claim-job/stores/i.newclaimjob.store.js"></script>
+      <script src="components/claim/claims/new-claim-job/stores/newclaimjob.store.js"></script>
+      <script src="components/claim/job/claim-job-header/claim-job-header-controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-assessment/claim-job-item-assessment.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-attachment/claim-job-item-attachment.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-cost-transaction/claim-job-item-cost-transaction.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-history/claim-job-item-history.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-information/claim-job-item-information.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-inspector-report/claim-job-item-inspector-report.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-labour/claim-job-item-labour.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-material/claim-job-item-material.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-other-costs/claim-job-item-other-costs.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-remarks/claim-job-item-remarks.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item-travel/claim-job-item-travel.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/claim-job-item.controller.js"></script>
+      <script src="components/claim/job/claim-job-item/models/claimjobitem.model.js"></script>
+      <script src="components/claim/job/claim-job-item/stores/claim.job.item.store.js"></script>
+      <script src="components/claim/job/claim-job-item/stores/i.claim.job.item.store.js"></script>
+      <script src="components/claim/job/job.controller.js"></script>
+      <script src="components/claim/job/models/claimjob.model.js"></script>
+      <script src="components/claim/job/stores/claim.job.store.js"></script>
+      <script src="components/claim/job/stores/defectcodes.store.js"></script>
+      <script src="components/claim/job/stores/followupcodes.store.js"></script>
+      <script src="components/claim/job/stores/i.claim.job.store.js"></script>
+      <script src="components/claim/job/stores/i.defectcodes.store.js"></script>
+      <script src="components/claim/job/stores/i.followupcodes.store.js"></script>
+      <script src="components/claim/job/stores/i.operationlists.store.js"></script>
+      <script src="components/claim/job/stores/i.returncodes.store.js"></script>
+      <script src="components/claim/job/stores/operationlists.store.js"></script>
+      <script src="components/claim/job/stores/returncodes.store.js"></script>
+      <script src="components/claim/operation-list/operation-list.controller.js"></script>
+      <script src="components/claim/vehicle/models/vehicleinformation.model.js"></script>
+      <script src="components/claim/vehicle/stores/i.vehicle.information.store.js"></script>
+      <script src="components/claim/vehicle/stores/i.view.campaign.store.js"></script>
+      <script src="components/claim/vehicle/stores/vehicle.information.store.js"></script>
+      <script src="components/claim/vehicle/stores/view.campaign.store.js"></script>
+      <script src="components/claim/vehicle/view-campaign/models/searchvehiclecampaignlist.model.js"></script>
+      <script src="components/claim/vehicle/view-campaign/view-campaign-list/view-campaign-list.controller.js"></script>
+      <script src="components/claim/vehicle/view-campaign/view-campaign-search-filter/view-campaign-search-filter.controller.js"></script>
+      <script src="components/claim/vehicle/view-campaign/view-campaign.controller.js"></script>
+      <script src="components/claim/vehicle/view-coverage/models/coverage.model.js"></script>
+      <script src="components/claim/vehicle/view-coverage/models/viewcoverage.model.js"></script>
+      <script src="components/claim/vehicle/view-coverage/vehicle-informations/models/brand.model.js"></script>
+      <script src="components/claim/vehicle/view-coverage/vehicle-informations/vehicle-informations.controller.js"></script>
+      <script src="components/claim/vehicle/view-coverage/vehicle-informations/vehicle-informations.js"></script>
+      <script src="components/claim/vehicle/view-coverage/view-coverage-list/view-coverage-list.controller.js"></script>
+      <script src="components/claim/vehicle/view-coverage/view-coverage-list/view-coverage-list.js"></script>
+      <script src="components/claim/vehicle/view-coverage/view-coverage-search-filter/view-coverage-search-filter.controller.js"></script>
+      <script src="components/claim/vehicle/view-coverage/view-coverage.controller.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history-list/view-repair-history-list.controller.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history-list/view-repair-history-list.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history-search-filter/view-repair-history-search-filter.controller.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history-search-filter/view-repair-history-search-filter.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history-vehicle-informations/models/repairhistory.model.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history-vehicle-informations/view-repair-history-vehicle-informations.controller.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history-vehicle-informations/view-repair-history-vehicle-informations.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history.controller.js"></script>
+      <script src="components/claim/vehicle/view-repair-history/view-repair-history.js"></script>
+      <script src="components/common/models/error-message.model.js"></script>
+      <script src="components/crediting/create-outstanding-claim-summary/create-outstanding-claim-summary-form/create-outstanding-claim-summary-form.controller.js"></script>
+      <script src="components/crediting/create-outstanding-claim-summary/create-outstanding-claim-summary.controller.js"></script>
+      <script src="components/crediting/models/creditdocument.model.js"></script>
+      <script src="components/crediting/print-credit-document/models/contenttype.model.js"></script>
+      <script src="components/crediting/print-credit-document/print-credit-document-list/print-credit-document-list.controller.js"></script>
+      <script src="components/crediting/print-credit-document/print-credit-document-search-filter/print-credit-document-search-filter.controller.js"></script>
+      <script src="components/crediting/print-credit-document/print-credit-document.controller.js"></script>
+      <script src="components/crediting/print-outstanding-claim-summary/models/outstandingclaimdocument.model.js"></script>
+      <script src="components/crediting/print-outstanding-claim-summary/print-outstanding-claim-summary-list/print-outstanding-claim-summary-list.controller.js"></script>
+      <script src="components/crediting/print-outstanding-claim-summary/print-outstanding-claim-summary-search-filter/print-outstanding-claim-summary-search-filter.controller.js"></script>
+      <script src="components/crediting/print-outstanding-claim-summary/print-outstanding-claim-summary.controller.js"></script>
+      <script src="components/crediting/print-outstanding-claim-summary/stores/i.outstanding.claim.summary.store.js"></script>
+      <script src="components/crediting/print-outstanding-claim-summary/stores/outstanding.claim.summary.store.js"></script>
+      <script src="components/crediting/stores/credit.document.store.js"></script>
+      <script src="components/crediting/stores/i.credit.document.store.js"></script>
+      <script src="components/footer/footer.controller.js"></script>
+      <script src="components/help/help.controller.js"></script>
+      <script src="components/main/main.controller.js"></script>
+      <script src="components/maintain/maintain-authorized-currency/maintain-authorized-currency.controller.js"></script>
+      <script src="components/maintain/maintain-cost-adjustment-factor/maintain-cost-adjustment-factor.controller.js"></script>
+      <script src="components/maintain/maintain-country-language/maintain-country-language.controller.js"></script>
+      <script src="components/maintain/maintain-currency-rate/maintain-currency-rate.controller.js"></script>
+      <script src="components/maintain/maintain-debit-code/maintain-debit-code.controller.js"></script>
+      <script src="components/maintain/maintain-defect-code/maintain-defect-code.controller.js"></script>
+      <script src="components/maintain/maintain-follow-up-code/maintain-follow-up-code.controller.js"></script>
+      <script src="components/maintain/maintain-function-group/maintain-function-group.controller.js"></script>
+      <script src="components/maintain/maintain-material-group/maintain-material-group.controller.js"></script>
+      <script src="components/maintain/maintain-reject-code/maintain-reject-code.controller.js"></script>
+      <script src="components/maintain/maintain-return-code/maintain-return-code.controller.js"></script>
+      <script src="components/maintain/maintain.controller.js"></script>
+      <script src="components/navbar/navbar.controller.js"></script>
+      <script src="app/app.constant.js"></script>
+      <!-- endinjector -->
+    <!-- endbuild -->
+  </body>
+</html>

@@ -1,0 +1,16 @@
+[
+  {
+    "settingtype": "AUTHORIZATIONLEVEL",
+    "value": "-1;-1",
+    "description": "Importer Dealer",
+    "userid": "ClaimHandlerDealer",
+    "usersettingcompanyno": 1
+  },
+  {
+    "settingtype": "AUTHORIZATIONLEVEL",
+    "value": "1",
+    "description": "Warranty",
+    "userid": "ClaimHandlerDealer",
+    "usersettingcompanyno": 1
+  }
+]

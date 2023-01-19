@@ -1,0 +1,32 @@
+.list-claim-jobs-search-filter {
+  .noleftpad {
+    padding-left: 0px;
+  }
+  .onerightpad, .control-label {
+    padding-right: 1px;
+  }
+  .onerightpad .form-control-feedback {
+    right: 0;
+  }
+  .fieldValueCellalignment{
+    padding-top: 7px !important;
+  }
+  .removePaddingLeft {
+    padding-left: 0 !important;
+  }
+}
+.minusmarginLeft {
+  margin-left: -40px !important;
+}
+.list-claim-top-right-column{
+  padding-right: 75px;
+  .pull-right {
+    margin-right: 4px;
+  }
+  .fa {
+    font-size: 12px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    margin-right: 5px !important;
+  }
+}

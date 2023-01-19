@@ -1,0 +1,29 @@
+<div>
+
+        <div class="modal-header" ng-if="vm.content">
+          <h3 class="modal-title">{{vm.content.title | translate}}</h3>
+          <div class="modal-body">
+            {{vm.content.message | translate}}
+            <br>
+            {{vm.content.subMessage | translate}}
+          </div>
+        </div>
+
+        <div class="modal-header" ng-if="!vm.content">
+          <h4 class="modal-title">Vehicle</h4>
+          <div class="modal-body">
+            <div style="background-color: lightcyan;" id="grid" ui-grid="vm.gridOptions" ui-grid-selection
+                 ui-grid-pagination
+                 class="gridStyle"></div>
+          </div>
+        </div>
+
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="vm.cancel()">
+    cancel
+  </button>
+  <button class="btn btn-success" type="button" ng-click="vm.ok()">
+    confirm
+  </button>
+</div>

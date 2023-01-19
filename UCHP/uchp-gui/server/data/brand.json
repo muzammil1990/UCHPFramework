@@ -1,0 +1,26 @@
+[
+  {
+    "key": "-1",
+    "displayText": "All"
+  },
+  {
+    "key": "100",
+    "displayText": "Volvo"
+  },
+  {
+    "key": "110",
+    "displayText": "Mack"
+  },
+  {
+    "key": "120",
+    "displayText": "Renault"
+  },
+  {
+    "key": "130",
+    "displayText": "UD"
+  },
+  {
+    "key": "150",
+    "displayText": "Eicher"
+  }
+]

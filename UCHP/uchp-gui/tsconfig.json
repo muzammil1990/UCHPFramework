@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "sourceMap": true
+  },
+  "exclude": [
+    ".tmp",
+    "dist",
+    "target",
+    "node",
+    "node_modules",
+    "typings",
+    "bower_components"
+  ]
+}

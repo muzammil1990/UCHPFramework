@@ -1,0 +1,710 @@
+<div class="row">
+  <div class="col-sm-3">
+    <h4 class="page-title">list claim jobs</h4>
+    <div ncy-breadcrumb="ncy-breadcrumb"></div>
+  </div>
+  <div class="col-sm-9 list-claim-top-right-column text-right">
+    <button
+      class="btn btn-success btn-sm"
+      id="newclaimjobbtn"
+      type="button"
+      ui-sref="app.new-claim-job">
+      <i aria-hidden="true" class="fa fa-plus"></i>New claim job
+    </button>
+    <button
+      class="btn btn-success btn-sm"
+      id="openslectedjobsbtn"
+      ng-click="ctrl.OpenSelectedClaimJobs()"
+      ng-disabled="ctrl.disableOpen"
+      type="button">
+      <i aria-hidden="true" class="fa fa-folder-open-o"></i>Open selected claim jobs
+    </button>
+    <button
+      ng-if="!ctrl.isTSMAmericas"
+      class="btn btn-success btn-sm"
+      id="printmilistbtn"
+      ng-click="ctrl.ListPrintMiDocuments()"
+      ng-disabled="ctrl.disablePrint"
+      type="button">
+      <i aria-hidden="true" class="fa fa-print"></i>
+      Print MI list
+    </button>
+    <button
+      class="btn btn-success btn-sm"
+      id="printdeliverynotebtn"
+      ng-click="ctrl.ListPrintDeliverNotes()"
+      ng-disabled="ctrl.disablePrint"
+      type="button">
+      <i aria-hidden="true" class="fa fa-print"></i>
+      Print delivery note summary
+    </button>
+    <button
+      ng-if="ctrl.isTSMAmericas"
+      class="btn btn-success btn-sm"
+      id="removefromshipmentbtn"
+      ng-click="ctrl.RemoveFromShipment()"
+      ng-disabled="ctrl.disablePrint"
+      type="button">
+      <i aria-hidden="true" class="fa fa-trash"></i>
+      Remove from shipment
+    </button>
+    <button
+      ng-if="ctrl.isTSMAmericas"
+      class="btn btn-success btn-sm"
+      id="printdealershippingdocumentbtn"
+      ng-click="ctrl.PrintDealerShippingDocument()"
+      ng-disabled="ctrl.disablePrint"
+      type="button">
+      <i aria-hidden="true" class="fa fa-print"></i>
+      Print dealer shipping document
+    </button>
+    <button
+      ng-if="ctrl.isTSMAmericas"
+      class="btn btn-success btn-sm"
+      id="printholdscraplistbtn"
+      ng-click="ctrl.PrintHoldScrapList()"
+      ng-disabled="ctrl.disablePrint"
+      type="button">
+      <i aria-hidden="true" class="fa fa-print"></i>
+      Print Hold/Scrap list
+    </button>
+  </div>
+</div>
+<div class="clearfix"></div>
+<div class="panel panel-murali panel-default list-claim-jobs-search-filter">
+  <div class="panel-heading">
+    <span class="">
+      Search
+      <a
+        class="btn btn-xs btn-primary btn-collapse"
+        data-toggle="collapse"
+        href="#panel-wrapper-collapse"></a>
+    </span>
+  </div>
+  <div class="panel-wrapper collapse" id="panel-wrapper-collapse">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="header-murali repair-header">
+          <h5 class="">Repair header</h5>
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <div class="header-murali claim-job-header">
+          <h5 class="">Claim job</h5>
+        </div>
+      </div>
+    </div>
+    <div class="panel-body">
+      <form
+        class="form-horizontal"
+        id="listClaimJobsForm"
+        name="listClaimJobsForm"
+        ng-submit="ctrl.SearchListClaimJobs(ctrl.listClaimJobsForm);"
+        novalidate
+        role="form">
+        <div class="row">
+          <!-- First Column -->
+          <div class="col-lg-3">
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label">{{'TYPEOFCONCERN' | translate}}</label>
+              </div>
+              <div class="col-sm-8 fieldValueCellalignment">
+                <span ng-if="ctrl.user.typeOfConcernList.length == 1">
+                  {{'TYPEOFCONCERN_.' + ctrl.user.typeOfConcernList[0] | translate}}
+                </span>
+                <select
+                  ng-if="ctrl.user.typeOfConcernList.length > 1"
+                  name="typeOfConcern"
+                  id="typeOfConcern"
+                  class="form-control"
+                  ng-model="ctrl.listClaimJobsForm.typeOfConcern"
+                  ng-change="ctrl.typeOfConcernListChange(ctrl.listClaimJobsForm.typeOfConcern)"
+                  ng-options="option.key as option.value for option in ctrl.typeOfConcernList">
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="repairingImporter">
+                  {{'LABEL.IMPORTER.' + ctrl.selectedCompany | translate}}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  id="repairingImporter"
+                  name="repairingimporter"
+                  focus-if
+                  ng-maxlength="7"
+                  ng-minlength="1"
+                  ng-model="ctrl.listClaimJobsForm.repairingimporter"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  ng-trim="true"
+                  placeholder="{{ 'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.repairingimporter.$touched && listClaimJobsForm.repairingimporter.$error"
+                  ng-messages="listClaimJobsForm.repairingimporter.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="dealerNo">
+                  {{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  id="dealerNo"
+                  name="dealerno"
+                  ng-maxlength="6"
+                  ng-model="ctrl.listClaimJobsForm.dealerno"
+                  ng-pattern="ctrl.DealerPattern"
+                  ng-trim="true"
+                  placeholder="{{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.dealerno.$touched && listClaimJobsForm.dealerno.$error"
+                  ng-messages="listClaimJobsForm.dealerno.$error">
+                  <div ng-if="listClaimJobsForm.dealerno.$error.pattern">
+                    <p class="help-block">{{"VALIDATION.ERROR.ALPHANUMERIC" | translate}}</p>
+                  </div>
+                  <div
+                    ng-if="!listClaimJobsForm.dealerno.$error.pattern">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="CompanyNo">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.COMPANY' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-8 fieldValueCellalignment">
+                <span class="fieldValue" id="companyNo"></span>{{ctrl.selectCompanies[ctrl.selectedCompany - 1].name}}
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="refNo">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.REFERENCENUMBER' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  id="refNo"
+                  name="refno"
+                  ng-maxlength="10"
+                  ng-model="ctrl.listClaimJobsForm.refno"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  placeholder="{{ 'LIST_CLAIM_JOBS.MODAL.REFERENCENUMBER' | translate }}"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.refno.$touched && listClaimJobsForm.refno.$error"
+                  ng-messages="listClaimJobsForm.refno.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group has-feedback">
+              <div class="col-sm-4">
+                <label class="control-label" for="repairDateFrom">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.REPAIRDATE' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-4 onerightpad">
+                <div
+                  class="input-group"
+                  datetimepicker="datetimepicker"
+                  id="repairDateFrom"
+                  name="repairdatefrom"
+                  ng-model="ctrl.listClaimJobsForm.repairdatefrom"
+                  options="ctrl.datePickerOptions">
+                  <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                  <span class="input-group-addon">
+                    <i aria-hidden="true" class="fa fa-calendar"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-4 noleftpad">
+                <div
+                  class="input-group"
+                  datetimepicker="datetimepicker"
+                  id="repairDateTo"
+                  name="repairDateTo"
+                  ng-model="ctrl.listClaimJobsForm.repairdateto"
+                  options="ctrl.datePickerOptions">
+                  <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                  <span class="input-group-addon">
+                    <i aria-hidden="true" class="fa fa-calendar"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group has-feedback">
+              <div class="col-sm-4">
+                <label class="control-label" for="registrationDateFrom">
+                  {{'LIST_CLAIM_JOBS.MODAL.REGISTRATIONDATE' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-4 onerightpad">
+                <div
+                  class="input-group"
+                  datetimepicker="datetimepicker"
+                  id="registrationDateFrom"
+                  name="registrationdatefrom"
+                  ng-model="ctrl.listClaimJobsForm.registrationdatefrom"
+                  options="ctrl.datePickerOptions">
+                  <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                  <span class="input-group-addon">
+                    <i aria-hidden="true" class="fa fa-calendar"></i>
+                  </span>
+                </div>
+              </div>
+              <div class="col-sm-4 noleftpad">
+                <div
+                  class="input-group"
+                  datetimepicker="datetimepicker"
+                  id="registrationDateTo"
+                  name="registrationdateto"
+                  ng-model="ctrl.listClaimJobsForm.registrationdateto"
+                  options="ctrl.datePickerOptions">
+                  <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                  <span class="input-group-addon">
+                    <i aria-hidden="true" class="fa fa-calendar"></i>
+                  </span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="registrationNumber">
+                  {{'LIST_CLAIM_JOBS.MODAL.REGISTRATIONNUMBER' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  id="registrationNumber"
+                  name="registrationnumber"
+                  ng-maxlength="9"
+                  ng-minlength="1"
+                  ng-model="ctrl.listClaimJobsForm.registrationnumber"
+                  placeholder="{{'LIST_CLAIM_JOBS.MODAL.REGISTRATIONNUMBER' | translate }}"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.registrationnumber.$touched && listClaimJobsForm.registrationnumber.$error"
+                  ng-messages="listClaimJobsForm.registrationnumber.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="VIN">{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}</label>
+              </div>
+              <div class="col-sm-8"><input
+                class="form-control"
+                id="VIN"
+                name="vin"
+                ng-maxlength="17"
+                ng-model="ctrl.listClaimJobsForm.vin"
+                placeholder="{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}"
+                type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.vin.$touched && listClaimJobsForm.vin.$error"
+                  ng-messages="listClaimJobsForm.vin.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="machIdCH">
+                  {{ 'LABEL.CHASSI.' + ctrl.selectedCompany | translate }}
+                </label>
+              </div>
+              <div class="col-sm-3">
+                <input
+                  class="form-control"
+                  id="machIdCHSeries"
+                  name="machidchseries"
+                  ng-maxlength="ctrl.chassiSerieMaxlength"
+                  ng-model="ctrl.listClaimJobsForm.machidchseries"
+                  ng-pattern="ctrl.AlphaNumeric"
+                  placeholder="Series"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.machidchseries.$touched && listClaimJobsForm.machidchseries.$error"
+                  ng-messages="listClaimJobsForm.machidchseries.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+              <div class="col-sm-5">
+                <input
+                  class="form-control"
+                  id="machIdCH"
+                  name="machidch"
+                  ng-maxlength="6"
+                  ng-model="ctrl.listClaimJobsForm.machidch"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  placeholder="Number"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.machidch.$touched && listClaimJobsForm.machidch.$error"
+                  ng-messages="listClaimJobsForm.machidch.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="repairOrderNo">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.REPAIRORDERNUMBER' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  id="repairOrderNo"
+                  name="repairorderno"
+                  ng-maxlength="10"
+                  ng-minlength="1"
+                  ng-model="ctrl.listClaimJobsForm.repairorderno"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  placeholder="{{ 'LIST_CLAIM_JOBS.MODAL.REPAIRORDERNUMBER' | translate }}"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.repairorderno.$touched && listClaimJobsForm.repairorderno.$error"
+                  ng-messages="listClaimJobsForm.repairorderno.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="typeOfClaims">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.TYPE' | translate}}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <select
+                  class="form-control"
+                  id="typeOfClaims"
+                  name="typeofclaims"
+                  ng-model="ctrl.listClaimJobsForm.typeofclaim"
+                  ng-options="option.key as option.displayText for option in ctrl.claimsearchcriteria.typeOfClaims"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="followUpCode">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.FOLLOWUPCODE' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  id="followUpCode"
+                  name="followupcode"
+                  ng-maxlength="3"
+                  ng-model="ctrl.listClaimJobsForm.followupcode"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.followupcode.$touched && listClaimJobsForm.followupcode.$error"
+                  ng-messages="listClaimJobsForm.followupcode.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="causalPartPrefix">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.CAUSALPART' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-3">
+                <input
+                  class="form-control"
+                  id="causalPartPrefix"
+                  name="causalpartprefix"
+                  ng-maxlength="3"
+                  ng-model="ctrl.listClaimJobsForm.causalpartprefix"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.causalpartprefix.$touched && listClaimJobsForm.causalpartprefix.$error"
+                  ng-messages="listClaimJobsForm.causalpartprefix.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+              <div class="col-sm-5">
+                <input
+                  class="form-control"
+                  id="causalPartNo"
+                  name="causalpartno"
+                  ng-maxlength="17"
+                  ng-model="ctrl.listClaimJobsForm.causalpartno"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.causalpartno.$touched && listClaimJobsForm.causalpartno.$error"
+                  ng-messages="listClaimJobsForm.causalpartno.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="functionGroup">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.FUNCTIONGROUP' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-8">
+                <input
+                  class="form-control"
+                  id="functionGroup"
+                  name="functiongroup"
+                  ng-maxlength="4"
+                  ng-model="ctrl.listClaimJobsForm.functiongroup"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.functiongroup.$touched && listClaimJobsForm.functiongroup.$error"
+                  ng-messages="listClaimJobsForm.functiongroup.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-4">
+                <label class="control-label" for="caseSensitive">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.CASESENSITIVE' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-3">
+                <input
+                  checked="checked"
+                  class=""
+                  id="caseSensitive"
+                  name="casesensitive"
+                  ng-model="ctrl.listClaimJobsForm.casesensitive"
+                  type="checkbox">
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="form-group">
+              <div class="col-sm-5">
+                <label class="control-label" for="claimSearchTypes">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.SELECTSEARCHTYPE' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-7">
+                <select
+                  class="form-control"
+                  id="claimSearchTypes"
+                  name="claimsearchtypes"
+                  ng-model="ctrl.listClaimJobsForm.claimsearchtypes"
+                  ng-options="option.key as option.displayText for option in ctrl.claimsearchcriteria.claimSearchTypes"></select>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-5">
+                <label class="control-label" for="SCC">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.SCC' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-7">
+                <input
+                  class="form-control"
+                  id="SCC"
+                  name="scc"
+                  ng-maxlength="5"
+                  ng-model="ctrl.listClaimJobsForm.scc"
+                  type="text">
+                <div
+                  class="has-error"
+                  ng-if="listClaimJobsForm.scc.$touched && listClaimJobsForm.scc.$error"
+                  ng-messages="listClaimJobsForm.scc.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="col-sm-5">
+                <label class="control-label" for="appealStatuses">
+                  {{ 'LIST_CLAIM_JOBS.MODAL.APPEALSTATUS' | translate }}
+                </label>
+              </div>
+              <div class="col-sm-7">
+                <select
+                  class="form-control"
+                  id="appealStatuses"
+                  name="appealstatuses"
+                  ng-model="ctrl.listClaimJobsForm.appealstatuses"
+                  ng-options="option.key as option.displayText for option in ctrl.claimsearchcriteria.appealStatuses"></select>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row minusmarginLeft" ng-show="ctrl.listClaimJobsForm.claimsearchtypes === '2'">
+          <br>
+          <div class="col-sm-12">
+            <div class="header-murali repair-header">
+              <h5 class="">Material instruction</h5>
+            </div>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-lg-3">
+                <div class="form-group">
+                  <div class="col-sm-4">
+                    <label class="control-label" for="miTypes">
+                      {{ 'LIST_CLAIM_JOBS.MODAL.MITYPE' | translate}}
+                    </label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select
+                      class="form-control"
+                      id="miTypes"
+                      name="mitypes"
+                      ng-model="ctrl.listClaimJobsForm.mitypes"
+                      ng-options="option.key as option.displayText for option in ctrl.claimsearchcriteria.miTypes"></select>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <div class="col-sm-4">
+                    <label class="control-label" for="miPrintStatuses">
+                      {{'LIST_CLAIM_JOBS.MODAL.MIPRINTSTATUS' | translate }}
+                    </label>
+                  </div>
+                  <div class="col-sm-8">
+                    <select
+                      class="form-control"
+                      id="miPrintStatuses"
+                      name="miprintstatuses"
+                      ng-model="ctrl.listClaimJobsForm.miprintstatuses"
+                      ng-options="option.key as option.displayText for option in ctrl.claimsearchcriteria.miPrintStatuses"></select>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group has-feedback">
+                  <div class="col-sm-4">
+                    <label class="control-label" for="printmilistdatefrom">
+                      {{ 'LIST_CLAIM_JOBS.MODAL.PRINTMILISTDATE' | translate }}
+                    </label>
+                  </div>
+                  <div class="col-sm-4 onerightpad">
+                    <div
+                      class="input-group"
+                      datetimepicker="datetimepicker"
+                      id="printmilistdatefrom"
+                      name="printmilistdatefrom"
+                      ng-model="ctrl.listClaimJobsForm.printmilistdatefrom"
+                      options="ctrl.datePickerOptions">
+                      <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                      <span class="input-group-addon">
+                        <i aria-hidden="true" class="fa fa-calendar"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 noleftpad">
+                    <div
+                      class="input-group"
+                      datetimepicker="datetimepicker"
+                      id="printmilistdateto"
+                      name="printmilistdateto"
+                      ng-model="ctrl.listClaimJobsForm.printmilistdateto"
+                      options="ctrl.datePickerOptions">
+                      <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                      <span class="input-group-addon">
+                        <i aria-hidden="true" class="fa fa-calendar"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group has-feedback">
+                  <div class="col-sm-4">
+                    <label class="control-label" for="midatefrom">
+                      {{ 'LIST_CLAIM_JOBS.MODAL.MIDATE' | translate }}
+                    </label>
+                  </div>
+                  <div class="col-sm-4 onerightpad">
+                    <div
+                      class="input-group"
+                      datetimepicker="datetimepicker"
+                      id="midatefrom"
+                      name="midatefrom"
+                      ng-model="ctrl.listClaimJobsForm.midatefrom"
+                      options="ctrl.datePickerOptions">
+                      <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                      <span class="input-group-addon">
+                        <i aria-hidden="true" class="fa fa-calendar"></i>
+                      </span>
+                    </div>
+                  </div>
+                  <div class="col-sm-4 noleftpad">
+                    <div
+                      class="input-group"
+                      datetimepicker="datetimepicker"
+                      id="midateto"
+                      name="midateto"
+                      ng-model="ctrl.listClaimJobsForm.midateto"
+                      options="ctrl.datePickerOptions">
+                      <input class="form-control" placeholder="dd/mm/yy" type="text"/>
+                      <span class="input-group-addon">
+                        <i aria-hidden="true" class="fa fa-calendar"></i>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-12 btn_alignRight">
+          <button
+            class="btn btn-success btn-sm"
+            ng-disabled="listClaimJobsForm.$invalid"
+            type="submit">Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

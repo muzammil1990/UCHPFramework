@@ -1,0 +1,26 @@
+<div class="form-inline">
+  <div class="form-group">
+    <label for="operationNoFrom">From</label>
+    <input type="text" class="form-control" ng-model="ctrl.operationNoFrom" id="operationNoFrom" placeholder="*******">
+  </div>
+  <div class="form-group">
+    <label for="operationNoTo">To</label>
+    <input type="text" class="form-control" ng-model="ctrl.operationNoTo" id="operationNoTo" placeholder="*******">
+  </div>
+  <button type="button" class="btn btn-default" ng-click="ctrl.getOperationLists(true)">Search</button>
+</div>
+<br>
+<div class="relative">
+  <div class="custom-loader" ng-if="ctrl.loading">
+    <h3 class="shine">Loading</h3>
+    <div class="multiple-balls">
+      <div class="ball1"></div>
+      <div class="ball2"></div>
+      <div class="ball3"></div>
+    </div>
+  </div>
+  <div ng-if="ctrl.showTable" id="grid_operation_numbers" ui-grid="ctrl.gridOptions" ui-grid-pagination ui-grid-auto-resize
+       class="gridStyle"></div>
+</div>
+
+

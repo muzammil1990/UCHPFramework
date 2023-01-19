@@ -1,0 +1,34 @@
+[
+  {
+    "key": "-1",
+    "displayText": "All"
+  },
+  {
+    "key": "10",
+    "displayText": "Ordered"
+  },
+  {
+    "key": "20",
+    "displayText": "Received"
+  },
+  {
+    "key": "30",
+    "displayText": "Analysis pending"
+  },
+  {
+    "key": "40",
+    "displayText": "Analyse by third party"
+  },
+  {
+    "key": "50",
+    "displayText": "Finalised by third party"
+  },
+  {
+    "key": "60",
+    "displayText": "Analysed"
+  },
+  {
+    "key": "70",
+    "displayText": "Finalised"
+  }
+]

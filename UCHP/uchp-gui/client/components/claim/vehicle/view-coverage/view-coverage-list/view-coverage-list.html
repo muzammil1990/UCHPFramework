@@ -1,0 +1,13 @@
+<!-- START grid -->
+<div class="relative">
+  <div class="custom-loader" ng-if="ctrl.loading">
+    <h3 class="shine">Loading</h3>
+    <div class="multiple-balls">
+      <div class="ball1"></div>
+      <div class="ball2"></div>
+      <div class="ball3"></div>
+    </div>
+  </div>
+  <div ng-if="ctrl.showTable" id="grid_view_coverage" ui-grid="ctrl.gridOptions" ui-grid-pagination ui-grid-auto-resize class="gridStyle"></div>
+</div>
+<!-- END grid -->

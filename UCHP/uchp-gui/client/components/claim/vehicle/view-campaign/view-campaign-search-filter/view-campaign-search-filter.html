@@ -1,0 +1,137 @@
+<!-- START search-filter-form -->
+<div class="panel panel-murali panel-default view-campaign-search-filter">
+  <div class="panel-heading">
+    <span class="">Search</span>
+  </div>
+  <div class="header-murali">
+    <h5 class="">View campaign</h5>
+  </div>
+  <div class="panel-body">
+    <form
+      class="form-horizontal"
+      name="viewCampaignForm"
+      novalidate="novalidate"
+      ng-submit="ctrl.SearchViewCampaign(ctrl.viewCampaignForm)"
+      role="form">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-md-5 col-lg-4">
+              <label class="control-label" for="registrationNo">{{ 'LABEL.regNo.' + ctrl.selectedCompany | translate }}</label>
+            </div>
+            <div class="col-md-7 col-lg-8">
+              <input
+                class="form-control"
+                id="registrationNo"
+                ng-maxlength="9"
+                ng-pattern="ctrl.OnlyNumbers"
+                name="registrationno"
+                focus-if
+                ng-disabled="ctrl.viewCampaignForm.chassisno || ctrl.viewCampaignForm.chassisseries || ctrl.viewCampaignForm.vehiclevin"
+                ng-model="ctrl.viewCampaignForm.registrationno"
+                placeholder="{{ 'LABEL.regNo.' + ctrl.selectedCompany | translate }}"
+                type="text"/>
+              <div ng-if="viewCampaignForm.registrationno.$touched && viewCampaignForm.registrationno.$error"
+                   class="has-error"
+                   ng-messages="viewCampaignForm.registrationno.$error">
+                <div
+                  ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-md-5 col-lg-4">
+              <label class="control-label" for="chassisseries">{{ 'LABEL.CHASSI.' + ctrl.selectedCompany | translate }}</label>
+            </div>
+            <div class="col-md-7 col-lg-8">
+              <div ng-class="ctrl.isVce ? 'col-sm-8' : 'col-sm-4'" class="noleftpad">
+                <input
+                  class="form-control"
+                  id="chassisSeries"
+                  name="chassisseries"
+                  ng-maxlength="ctrl.chassiSerieMaxlength"
+                  ng-pattern="ctrl.AlphaNumeric"
+                  ng-disabled="ctrl.viewCampaignForm.registrationno || ctrl.viewCampaignForm.vehiclevin"
+                  ng-model="ctrl.viewCampaignForm.chassisseries"
+                  placeholder="Series"
+                  type="text"/>
+                <div ng-if="!viewCampaignForm.chassisseries.$error.pattern && viewCampaignForm.chassisseries.$touched && viewCampaignForm.chassisseries.$error"
+                     class="has-error"
+                     ng-messages="viewCampaignForm.chassisseries.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+                <div
+                  class="has-error"
+                  ng-if="viewCampaignForm.chassisseries.$error.pattern && viewCampaignForm.chassisseries.$touched">
+                  <div>
+                    <p class="help-block">{{"VALIDATION.ERROR.ALPHANUMERIC" | translate}}</p>
+                  </div>
+                </div>
+              </div>
+              <div ng-class="ctrl.isVce ? 'col-sm-4' : 'col-sm-8'" class="nopad">
+                <input
+                  class="form-control"
+                  id="chassisno"
+                  name="chassisno"
+                  ng-maxlength="ctrl.chassiNoMaxlength"
+                  ng-pattern="ctrl.OnlyNumbers"
+                  ng-disabled="ctrl.viewCampaignForm.registrationno || ctrl.viewCampaignForm.vehiclevin"
+                  ng-model="ctrl.viewCampaignForm.chassisno"
+                  placeholder="Number"
+                  type="text" />
+                <div ng-if="viewCampaignForm.chassisno.$touched && viewCampaignForm.chassisno.$error"
+                     class="has-error"
+                     ng-messages="viewCampaignForm.chassisno.$error">
+                  <div
+                    ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-md-5 col-lg-4">
+              <label class="control-label" for="vin">{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}</label>
+            </div>
+            <div class="col-md-7 col-lg-8">
+              <input
+                class="form-control"
+                id="vin"
+                ng-maxlength="17"
+                name="vehiclevin"
+                ng-disabled="ctrl.viewCampaignForm.registrationno || ctrl.viewCampaignForm.chassisno || ctrl.viewCampaignForm.chassisseries"
+                ng-model="ctrl.viewCampaignForm.vehiclevin"
+                placeholder="{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}"
+                type="text"/>
+              <div ng-if="viewCampaignForm.vehiclevin.$touched && viewCampaignForm.vehiclevin.$error"
+                   class="has-error"
+                   ng-messages="viewCampaignForm.vehiclevin.$error">
+                <div
+                  ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row content-footer">
+        <button
+          class="btn btn-success"
+          ng-disabled="viewCampaignForm.$invalid"
+          type="submit">
+          Search
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- END search-filter-form -->

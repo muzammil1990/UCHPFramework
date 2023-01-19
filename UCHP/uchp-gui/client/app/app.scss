@@ -1,0 +1,862 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+@import '../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
+$fa-font-path: "../bower_components/font-awesome/fonts";
+@import '../bower_components/font-awesome/scss/font-awesome';
+
+/**
+ * App-wide Styles
+ */
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  padding: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+// Global ui-grid contrast checkbox override
+
+.ui-grid-selection-row-header-buttons {
+  opacity: .4;
+}
+
+.browserupgrade {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+.mandatorySys::after{
+  content: "*";
+  color: #ad0010;
+  font-size: 8px;
+  vertical-align: top;
+}
+.murali-asterisk{
+  content: "*";
+  color: #ad0010 !important;
+  font-size: 14px;
+  vertical-align: top;
+}
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+  float: left;
+  line-height: 0.3;
+}
+.page-title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: capitalize;
+  color: #1e3480;
+}
+.fieldValue {
+  font-size: 14px;
+  position: relative;
+  top: 3px;
+}
+#content {
+  padding-top: 105px;
+  padding-bottom: 70px;
+}
+
+#footer {
+  background-color: #c2c2c2;
+  color: #FFF;
+  padding: 10px;
+}
+
+// proposed override for better visual appearance
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+  background-color: #d9d9d9;
+  border: none;
+  box-shadow: none;
+}
+
+.form-group{
+  margin-bottom: 5px;
+}
+
+.breadcrumb > li + li:before {
+  content: ' ';
+}
+/**
+ * App-wide Volvo Theme
+ */
+.dark-blue-background {
+  color: #fff;
+  background-color: #1e3480;
+  background-color: rgba(30,52,128,0.9);
+}
+.grey-blue-background {
+  background-color: #627890;
+  background-color: rgba(98, 120, 144, 0.9);
+}
+
+.medium-grey-background {
+  background-color: #5c5d61;
+  background-color: rgba(92, 93, 97, 0.9);
+}
+.light-grey-background {
+  background-color: #DDDDDD;
+  background-color: rgba(221, 221, 221, 0.9);
+}
+.btn-success,
+.ui-grid-pager-control button {
+  background-color: #1251b5;
+  border-color: #08178e;
+}
+
+.ui-grid-pager-control button[disabled],
+.ui-grid-pager-control button[disabled]:focus,
+.ui-grid-pager-control button[disabled]:hover,
+.ui-grid-pager-control button[disabled]:active {
+  background-color: #919296;
+  border-color: #ffffff;
+  color: #d8d7d5;
+  cursor: not-allowed;
+}
+
+.btn-success:hover, .btn-success:focus, .btn-success:active,
+.btn-success.active, .open>.dropdown-toggle.btn-success, .btn-success:active:focus,
+.ui-grid-pager-control button:focus,
+.ui-grid-pager-control button:hover,
+.ui-grid-pager-control button:active {
+  background-color: #0c3c88;
+  border-color: #355c8e;
+}
+
+.btn-success.disabled, .btn-success.disabled:hover, .btn-success.disabled:focus,
+.btn-success.disabled:active, .btn-success.disabled.active, .btn-success[disabled],
+.btn-success[disabled]:hover, .btn-success[disabled]:focus, .btn-success[disabled]:active,
+.btn-success[disabled].active, fieldset[disabled] .btn-success, fieldset[disabled]
+.btn-success:hover, fieldset[disabled] .btn-success:focus, fieldset[disabled]
+.btn-success:active, fieldset[disabled] .btn-success.active,
+.ui-grid-pager-control[disabled] button:focus,
+.ui-grid-pager-control[disabled] button:hover,
+.ui-grid-pager-control[disabled] button:active {
+  background-color: #919296;
+  border-color: #ffffff;
+  color: #d8d7d5;
+  cursor: not-allowed;
+}
+
+.btn-yes {
+  background: #00a651;
+  border-color: #00b661;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 6px 24px;
+  font-weight: bold;
+  &:hover, &:focus, &:active, &:active:focus {
+    background: #00c671;
+    border-color: #00c671;
+  }
+}
+
+.btn-no {
+  background: #d8d7d5;
+  border-color: #e8e7e5;
+  color: #4d4e52;
+  font-size: 12px;
+  padding: 6px 24px;
+  font-weight: bold;
+}
+
+.history-back {
+  position: relative;
+  top: 105px;
+  right: 15px;
+  z-index: 3;
+  .fa-times {
+    font-size: 15px !important;
+    margin-top: 1px;
+    font-weight: bold;
+  }
+}
+.print-download-file {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.form-control:focus {
+  border-color: #1251b5;
+  color: #1251b5;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(18, 81, 181, 0.6);
+}
+.form-control.ng-invalid {
+  border-color: #b50e5a;
+  color: #b50b3c;
+}
+.help-block {
+  font-size: 12px;
+}
+.dropdown-menu > li > a:hover {
+  color: #1251b5;
+  font-weight: 500;
+}
+.dropdown-menu > li > a:focus {
+  outline: thin dotted;
+}
+.form-horizontal .control-label {
+  text-align: right;
+  font-size: 12px;
+}
+.panel-default {
+  border: 1px dotted #222;
+}
+.panel-default > .panel-heading {
+  font-weight:bold;
+}
+/**
+ * App-wide Volvo Theme ui-grid overrides
+ */
+.ui-grid {
+  font-size: 11px;
+}
+.ui-grid-header-cell {
+  color: #FFFFFF;
+  background-color: #627890;
+  background-color: rgba(98, 120, 144, 0.9);
+}
+.ui-grid-cell .download {
+  color: #5d5d5d;
+}
+.ui-grid-row:nth-child(even) .ui-grid-cell {
+  background-color: #e0e0e0;
+}
+.ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell {
+  background-color: #627890;
+  background-color: rgba(98, 120, 144, 0.4);
+}
+.ui-grid-pager-container {
+  float: right;
+}
+
+.ui-grid-pager-control .last-triangle {
+  border-color: transparent transparent transparent #fff;
+}
+.ui-grid-pager-control .first-triangle {
+  border-color: transparent #fff transparent transparent;
+}
+.ui-grid-pager-control .last-bar,
+.ui-grid-pager-control .first-bar {
+  border-left: 2px solid #fff;
+}
+// Murali design CSS rules
+.breadcrumb {
+  padding-left: 0px;
+  background: #ffffff;
+  font-size: 11px !important;
+  margin-top: -15px; // Murali wants it at the same level as upper header
+  margin-left: -10px; // Murali wants it at the same level as upper header
+}
+
+.alert-murali {
+  &.alert-warning {
+    background: #ff0000;
+    color: #ffffff;
+  }
+  .warning-murali {
+    font-size: 60px;
+  }
+  .close {
+    color: #ffffff;
+    opacity: 1;
+    text-shadow: 0 0 0 #fff;
+  }
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+  }
+}
+
+.murali-table {
+  th {
+    background: #627890;
+    font-size: 12px;
+    color: #ffffff;
+  }
+  tr {
+    font-size: 11px;
+   &:nth-child(odd) {
+     background: #ffffff;
+   }
+    &:nth-child(even) {
+      background: #f9f9f9;
+    }
+  }
+}
+
+ .murali-table table.table-striped > tbody > tr:nth-child(odd) > td, .table-striped > tbody > tr:nth-child(odd) > th {
+   background: #ffffff;
+ }
+
+#toast-container .murali-toast {
+  background-color: #FFFFFF;
+  padding-left: 15px;
+  border: 3px solid red;
+}
+#toast-container .murali-toast-info {
+  border: 3px solid blue;
+  color: blue;
+}
+#toast-container .murali-toast-info > .toast-close-button {
+  color: blue;
+}
+#toast-container .murali-toast-error {
+  border: 3px solid red;
+  color: red;
+}
+#toast-container .murali-toast-error > .toast-close-button {
+  color: red;
+}
+#toast-container .murali-toast-success {
+  border: 3px solid lightgreen;
+  color: #454545;
+}
+#toast-container .murali-toast-success > .toast-close-button {
+  color: #454545;
+}
+#toast-container .murali-toast-warnins {
+  border: 3px solid yellow;
+  color: #454545;
+}
+#toast-container .murali-toast-warnins > .toast-close-button {
+  color: #454545;
+}
+#toast-container .toast {
+  opacity: 1; //Nithya feedback
+  transition: box-shadow 0.2s ease-in-out;
+}
+.nav-tabs > li {
+  margin-bottom: -2px;
+}
+.murali-tabs {
+  .nav-tabs > li > a {
+    padding: 5px 15px;
+    border: 1px solid #dfdedc;
+    border-bottom-color: transparent;
+    margin-right: 0;
+    border-radius: 0;
+    font-size: 13px;
+    color: #babab9;
+  }
+  .nav-tabs > li.active > a,
+  .nav-tabs > li.active > a:hover,
+  .nav-tabs > li.active > a:focus {
+    font-weight: bold;
+    color: #4d4e53;
+    border-bottom-color: transparent;
+  }
+
+  .tab-content {
+    padding-top: 15px;
+  }
+}
+
+.btn-murali, .btn-murali.btn-success {
+  background: #919296 !important;
+  border-color: #88898e !important;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  margin-right: 2px;
+  &.disabled {
+    color: #d8d7d5
+  }
+  &:hover, &:active, &:focus {
+    color: #f7f7f7;
+    background: #88898e !important;
+  }
+}
+
+.ramesh-buttons {
+  margin-bottom: 15px;
+}
+
+// >1024 media query
+@media (min-width: 1024px) {
+  .panel-murali {
+    .panel-heading {
+      background-color: #ffffff;
+      border-color: #ffffff;
+      padding: 0 15px;
+      &> span {
+        position: relative;
+        top: -10px;
+        background: white;
+        padding: 3px;
+      }
+    }
+    .panel-body {
+      padding: 0 30px 10px 45px;
+      color: #636363;
+      font-size: 13px;
+      label {
+        color: #4d4e53;
+        font-weight: normal;
+        font-size: 13px;
+        white-space: nowrap;
+        font-weight: bold;
+      }
+    }
+  }
+  .list-claim-jobs-search-filter.panel-murali {
+    .panel-body {
+      padding: 0 15px 0 30px;
+      label {
+        font-size: 11px;
+      }
+    }
+    .form-control, .form-control[required], option, select {
+      font-size: 11px!important;
+    }
+  }
+}
+
+@media (min-width: 1400px) {
+  .list-claim-jobs-search-filter.panel-murali {
+    .panel-body {
+      padding: 0 15px 0 30px;
+      label {
+        font-size: 13px;
+      }
+    }
+    .form-control, .form-control[required], option, select {
+      font-size: 13px !important;
+    }
+  }
+}
+
+input.form-control {
+  .ref-no-link {
+    float: left;
+  }
+}
+
+.form-control,
+.form-control[required],
+ select,
+ option {
+  font-size: 13px !important;
+}
+.form-control,
+.form-control[required],
+ select {
+  box-shadow: initial;
+  border-color: #777777;
+}
+.form-control[required]:focus {
+  border-color: #1251b5;
+  color: #1251b5;
+  outline: 0;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(18, 81, 181, 0.6);
+}
+
+.header-murali {
+  background: #cacaca;
+  margin: 0 15px;
+  h5 {
+    font-size: 13px;
+    font-weight: bold;
+    color: #000000;
+    padding: 10px 30px;
+    margin-top: -5px;
+  }
+}
+
+.list-claim-jobs-search-filter {
+  .header-murali {
+    h5 {
+      padding: 10px 15px;
+    }
+  }
+}
+label.control-label {
+  color: #4d4e53;
+}
+
+.form-control-feedback {
+  height: 29px;
+  line-height: 29px;
+  &.fix {
+    top: 0px;
+    right: 10px;
+  }
+}
+
+.ui-grid-pager-control input {
+  width: 70px !important;
+}
+
+.ui-grid-pager-max-pages-number,
+.ui-grid-pager-count,
+.ui-grid-pager-row-count-label {
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-collapse {
+  background-color: #909195;
+  border-color: #909195;
+  font-size: 10px;
+  padding: 1px 3px;
+  &:before {
+    content: "\f077";
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    text-decoration: inherit;
+  }
+  &.collapsed {
+    &:before {
+      content: "\f078";
+    }
+  }
+}
+
+.modal-content {
+  border-radius: 0;
+}
+
+.murali-modal {
+  .modal-content {
+    border-radius: 0;
+  }
+  .modal-header {
+    padding: 0;
+    border-bottom: none;
+    .modal-title-container {
+      padding: 30px 0 18px;
+      background: #f7d302;
+      margin-bottom: 30px;
+    }
+    .modal-title-header {
+      margin-top: 0;
+      font-size: 20px;
+      color: #ffffff;
+      .fa {
+        background: white;
+        color: #f7d302;;
+        font-size: 30px;
+        padding: 10px;
+        border-radius: 40px;
+      }
+    }
+  }
+  .modal-message-header {
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .modal-footer {
+    text-align: center;
+    border-top: none;
+    padding: 40px;
+  }
+}
+
+.modal-labour-row-top {
+  margin-bottom: 15px;
+  margin-top: 15px;
+}
+
+.modal-labour-cross {
+  color: #ffffff;
+  background: #919296 !important;
+  //border-radius: 35px;
+  &:hover {
+    background: #818286 !important;
+    color: #f7f7f7;
+  }
+}
+
+#toast-container .toast {
+  width: 500px;
+}
+// Container adapted for better look in IE 11
+.container-fluid {
+  padding-right: 30px;
+}
+// Less then 1280px media query
+@media (max-width: 1366px) {
+  // date pickers
+  .has-feedback .form-control {
+    padding-right: 24.5px;
+    padding-left: 5px;
+  }
+}
+.cellAlignLeft {
+  text-align: left !important;
+  padding: 7px;
+}
+.cellAlignRight {
+  text-align: right !important;
+  padding: 7px;
+}
+
+.app-navbar .navbar-right.navbar-nav > li > a {
+  padding-bottom: 15px;
+}
+
+.form-control, .form-control[required], select, option {
+  font-size: 13px !important;
+  height: 31px;
+}
+
+/*
+ * Loader Animation
+ */
+.relative {
+  position: relative;
+}
+.custom-loader {
+    left:50%;
+    top:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    position:absolute;
+    z-index: 99999;
+  h3 {
+    float: left;
+    font-size: 30px !important;
+  }
+}
+.multiple-balls {
+  float: left;
+  margin-top: 36px;
+  margin-left: 5px;
+}
+
+.ball1, .ball2, .ball3 {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  float: left;
+  margin: 0 3px;
+}
+
+.ball1 {
+  background-color: #62abc1;
+  -webkit-animation: single1ball1anim 2s infinite linear;
+  animation: single1ball1anim 2s infinite linear;
+}
+
+@-webkit-keyframes single1ball1anim {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  12.5% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.5);
+  }
+  25%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+@keyframes single1ball1anim {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  12.5% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.5);
+  }
+  25%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1)
+  }
+}
+
+.ball2 {
+  background-color: #468295;
+  -webkit-animation: single1ball2anim 2s infinite linear;
+  animation: single1ball2anim 2s infinite linear;
+}
+
+@-webkit-keyframes single1ball2anim {
+  0%, 25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  37.5% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.5)
+  }
+  50%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes single1ball2anim {
+  0%, 25% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  37.5% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.5)
+  }
+  50%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.ball3 {
+  background-color: #34616f;
+  -webkit-animation: single1ball3anim 2s infinite linear;
+  animation: single1ball3anim 2s infinite linear;
+}
+
+@-webkit-keyframes single1ball3anim {
+  0%, 50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  62.5% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.5)
+  }
+  75%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+@keyframes single1ball3anim {
+  0%, 50% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+  62.5% {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.5)
+  }
+  75%, 100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+// Progressive enhancement text effect for WebKit (Chrome, Safari, new Opera)
+.shine {
+  background: #333 -webkit-gradient(linear, left top, right top, from(#000), to(#000), color-stop(0.3, #eee)) 0 0 no-repeat;
+  -webkit-background-size: 175px;
+  background-size: 175px;
+
+  color: rgba(55, 55, 55, 0.5);
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  -webkit-animation-name: shine;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  animation-name: shine;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@-webkit-keyframes shine {
+  0%
+  {
+    background-position: top left;
+  }
+  50%
+  {
+    background-position: top right;
+  }
+  100%
+  {
+    background-position: top left;
+  }
+}
+
+
+@keyframes shine {
+  0%
+  {
+    background-position: top left;
+  }
+  50%
+  {
+    background-position: top right;
+  }
+  100%
+  {
+    background-position: top left;
+  }
+}
+
+.input-group-addon {
+  padding: 6px 6px !important;
+  font-size: 14px !important;
+}
+
+// Component styles are injected through grunt
+// injector
+@import '../components/campaign/dealer-outstanding-campaigns/dealer-outstanding-campaigns-list/dealer-outstanding-campaigns-list.scss';
+@import '../components/campaign/dealer-outstanding-campaigns/dealer-outstanding-campaigns-search-filter/dealer-outstanding-campaigns-search-filter.scss';
+@import '../components/campaign/dealer-outstanding-campaigns/dealer-outstanding-campaigns.scss';
+@import '../components/claim/claims/advanced-search/advanced-search-filter/advanced-search-filter.scss';
+@import '../components/claim/claims/advanced-search/advanced-search-list/advanced-search-list.scss';
+@import '../components/claim/claims/advanced-search/advanced-search.scss';
+@import '../components/claim/claims/list-claim-jobs/list-claim-jobs-list/list-claim-jobs-list.scss';
+@import '../components/claim/claims/list-claim-jobs/list-claim-jobs-search-filter/list-claim-jobs-search-filter.scss';
+@import '../components/claim/claims/list-claim-jobs/list-claim-jobs.scss';
+@import '../components/claim/claims/new-claim-job/new-claim-job-form/new-claim-job-form.scss';
+@import '../components/claim/claims/new-claim-job/new-claim-job.scss';
+@import '../components/claim/job/claim-job-header/claim-job-header.scss';
+@import '../components/claim/job/claim-job-item/claim-job-item-assessment/claim-job-item-assessment.scss';
+@import '../components/claim/job/claim-job-item/claim-job-item-attachment/claim-job-item-attachment.scss';
+@import '../components/claim/job/claim-job-item/claim-job-item-cost-transaction/claim-job-item-cost-transaction.scss';
+@import '../components/claim/job/claim-job-item/claim-job-item-inspector-report/claim-job-item-inspector-report.scss';
+@import '../components/claim/job/claim-job-item/claim-job-item-labour/claim-job-item-labour.scss';
+@import '../components/claim/job/claim-job-item/claim-job-item-travel/claim-job-item-travel.scss';
+@import '../components/claim/job/claim-job-item/claim-job-item.scss';
+@import '../components/claim/job/job.scss';
+@import '../components/claim/vehicle/view-campaign/view-campaign-list/view-campaign-list.scss';
+@import '../components/claim/vehicle/view-campaign/view-campaign-search-filter/view-campaign-search-filter.scss';
+@import '../components/claim/vehicle/view-campaign/view-campaign.scss';
+@import '../components/claim/vehicle/view-coverage/vehicle-informations/vehicle-informations.scss';
+@import '../components/claim/vehicle/view-coverage/view-coverage-list/view-coverage-list.scss';
+@import '../components/claim/vehicle/view-coverage/view-coverage-search-filter/view-coverage-search-filter.scss';
+@import '../components/claim/vehicle/view-coverage/view-coverage.scss';
+@import '../components/claim/vehicle/view-repair-history/view-repair-history-list/view-repair-history-list.scss';
+@import '../components/claim/vehicle/view-repair-history/view-repair-history-search-filter/view-repair-history-search-filter.scss';
+@import '../components/claim/vehicle/view-repair-history/view-repair-history-vehicle-informations/view-repair-history-vehicle-informations.scss';
+@import '../components/claim/vehicle/view-repair-history/view-repair-history.scss';
+@import '../components/crediting/create-outstanding-claim-summary/create-outstanding-claim-summary-form/create-outstanding-claim-summary-form.scss';
+@import '../components/crediting/print-credit-document/print-credit-document-list/print-credit-document-list.scss';
+@import '../components/crediting/print-credit-document/print-credit-document-search-filter/print-credit-document-search-filter.scss';
+@import '../components/crediting/print-credit-document/print-credit-document.scss';
+@import '../components/crediting/print-outstanding-claim-summary/print-outstanding-claim-summary-list/print-outstanding-claim-summary-list.scss';
+@import '../components/crediting/print-outstanding-claim-summary/print-outstanding-claim-summary-search-filter/print-outstanding-claim-summary-search-filter.scss';
+@import '../components/crediting/print-outstanding-claim-summary/print-outstanding-claim-summary.scss';
+@import '../components/help/help.scss';
+@import '../components/main/main.scss';
+@import '../components/maintain/maintain-authorized-currency/maintain-authorized-currency.scss';
+@import '../components/maintain/maintain-cost-adjustment-factor/maintain-cost-adjustment-factor.scss';
+@import '../components/maintain/maintain-country-language/maintain-country-language.scss';
+@import '../components/maintain/maintain-currency-rate/maintain-currency-rate.scss';
+@import '../components/maintain/maintain-debit-code/maintain-debit-code.scss';
+@import '../components/maintain/maintain-defect-code/maintain-defect-code.scss';
+@import '../components/maintain/maintain-follow-up-code/maintain-follow-up-code.scss';
+@import '../components/maintain/maintain-function-group/maintain-function-group.scss';
+@import '../components/maintain/maintain-material-group/maintain-material-group.scss';
+@import '../components/maintain/maintain-reject-code/maintain-reject-code.scss';
+@import '../components/maintain/maintain-return-code/maintain-return-code.scss';
+@import '../components/maintain/maintain.scss';
+@import '../components/navbar/navbar.scss';
+// endinjector

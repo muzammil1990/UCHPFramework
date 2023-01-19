@@ -1,0 +1,16 @@
+<div class="murali-tabs" ng-cloak>
+    <uib-tabset active="ctrl.selected">
+      <uib-tab select="ctrl.selectTab('NotFinished')" index="0" heading="{{ 'LIST_CLAIM_JOBS.MODAL.NOTFINISHED' | translate }}">
+        <list-claim-jobs-not-finished></list-claim-jobs-not-finished>
+      </uib-tab>
+      <uib-tab select="ctrl.selectTab('Material')" index="1" heading="{{ 'LIST_CLAIM_JOBS.MODAL.MATERIALINSTRUCTION' | translate }}">
+        <list-claim-jobs-material-instruction></list-claim-jobs-material-instruction>
+      </uib-tab>
+      <uib-tab select="ctrl.selectTab('AppealStatus')" index="2" heading="{{ 'LIST_CLAIM_JOBS.MODAL.APPEAL' | translate }}">
+        <list-claim-jobs-appeal-status></list-claim-jobs-appeal-status>
+      </uib-tab>
+      <uib-tab select="ctrl.selectSearchTab()" index="3" heading="{{ 'LIST_CLAIM_JOBS.MODAL.SEARCHRESULT' | translate }}">
+        <list-claim-jobs-search-tab></list-claim-jobs-search-tab>
+      </uib-tab>
+    </uib-tabset>
+</div>

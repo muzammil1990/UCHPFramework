@@ -1,0 +1,54 @@
+[
+  {
+    "key": "-1",
+    "displayText": "All"
+  },
+  {
+    "key": "2",
+    "displayText": "Validated OK"
+  },
+  {
+    "key": "3",
+    "displayText": "Error"
+  },
+  {
+    "key": "4",
+    "displayText": "Released OK"
+  },
+  {
+    "key": "5",
+    "displayText": "Evaluated auto"
+  },
+  {
+    "key": "6",
+    "displayText": "Ready for crediting"
+  },
+  {
+    "key": "7",
+    "displayText": "Auto failed"
+  },
+  {
+    "key": "8",
+    "displayText": "Hold for crediting"
+  },
+  {
+    "key": "9",
+    "displayText": "Waiting"
+  },
+  {
+    "key": "11",
+    "displayText": "Evaluated manually"
+  },
+  {
+    "key": "13",
+    "displayText": "Crediting ongoing"
+  },
+  {
+    "key": "12",
+    "displayText": "Credited"
+  },
+  {
+    "key": "14",
+    "displayText": "Prepared for archiving"
+  }
+]

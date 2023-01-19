@@ -1,0 +1,32 @@
+.claim-job {
+  .tabbable.vertical {
+    .vertical > li > a {
+      writing-mode: vertical-rl;
+      padding: 10px 3px;
+    }
+  }
+  .claim-job-nav {
+      padding: 10px 3px;
+  }
+  .tab-content > .tab-pane {
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  input[type="checkbox"] {
+    position: relative;
+    top: -3px;
+  }
+}
+
+.remove-btn-grid-wrapper {
+  text-align: center;
+  .btn.btn-xs.remove-row-button {
+    margin: 6px;
+  }
+}
+
+
+.btn-release {
+  background-color: #5cb85c !important;
+  border-color: #4cae4c !important;
+}

@@ -1,0 +1,395 @@
+{
+  "claimRepairHeaderDTO": {
+    "claimHeaderId": 19960,
+    "repairingImporter": 890,
+    "repairingDealer": "871",
+    "refNo": 22260,
+    "repairOrderNo": "4667887",
+    "repairDate": "2011-11-10T23:00:00.000+0000",
+    "registrationDate": "2010-10-09T22:00:00.000+0000",
+    "exchangeRate": 2,
+    "currency": "SEK",
+    "vehicleOperation": 7,
+    "companyNo": 1,
+    "make": 100,
+    "vehicleDTO": {
+      "make": 100,
+      "chassisSeries": "A",
+      "chassisNo": "100023",
+      "vehicleMilage": 8000,
+      "mileageUnit": 1,
+      "mileageUnitEnabled": true,
+      "operatingMeasureType": 1,
+      "ageVehicle": 10,
+      "deliveringDate": "2009-09-08T22:00:00.000+0000",
+      "deliveringImporter": 890,
+      "deliveringDealer": "871",
+      "marketType": "FM7  62R",
+      "vin": "YV2A4DBC21A532892",
+      "customerNo": "618307",
+      "customerName": "INDUSTRIAS MOLINERAS Y AFINES DEL NORTE S.A.C.I.A.",
+      "registrationNo": "VF43212"
+    },
+    "claimJobIDDTOList": [
+      {
+        "headClaimHeaderId": 19960,
+        "claimJobId": 801,
+        "jobno": 1
+      },
+      {
+        "headClaimHeaderId": 19960,
+        "claimJobId": 802,
+        "jobno": 2
+      },
+      {
+        "headClaimHeaderId": 19960,
+        "claimJobId": 803,
+        "jobno": 3
+      }
+    ],
+    "makeList": null,
+    "version": 1,
+    "activeClaimJobDTO": {
+      "claimJobId": 41362,
+      "scc": "R",
+      "sccDescription": "Recommended",
+      "typeOfClaim": 1,
+      "typeOfConcern": 3,
+      "claimJobState": 2,
+      "jobNo": 1,
+      "headerClaimHeaderId": 23924,
+      "headCompanyNo": 1,
+      "refJobNo": 100023,
+      "modifiedBy": "SystemAdmin@volvo.com",
+      "modifyTime": "2011-11-10T23:00:00.000+0000",
+      "registrationDate": "2010-10-09T22:00:00.000+0000",
+      "version": 1,
+      "followUpCode": "100",
+      "followUpCodeDescription": "Specification deviation claims",
+      "operationNo": "050-001",
+      "operationId": "050-001",
+      "operationNoDescription": "Removing and assembly of machine from shipping container",
+      "newPartNo": "1675624",
+      "newPartDescription": "New Part Description",
+      "scenarioCode": "15",
+      "scenarioDescription": "Technical goodwill, reject / return",
+      "miCode": "Send in TMA (Brazil)",
+      "noteToDealer": "Deler ingår ikke i kampanje.",
+      "returnList": [
+        {
+          "claimReturnId": 809,
+          "returnCode": "050",
+          "jobClaimJobId": 35250,
+          "description": "Vehicle data incorrect- not on vehicle file 0",
+          "active": true
+        },
+        {
+          "claimReturnId": 810,
+          "returnCode": "051",
+          "jobClaimJobId": 35251,
+          "description": "Vehicle data incorrect- not on vehicle file 1",
+          "active": true
+        }
+      ],
+      "causalPart": {
+        "claimMaterialId": 59212,
+        "partNo": "755",
+        "partNoPrefix": "VO",
+        "functionGroup": "2719",
+        "serialNo": "232323232",
+        "quantity": 1,
+        "unitPrice": 1000,
+        "partMarkup": 12,
+        "materialNetCost": 3433,
+        "materialDescr": "Material Description",
+        "jobClaimJobId": 41362,
+        "jobHeadCompanyNo": 1,
+        "repaired": null,
+        "defectCode": "07",
+        "defectCodeDescription": "Fitting of extra equipment",
+        "rejectCode": "007",
+        "rejectCodeDescription": "To be claimed to the carriers insurance company",
+        "costAdjustFactor": 5,
+        "materialNetCostOriginal": 23423,
+        "rejectedMaterialNetCost": 22123,
+        "approvedMaterialNetCost": 123456,
+        "priceSource": 3,
+        "supersededPartNoPrefix": "VO",
+        "supersededPartNo": "755",
+        "exchangePart": true,
+        "designation": "Mock Designation",
+        "modifiedBy": "SystemAdmin@volvo.com",
+        "modifyTime": "2011-11-10T23:00:00.000+0000"
+      },
+      "claimDebitSummariesDTO": {
+        "claimLabourDebitSummaryDTO": {},
+        "claimMaterialDebitSummaryDTO": {},
+        "claimCostDebitSummaryDTO": {},
+        "claimTravelDebitSummaryDTO": {}
+      },
+      "claimAssessmentDTO": {},
+      "shippingDeliveryDTO": {},
+      "errorList": [
+        {
+          "checkId": "0551",
+          "errorNo": 1,
+          "sequenceNo": 1,
+          "errorTxtParams": "Error Txt Params 1",
+          "checkCategoryNo": 1,
+          "errorTxt": "056 - Op no 3710200 -Matching method includes invalid variants"
+        },
+        {
+          "checkId": "0552",
+          "errorNo": 2,
+          "sequenceNo": 2,
+          "errorTxtParams": "Error Txt Params 2",
+          "checkCategoryNo": 1,
+          "errorTxt": "057 - Op no 3710200 -Matching method includes invalid variants"
+        },
+        {
+          "checkId": "0553",
+          "errorNo": 3,
+          "sequenceNo": 3,
+          "errorTxtParams": "Error Txt Params 3",
+          "checkCategoryNo": 1,
+          "errorTxt": "058 - Op no 3710200 -Matching method includes invalid variants"
+        }
+      ],
+      "creditHoldExceptionTexts": [
+        {
+          "creditHoldExceptId": "12340",
+          "creditHoldReqId": 13131,
+          "description": "Credit Hold Excep And Text 0"
+        },
+        {
+          "creditHoldExceptId": "12341",
+          "creditHoldReqId": 13132,
+          "description": "Credit Hold Excep And Text 1"
+        },
+        {
+          "creditHoldExceptId": "12342",
+          "creditHoldReqId": 13133,
+          "description": "Credit Hold Excep And Text 2"
+        }
+      ],
+      "autoEvalExceptionTexts": [
+        {
+          "autoEvalExceptId": "AutoEvalExceptId 0",
+          "autoEvalReqId": 12121,
+          "description": "Auto Eval Exception And Text 0"
+        },
+        {
+          "autoEvalExceptId": "AutoEvalExceptId 1",
+          "autoEvalReqId": 12122,
+          "description": "Auto Eval Exception And Text 1"
+        },
+        {
+          "autoEvalExceptId": "AutoEvalExceptId 2",
+          "autoEvalReqId": 12123,
+          "description": "Auto Eval Exception And Text 2"
+        }
+      ],
+      "assessmentDataDTO": {},
+      "costTransactionSummaryDTO": {}
+    },
+    "vehicleOperationAndDescription": "7"
+  },
+  "claimSupplementDTO": {
+    "claimJobSuppId": 76665,
+    "companyNo": 1,
+    "claimJobId": 3526535,
+    "claimComment": "ClaimComment ClaimComment ClaimComment ClaimComment ClaimComment",
+    "internalComment": "InternalComment InternalComment InternalComment InternalComment",
+    "appealState": 2,
+    "expectAttachment": true,
+    "caseNo": "233",
+    "caseSourceId": "365263",
+    "caseSourceCode": "Tech Line",
+    "modifiedBy": "SystemAdmin",
+    "modifyTime": "2012-12-11T23:00:00.000+0000",
+    "attachmentList": [
+      {
+        "claimJobSuppAttId": "34430",
+        "claimJobSuppId": 74677,
+        "companyNo": 1,
+        "claimDocumentId": "12120",
+        "attachmentName": "Claim Suppliment Attachment 0",
+        "attachment": "AAAAAAAAAAAAAA==",
+        "mimeType": "pdf"
+      },
+      {
+        "claimJobSuppAttId": "34431",
+        "claimJobSuppId": 74678,
+        "companyNo": 1,
+        "claimDocumentId": "12121",
+        "attachmentName": "Claim Suppliment Attachment 1",
+        "attachment": "AAAAAAAAAAAAAA==",
+        "mimeType": "pdf"
+      },
+      {
+        "claimJobSuppAttId": "34432",
+        "claimJobSuppId": 74679,
+        "companyNo": 1,
+        "claimDocumentId": "12122",
+        "attachmentName": "Claim Suppliment Attachment 2",
+        "attachment": "AAAAAAAAAAAAAA==",
+        "mimeType": "pdf"
+      }
+    ]
+  },
+  "tmaDecisionInfoPVO": {},
+  "claimJobTypes": [
+    {
+      "key": "1",
+      "displayText": "Vehicle warranty claim job"
+    },
+    {
+      "key": "2",
+      "displayText": "Parts claim job"
+    },
+    {
+      "key": "3",
+      "displayText": "Campaign claim job"
+    },
+    {
+      "key": "4",
+      "displayText": "Service claim job"
+    },
+    {
+      "key": "5",
+      "displayText": "Technical goodwill claim job"
+    },
+    {
+      "key": "6",
+      "displayText": "Specification deviation claim job"
+    },
+    {
+      "key": "8",
+      "displayText": "Commercial goodwill claim job"
+    },
+    {
+      "key": "9",
+      "displayText": "Breakdown claim job"
+    },
+    {
+      "key": "10",
+      "displayText": "Production related failure claim job"
+    },
+    {
+      "key": "11",
+      "displayText": "Extended coverage claim job"
+    }
+  ],
+  "allMINames": [
+    {
+      "id": 1,
+      "tmaSiteId": "001",
+      "miType": 2,
+      "name": "Hold",
+      "description": "Hold, default 1",
+      "disabled": false
+    },
+    {
+      "id": 2,
+      "tmaSiteId": "002",
+      "miType": 2,
+      "name": "Hold",
+      "description": "Hold, default 2",
+      "disabled": false
+    },
+    {
+      "id": 3,
+      "tmaSiteId": "003",
+      "miType": 2,
+      "name": "Hold",
+      "description": "Hold, default 3",
+      "disabled": false
+    }
+  ],
+  "casenoSourceList": [
+    {
+      "companyNo": 1,
+      "typeOfConcern": 3,
+      "caseNoSourceId": "fac3449c-7f00-0001-5d1f-31ee16cab2e1",
+      "code": "01",
+      "name": "Inspector Report 1"
+    },
+    {
+      "companyNo": 1,
+      "typeOfConcern": 3,
+      "caseNoSourceId": "fac3449c-7f00-0001-5d1f-31ee16cab2e2",
+      "code": "02",
+      "name": "Inspector Report 2"
+    },
+    {
+      "companyNo": 1,
+      "typeOfConcern": 3,
+      "caseNoSourceId": "fac3449c-7f00-0001-5d1f-31ee16cab2e3",
+      "code": "03",
+      "name": "Inspector Report 3"
+    },
+    {
+      "companyNo": 1,
+      "typeOfConcern": 3,
+      "caseNoSourceId": "fac3449c-7f00-0001-5d1f-31ee16cab2e4",
+      "code": "04",
+      "name": "Inspector Report 4"
+    },
+    {
+      "companyNo": 1,
+      "typeOfConcern": 3,
+      "caseNoSourceId": "fac3449c-7f00-0001-5d1f-31ee16cab2e5",
+      "code": "05",
+      "name": "Inspector Report 5"
+    }
+  ],
+  "claimValidationErrorTextDTOList": [
+    {
+      "checkId": "0551",
+      "errorNo": 1,
+      "sequenceNo": 1,
+      "errorTxtParams": "Error Txt Params 1",
+      "checkCategoryNo": 1,
+      "errorTxt": "056 - Op no 3710200 -Matching method includes invalid variants"
+    },
+    {
+      "checkId": "0552",
+      "errorNo": 2,
+      "sequenceNo": 2,
+      "errorTxtParams": "Error Txt Params 2",
+      "checkCategoryNo": 1,
+      "errorTxt": "057 - Op no 3710200 -Matching method includes invalid variants"
+    },
+    {
+      "checkId": "0553",
+      "errorNo": 3,
+      "sequenceNo": 3,
+      "errorTxtParams": "Error Txt Params 3",
+      "checkCategoryNo": 1,
+      "errorTxt": "058 - Op no 3710200 -Matching method includes invalid variants"
+    }
+  ],
+  "matchedInspectorReport": {},
+  "activeJobHasErrors": true,
+  "campaign": {},
+  "technicalDataUrl": "?ChassisNumber=100023&ChassisSeries=A&SearchCriteria=2",
+  "technicalDataUrl2": "http://secure.volvo.com/GDRViewer/GDR_Viewer.aspx",
+  "allowCopyClaimJob": true,
+  "viewCampaignUrl": "https://secure4-qa.volvo.com/vda/",
+  "dbAssessmentDTO": {},
+  "yesNoList": [
+    {
+      "displayText": ""
+    },
+    {
+      "key": "true",
+      "displayText": "Yes"
+    },
+    {
+      "key": "false",
+      "displayText": "No"
+    }
+  ],
+  "defaultPartNoPrefix": "VO",
+  "newClaimJob": false
+}

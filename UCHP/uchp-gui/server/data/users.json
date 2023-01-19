@@ -1,0 +1,337 @@
+[
+  {
+    "provider": "local",
+    "userName": "Test User",
+    "email": "test@example.com",
+    "password": "test"
+  },
+  {
+    "provider": "local",
+    "role": "admin",
+    "userName": "Admin",
+    "email": "admin@example.com",
+    "password": "admin"
+  },
+  {
+    "provider": "ping",
+    "role": "user",
+    "userName": "bpl5136",
+    "firstName": "Beata",
+    "lastName": "Bartoszewska-Karas",
+    "city": "Wroclaw",
+    "roles": [
+      "CN=SSS-SCS-VOLVO-MYACCESS3,OU=20030322060000000042,OU=groups,O=volvo",
+      "CN=tscusers,OU=wss,OU=groups,O=volvo",
+      "CN=T059_vosp_user,OU=wss,OU=groups,O=volvo",
+      "CN=R034_USER,OU=wss,OU=groups,O=volvo",
+      "CN=R006_USER,OU=wss,OU=groups,O=volvo",
+      "CN=V056_mispwebext_users,OU=wss,OU=groups,O=volvo"
+    ],
+    "email": "beata.bartoszewska-karas@volvo.com",
+    "userid": "bpl5136",
+    "country": "Poland"
+  },
+  {
+    "provider": "ping",
+    "userName ": "bpld334",
+    "userId": "bpld334",
+    "firstName": "Tomasz",
+    "lastName": "Michalowski",
+    "city": "Wroclaw",
+    "email ": "tomasz.michalowski.2@volvo.com",
+    "country": "Poland",
+    "roles": [
+      "CN=SSS-SCS-VOLVO-MYACCESS3,OU=20030322060000000042,OU=groups,O=volvo",
+      "CN=SCQ_Users,OU=wss,OU=groups,O=volvo",
+      "CN=R034_USER,OU=wss,OU=groups,O=volvo",
+      "CN=R006_USER,OU=wss,OU=groups,O=volvo"
+    ],
+    "role": "admin"
+  },
+  {
+    "provider": "ping",
+    "role": "dealer",
+    "userName": "a038509",
+    "firstName": "Marcus",
+    "city": "Gothenburg",
+    "email": "marcus.asplund@consultant.volvo.com",
+    "userid": "a",
+    "country": "Sweden",
+    "countrycode": "GB",
+    "languagecode": "en",
+    "objversion": 1,
+    "modifiedby": "BALDO",
+    "modifytime": "2015-10-09-11.22.58.132237",
+    "companyno": 1,
+    "sequencetimestamp": "0001-01-01"
+  },
+  {
+    "provider": "ping",
+    "role": "dealer",
+    "userName": "M067675",
+    "firstName": "Test",
+    "lastName": "User",
+    "city": "Gothenburg",
+    "roles": [
+      "CN=SSS-SCS-VOLVO-MYACCESS3,OU=20030322060000000042,OU=groups,O=volvo",
+      "CN=tscusers,OU=wss,OU=groups,O=volvo",
+      "CN=T059_vosp_user,OU=wss,OU=groups,O=volvo",
+      "CN=R034_USER,OU=wss,OU=groups,O=volvo",
+      "CN=R006_USER,OU=wss,OU=groups,O=volvo",
+      "CN=V056_mispwebext_users,OU=wss,OU=groups,O=volvo",
+      "CN=SCQ_Users,OU=wss,OU=groups,O=volvo"
+    ],
+    "userId": "SystemAdmin",
+    "roleList": [
+      "CentralAccountingAdministrator",
+      "MarketAccountingAdministrator",
+      "SystemMaintainer",
+      "CreditRunResponsible",
+      "CreditRunApprover",
+      "ScheduleViewer",
+      "DealerCreditDocumentReceiver",
+      "MarketCreditDocumentReceiver",
+      "MarketCreditingSetupMaintainer",
+      "CentralCreditingSetupMaintainer",
+      "ClaimHandlerCustomer",
+      "CentralCreditingDocumentReceiver",
+      "CreditingViewer",
+      "DealerCreditDocumentReceiver",
+      "ClaimHandlerCustomer"
+    ],
+    "privilegeList": [
+      "CanManageClaim",
+      "CanCreateClaimJobs",
+      "CanEnterAndEditClaimJobs",
+      "CanEnterAdvancedSearch",
+      "CanManageVehicle",
+      "CanViewVehicleTechnicalData",
+      "CanViewVehicleCampaign",
+      "CanManageCrediting",
+      "CanPrintOutstandingClaimSummaryDocumentCompany",
+      "CanPrintCreditDocuments"
+    ],
+    "importerList": [
+      {
+        "companyNo": 1,
+        "importerNo": 11,
+        "importerNoAndName": "11"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 22,
+        "importerNoAndName": "22"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 33,
+        "importerNoAndName": "33"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": -1,
+        "importerNoAndName": "-1"
+      }
+    ],
+    "dealerList": [
+      {
+        "companyNo": 1,
+        "importerNo": 111,
+        "dealerNo": "First Dealer",
+        "dealerNoAndName": "First Dealer"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 222,
+        "dealerNo": "Second Dealer",
+        "dealerNoAndName": "Second Dealer"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 333,
+        "dealerNo": "Third Dealer",
+        "dealerNoAndName": "Third Dealer"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": -1,
+        "dealerNo": "-1",
+        "dealerNoAndName": "-1"
+      }
+    ],
+    "tmaTrustedSupplierList": [
+      123,
+      234,
+      345
+    ],
+    "typeOfConcernList": [
+      1
+    ],
+    "company": {
+      "companyNo": 1,
+      "companyName": "VTC",
+      "companyNoAndName": "1 - VTC"
+    },
+    "tmaSite": {
+      "tmaSiteId": "111",
+      "tmaSiteName": "TMA Site 111",
+      "tmaSiteIdandName": "111 - TMA Site 111"
+    },
+    "userInfo": {
+      "userId": "SystemAdmin",
+      "firstName": "SystemAdmin",
+      "lastName": "Admin",
+      "email": "SystemAdmin@volvo.com",
+      "locale": "en_EN",
+      "companyNo": 1
+    }
+  },
+  {
+    "provider": "ping",
+    "role": "dealer",
+    "userName": "a148094",
+    "firstName": "Ramesh",
+    "lastName": "Kathiravan",
+    "city": "Bangalore",
+    "roles": [
+      "CN=SSS-SCS-VOLVO-MYACCESS3,OU=20030322060000000042,OU=groups,O=volvo",
+      "CN=tscusers,OU=wss,OU=groups,O=volvo",
+      "CN=T059_vosp_user,OU=wss,OU=groups,O=volvo",
+      "CN=R034_USER,OU=wss,OU=groups,O=volvo",
+      "CN=R006_USER,OU=wss,OU=groups,O=volvo",
+      "CN=V056_mispwebext_users,OU=wss,OU=groups,O=volvo",
+      "CN=SCQ_Users,OU=wss,OU=groups,O=volvo"
+    ],
+    "userId": "SystemAdmin",
+    "roleList": [
+      "CentralAccountingAdministrator",
+      "MarketAccountingAdministrator",
+      "SystemMaintainer",
+      "CreditRunResponsible",
+      "CreditRunApprover",
+      "ScheduleViewer",
+      "DealerCreditDocumentReceiver",
+      "MarketCreditDocumentReceiver",
+      "MarketCreditingSetupMaintainer",
+      "CentralCreditingSetupMaintainer",
+      "ClaimHandlerCustomer",
+      "CentralCreditingDocumentReceiver",
+      "CreditingViewer",
+      "DealerCreditDocumentReceiver",
+      "ClaimHandlerCustomer"
+    ],
+    "privilegeList": [
+      "CanManageClaim",
+      "CanCreateClaimJobs",
+      "CanEnterAndEditClaimJobs",
+      "CanEnterAdvancedSearch",
+      "CanManageVehicle",
+      "CanViewVehicleTechnicalData",
+      "CanViewVehicleCampaign",
+      "CanManageCrediting",
+      "CanPrintOutstandingClaimSummaryDocumentCompany",
+      "CanPrintCreditDocuments"
+    ],
+    "importerList": [
+      {
+        "companyNo": 1,
+        "importerNo": 11,
+        "importerNoAndName": "11"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 22,
+        "importerNoAndName": "22"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 33,
+        "importerNoAndName": "33"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": -1,
+        "importerNoAndName": "-1"
+      }
+    ],
+    "dealerList": [
+      {
+        "companyNo": 1,
+        "importerNo": 111,
+        "dealerNo": "First Dealer",
+        "dealerNoAndName": "First Dealer"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 222,
+        "dealerNo": "Second Dealer",
+        "dealerNoAndName": "Second Dealer"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": 333,
+        "dealerNo": "Third Dealer",
+        "dealerNoAndName": "Third Dealer"
+      },
+      {
+        "companyNo": 1,
+        "importerNo": -1,
+        "dealerNo": "-1",
+        "dealerNoAndName": "-1"
+      }
+    ],
+    "tmaTrustedSupplierList": [
+      123,
+      234,
+      345
+    ],
+    "typeOfConcernList": [
+      1
+    ],
+    "company": {
+      "companyNo": 1,
+      "companyName": "VTC",
+      "companyNoAndName": "1 - VTC"
+    },
+    "tmaSite": {
+      "tmaSiteId": "111",
+      "tmaSiteName": "TMA Site 111",
+      "tmaSiteIdandName": "111 - TMA Site 111"
+    },
+    "userInfo": {
+      "userId": "SystemAdmin",
+      "firstName": "SystemAdmin",
+      "lastName": "Admin",
+      "email": "SystemAdmin@volvo.com",
+      "locale": "en_EN",
+      "companyNo": 1
+    }
+  },
+  {
+    "provider": "ping",
+    "role": "admin",
+    "userName": "ClaimHandlerDealer",
+    "firstName": "ClaimHandler",
+    "lastName": "Dealer",
+    "city": "Wroclove",
+    "roles": [
+      "CN=SSS-SCS-VOLVO-MYACCESS3,OU=20030322060000000042,OU=groups,O=volvo",
+      "CN=tscusers,OU=wss,OU=groups,O=volvo",
+      "CN=T059_vosp_user,OU=wss,OU=groups,O=volvo",
+      "CN=R034_USER,OU=wss,OU=groups,O=volvo",
+      "CN=R006_USER,OU=wss,OU=groups,O=volvo",
+      "CN=V056_mispwebext_users,OU=wss,OU=groups,O=volvo",
+      "CN=SCQ_Users,OU=wss,OU=groups,O=volvo"
+    ],
+    "email": "nikhil.rathore@volvo.com",
+    "userid": "a",
+    "country": "Poland",
+    "countrycode": "GB",
+    "languagecode": "en",
+    "objversion": 1,
+    "modifiedby": "BALDO",
+    "modifytime": "2015-10-09-11.22.58.132237",
+    "companyno": 1,
+    "sequencetimestamp": "0001-01-01"
+  }
+]

@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.volvo.uchp</groupId>
+  <artifactId>uchp-client-angular</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>uchp-client-angular</name>
+  <description>uchp-client-angular</description>
+  <packaging>war</packaging>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+  <dependencies>
+    <dependency>
+      <groupId>org.tuckey</groupId>
+      <artifactId>urlrewritefilter</artifactId>
+      <version>4.0.3</version>
+    </dependency>
+  </dependencies>
+  <!--
+  <distributionManagement>
+    <repository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>maven2.it.volvo.net</id>
+      <name>ADT Java EE Maven repository</name>
+      <url>http://maven2.it.volvo.net/content/repositories/adtjavaee</url>
+      <layout>default</layout>
+    </repository>
+    <snapshotRepository>
+      <uniqueVersion>false</uniqueVersion>
+      <id>maven2.it.volvo.net</id>
+      <name>ADT Java EE Maven Snapshot repository Snapshot</name>
+      <url>http://maven2.it.volvo.net/content/repositories/adtjavaeeSnapshots</url>
+      <layout>default</layout>
+    </snapshotRepository>
+    <site>
+      <id>jvs2</id>
+      <url>scp://segotn8130.got.volvo.net/d:/site/JVS2/refapps/Pos</url>
+    </site>
+  </distributionManagement>
+  -->
+
+  <scm>
+    <connection>scm:svn:https://adtsvn.it.volvo.net/svn/UCHP-GPOC/trunk</connection>
+    <developerConnection>scm:svn:https://adtsvn.it.volvo.net/svn/UCHP-GPOC/trunk</developerConnection>
+  </scm>
+
+  <profiles>
+    <!-- This profile is activated automatically when on a dev client machine. It's determined by the presence of the environment variable "JVS_VERSION". This profile
+      will add the build number (based on timestamp) to the MANIFEST.MF file -->
+    <profile>
+      <id>generateDevBuildNumber</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <build>
+        <pluginManagement>
+          <plugins>
+            <!-- This plugin's configuration is used to store Eclipse m2e settings only. It tells Eclipse where to map the plugin to the It has no influence on the
+              Maven build itself. -->
+            <plugin>
+              <groupId>org.eclipse.m2e</groupId>
+              <artifactId>lifecycle-mapping</artifactId>
+              <version>1.0.0</version>
+              <configuration>
+                <lifecycleMappingMetadata>
+                  <pluginExecutions>
+                    <pluginExecution>
+                      <pluginExecutionFilter>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>buildnumber-maven-plugin</artifactId>
+                        <versionRange>[0.0,)</versionRange>
+                        <goals>
+                          <goal>create-timestamp</goal>
+                        </goals>
+                      </pluginExecutionFilter>
+                      <action>
+                        <execute />
+                      </action>
+                    </pluginExecution>
+                  </pluginExecutions>
+                </lifecycleMappingMetadata>
+              </configuration>
+            </plugin>
+          </plugins>
+        </pluginManagement>
+
+        <plugins>
+          <plugin>
+            <groupId>org.codehaus.mojo</groupId>
+            <artifactId>buildnumber-maven-plugin</artifactId>
+            <version>1.3</version>
+            <executions>
+              <execution>
+                <phase>validate</phase>
+                <goals>
+                  <goal>create-timestamp</goal>
+                </goals>
+              </execution>
+            </executions>
+            <configuration>
+              <timestampFormat>yyyyMMdd-HH:mm:ss.SSS</timestampFormat>
+              <items>
+                <item>timestamp</item>
+              </items>
+              <!-- <doCheck>false</doCheck> -->
+            </configuration>
+          </plugin>
+          <plugin>
+            <artifactId>maven-war-plugin</artifactId>
+            <configuration>
+              <archive>
+                <manifest>
+                  <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+                </manifest>
+                <manifestEntries>
+                  <Implementation-Build>${timestamp}</Implementation-Build>
+                </manifestEntries>
+              </archive>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+    <profile>
+      <!-- Handles deployment to JBoss EAP -->
+      <id>runtime-jboss-deploy</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.jboss.as.plugins</groupId>
+            <artifactId>jboss-as-maven-plugin</artifactId>
+            <version>7.6.Final</version>
+            <configuration>
+              <hostname>localhost</hostname>
+              <port>9999</port>
+            </configuration>
+            <executions>
+              <execution>
+                <phase>install</phase>
+                <goals>
+                  <goal>deploy</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+
+  </profiles>
+
+  <build>
+    <!-- To avoid that Maven will append the version to the finalName (which is the name given to the generated war, and hence the context root) -->
+    <finalName>${project.artifactId}</finalName>
+    <plugins>
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <!-- NB! Set <version> to the latest released version of frontend-maven-plugin, like in README.md -->
+        <version>0.0.20</version>
+
+        <executions>
+          <execution>
+            <id>install node and npm</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>install-node-and-npm</goal>
+            </goals>
+            <configuration>
+              <nodeVersion>v5.11.1/win-x64</nodeVersion>
+              <npmVersion>3.8.6</npmVersion>
+            </configuration>
+          </execution>
+          <execution>
+            <id>npm install</id>
+            <phase>initialize</phase>
+            <goals>
+              <goal>npm</goal>
+            </goals>
+            <!-- Optional configuration which provides for running any npm command -->
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>bower install</id>
+            <goals>
+              <goal>bower</goal>
+            </goals>
+            <configuration>
+              <arguments>install</arguments>
+            </configuration>
+          </execution>
+          <execution>
+            <id>grunt build</id>
+            <goals>
+              <goal>grunt</goal>
+            </goals>
+            <configuration>
+              <arguments>--no-color</arguments>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.4</version>
+        <configuration>
+          <webXml>${basedir}/WEB-INF/web.xml</webXml>
+          <webResources>
+            <resource>
+              <directory>${basedir}/dist/client</directory>
+            </resource>
+          </webResources>
+        </configuration>
+      </plugin>
+    </plugins>
+
+  </build>
+
+</project>

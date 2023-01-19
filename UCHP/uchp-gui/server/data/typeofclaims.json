@@ -1,0 +1,42 @@
+[
+  {
+    "key": "1",
+    "displayText": "Vehicle warranty claim job"
+  },
+  {
+    "key": "2",
+    "displayText": "Parts claim job"
+  },
+  {
+    "key": "3",
+    "displayText": "Campaign claim job"
+  },
+  {
+    "key": "4",
+    "displayText": "Service claim job"
+  },
+  {
+    "key": "5",
+    "displayText": "Technical goodwill claim job"
+  },
+  {
+    "key": "6",
+    "displayText": "Specification deviation claim job"
+  },
+  {
+    "key": "8",
+    "displayText": "Commercial goodwill claim job"
+  },
+  {
+    "key": "9",
+    "displayText": "Breakdown claim job"
+  },
+  {
+    "key": "10",
+    "displayText": "Production related failure claim job"
+  },
+  {
+    "key": "11",
+    "displayText": "Extended coverage claim job"
+  }
+]

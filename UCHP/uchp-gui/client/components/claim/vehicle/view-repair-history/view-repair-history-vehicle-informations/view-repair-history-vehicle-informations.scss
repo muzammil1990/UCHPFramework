@@ -1,0 +1,11 @@
+.view-repair-history-vehicle-informations {
+  .swap {
+    cursor: pointer;
+    background: rgba(0, 0, 255, 0.15);
+    padding: 3px;
+    border-radius: 3px;
+  }
+  .swap:hover {
+    background: rgba(0, 0, 255, 0.12);
+  }
+}

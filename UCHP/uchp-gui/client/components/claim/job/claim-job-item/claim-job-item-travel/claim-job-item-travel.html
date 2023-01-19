@@ -1,0 +1,133 @@
+<form class="claim-job-item-travel" name="ctrl.form">
+  <div class="table-responsive murali-table" ng-repeat="row in ctrl.travelList">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:10%">{{'CLAIM.TRAVEL_HOURS' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.RATE' | translate }}(EUR/h)</th>
+        <th style="width:78%">{{'CLAIM.TRAVEL_HOURS' | translate }}
+          {{'CLAIM.NET' | translate }}</th>
+        <th style="width:2%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <input
+            class="form-control"
+            ng-disabled="row.deletedInGUI"
+            ng-model="row.amount"
+            type="text"/>
+        </td>
+        <td>
+          {{row.rate}}
+        </td>
+        <td>
+          {{row.travelNetCost}}
+        </td>
+        <td>
+          <button
+            cancel-button-type="default"
+            cancel-text="{{ 'NO' | translate }}"
+            class="btn btn-sm btn-danger"
+            confirm-button-type="danger"
+            confirm-text="{{ 'YES' | translate }}"
+            message="{{'DELETE.ITEM.QUESTION' | translate }}"
+            mwl-confirm="mwl-confirm"
+            ng-disabled="row.deletedInGUI"
+            on-cancel=""
+            on-confirm="ctrl.deleteRowInGui($index)"
+            placement="left"
+            title="{{'DELETE' | translate }}">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:10%">{{'CLAIM.TRAVEL_DISTANCE' | translate }}
+          ({{'CLAIM.KM_OR_MILES' | translate }})</th>
+        <th style="width:10%">{{'CLAIM.RATE' | translate }}
+          ({{'CLAIM.EUR_KM_OR_MILES' | translate }})</th>
+        <th style="width:78%">{{'CLAIM.TRAVEL_DISTANCE' | translate }}
+          ({{'CLAIM.KM_OR_MILES' | translate }})</th>
+        <th style="width:2%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <input class="form-control" ng-disabled="row.deletedInGUI" type="text"/>
+        </td>
+        <td></td>
+        <td></td>
+        <td>
+          <button
+            cancel-button-type="default"
+            cancel-text="{{ 'NO' | translate }}"
+            class="btn btn-sm btn-danger"
+            confirm-button-type="danger"
+            confirm-text="{{ 'YES' | translate }}"
+            message="{{'DELETE.ITEM.QUESTION' | translate }}"
+            mwl-confirm="mwl-confirm"
+            ng-disabled="row.deletedInGUI"
+            on-cancel=""
+            on-confirm="ctrl.deleteRowInGui($index)"
+            placement="left"
+            title="{{'DELETE' | translate }}">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:10%">{{'CLAIM.OTHER_TRAVEL_EXPENSE' | translate }}
+          (EUR)</th>
+        <th style="width:10%">{{'CLAIM.OTHER_TRAVEL_EXPENSE' | translate }}
+          {{'CLAIM.NET' | translate }}
+          (EUR)</th>
+        <th style="width:78%">{{'CLAIM.DESCRIPTION' | translate }}</th>
+        <th style="width:2%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          <input class="form-control" ng-disabled="row.deletedInGUI" type="text"/>
+        </td>
+        <td></td>
+        <td>
+          <input
+            class="form-control"
+            ng-disabled="row.deletedInGUI"
+            ng-model="row.description"
+            type="text"/>
+        </td>
+        <td>
+          <button
+            cancel-button-type="default"
+            cancel-text="{{ 'NO' | translate }}"
+            class="btn btn-sm btn-danger"
+            confirm-button-type="danger"
+            confirm-text="{{ 'YES' | translate }}"
+            message="{{'DELETE.ITEM.QUESTION' | translate }}"
+            mwl-confirm="mwl-confirm"
+            ng-disabled="row.deletedInGUI"
+            on-cancel=""
+            on-confirm="ctrl.deleteRowInGui($index)"
+            placement="left"
+            title="{{'DELETE' | translate }}">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</form>

@@ -1,0 +1,177 @@
+<form name="ctrl.form">
+  <h4>Causal part</h4>
+  <div class="table-responsive murali-table">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:10%">{{'CLAIM.PREFIX' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.PART_NUMBER' | translate }}</th>
+        <th style="width:25%">{{'CLAIM.DESCRIPTION' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.FUNC_GROUP' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.SERIAL_NUMBER' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.DEFECT_CODE' | translate }}</th>
+        <th style="width:25%">{{'CLAIM.DESCRIPTION' | translate }}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input
+          class="form-control"
+          ng-model="ctrl.causalPart.partNoPrefix"
+          type="text"/></td>
+        <td><input class="form-control" ng-model="ctrl.causalPart.partNo" type="text"/></td>
+        <td>
+          <span>{{ctrl.causalPart.rejectCodeDescription}}</span>
+        </td>
+        <td>{{ctrl.causalPart.functionGroup}}</td>
+        <td><input class="form-control" ng-model="ctrl.causalPart.serialNo" type="text"/></td>
+        <td>
+          <div class="input-group">
+            <input
+              class="form-control"
+              ng-keyup="ctrl.checkDefectCodeMatch()"
+              ng-model="ctrl.causalPart.defectCode"
+              type="text"/>
+              <span
+                class="input-group-addon btn btn default"
+                ng-click="ctrl.showDefectCodeModal()">
+                <i aria-hidden="true" class="fa fa-list"></i>
+              </span>
+          </div>
+        </td>
+        <td>
+          <span>{{ctrl.causalPart.defectCodeDescription}}</span>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="row">
+      <div class="container-fluid">
+        <label class="radio-inline">
+          <input
+            id="replaced"
+            name="included-material-type"
+            ng-checked="ctrl.replaced"
+            ng-model="ctrl.replaced"
+            ng-value="true"
+            type="radio">
+          {{'CLAIM.REPLACED' | translate }}
+        </label>
+        <label class="radio-inline">
+          <input
+            id="repaired"
+            name="included-material-type"
+            ng-checked="!ctrl.replaced"
+            ng-model="ctrl.replaced"
+            ng-value="false"
+            type="radio">
+          {{'CLAIM.REPAIRED' | translate }}
+        </label>
+      </div>
+    </div>
+  </div>
+  <div ng-show="ctrl.replaced">
+    <hr/>
+    <h4>{{'CLAIM.INCLUDED_MATERIAL' | translate }}</h4>
+    <div class="table-responsive murali-table">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th style="width:3%">{{'CLAIM.NEW' | translate }}</th>
+          <th style="width:10%">{{'CLAIM.PREFIX' | translate }}</th>
+          <th style="width:10%">{{'CLAIM.PART_NUMBER' | translate }}</th>
+          <th style="width:25%">{{'CLAIM.DESCRIPTION' | translate }}</th>
+          <th style="width:10%">{{'CLAIM.SERIAL_NUMBER' | translate }}</th>
+          <th style="width:10%">{{'CLAIM.QUANTITY' | translate }}</th>
+          <th style="width:10%">{{'CLAIM.PRICE' | translate }}
+            ({{ctrl.currency}})</th>
+          <th style="width:10%">{{'CLAIM.PART_MARKUP' | translate }}</th>
+          <th style="width:10%">{{'CLAIM.NET' | translate }}
+            ({{ctrl.currency}})</th>
+          <th style="width:2%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr id="row_{{$index}}" ng-repeat="row in ctrl.includedMaterialList">
+          <td>
+            <input
+              name="materialRows"
+              ng-disabled="row.deletedInGUI"
+              ng-model="row.repaired"
+              ng-value="$index"
+              type="radio">
+          </td>
+          <td><input
+            class="form-control"
+            ng-disabled="row.deletedInGUI"
+            ng-model="row.partNoPrefix"
+            type="text"/></td>
+          <td><input
+            class="form-control"
+            ng-disabled="row.deletedInGUI"
+            ng-model="row.partNo"
+            type="text"/></td>
+          <td>{{row.materialDescr}}</td>
+          <td><input
+            class="form-control"
+            ng-disabled="row.deletedInGUI"
+            ng-model="row.serialNo"
+            type="text"/></td>
+          <td><input
+            class="form-control"
+            ng-disabled="row.deletedInGUI"
+            ng-model="row.quantity"
+            type="text"/></td>
+          <td>{{row.unitPrice}}</td>
+          <td>{{row.partMarkup}}</td>
+          <td>{{row.materialNetCost}}</td>
+          <td>
+            <button
+              cancel-button-type="default"
+              cancel-text="{{ 'NO' | translate }}"
+              class="btn btn-sm btn-danger"
+              confirm-button-type="danger"
+              confirm-text="{{ 'YES' | translate }}"
+              message="{{'DELETE.ITEM.QUESTION' | translate }}"
+              mwl-confirm="mwl-confirm"
+              ng-disabled="row.deletedInGUI"
+              on-cancel=""
+              on-confirm="ctrl.deleteRowInGui($index)"
+              placement="left"
+              title="{{'DELETE' | translate }}">
+              <i class="fa fa-trash"></i>
+            </button>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="row">
+      <div class="col-xs-9">
+        &nbsp;
+      </div>
+      <div class="col-xs-3 text-right">
+        <span>{{'CLAIM.MATERIAL_NET_TOTAL' | translate }}
+        </span>
+        <span>
+          <strong>{{ctrl.factoryMaterialNetTotal}}</strong>
+        </span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-2">
+        <button class="btn btn-primary" ng-click="ctrl.addRow()">
+          <i aria-hidden="true" class="fa fa-plus"></i>
+          {{'CLAIM.ADD_ROW' | translate }}
+        </button>
+        <button class="btn btn-warning" ng-click="ctrl.copyRow()">
+          <i aria-hidden="true" class="fa fa-clone"></i>
+          {{'CLAIM.COPY_ROW' | translate }}
+        </button>
+      </div>
+      <div class="col-xs-10">
+        &nbsp;
+      </div>
+    </div>
+  </div>
+</form>

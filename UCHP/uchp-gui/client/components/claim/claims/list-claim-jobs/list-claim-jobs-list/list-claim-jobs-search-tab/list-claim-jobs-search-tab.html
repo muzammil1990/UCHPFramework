@@ -1,0 +1,7 @@
+<!-- START grid -->
+<div id="search_tab" ng-cloak>
+  <list-claim-jobs-not-finished search="true" ng-if="ctrl.claimSearchTypeKeyIndex == undefined || (!isNaN(parseInt((ctrl.claimSearchTypeKeyIndex[0] ))) && (ctrl.claimSearchTypeKeyIndex[0] == 4))"></list-claim-jobs-not-finished>
+  <list-claim-jobs-material-instruction search="true" ng-if="(ctrl.claimSearchTypeKeyIndex !== undefined) &&!(isNaN(parseInt((ctrl.claimSearchTypeKeyIndex[0] )))) && ctrl.claimSearchTypeKeyIndex[0] != 4 && (ctrl.claimSearchTypeKeyIndex[0] != 8)"></list-claim-jobs-material-instruction>
+  <list-claim-jobs-appeal-status search="true" ng-if="(ctrl.claimSearchTypeKeyIndex !== undefined) &&(!isNaN(parseInt((ctrl.claimSearchTypeKeyIndex[0] ))) && (ctrl.claimSearchTypeKeyIndex[0] == 8))"></list-claim-jobs-appeal-status>
+</div>
+<!-- END grid -->

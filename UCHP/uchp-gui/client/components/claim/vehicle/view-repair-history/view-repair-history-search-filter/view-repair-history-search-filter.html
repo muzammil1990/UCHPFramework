@@ -1,0 +1,281 @@
+<!-- START search-filter-form -->
+<div class="panel panel-murali panel-default view-repair-history-search-filter">
+  <div class="panel-heading">
+    <span class="">Search <a class="btn btn-xs btn-primary btn-collapse" data-toggle="collapse" href="#panel-wrapper-collapse">
+    </a></span>
+  </div>
+  <div class="panel-wrapper collapse in" id="panel-wrapper-collapse">
+    <div class="header-murali">
+      <h5 class="">Vehicle</h5>
+    </div>
+    <div class="panel-body" >
+      <form
+        class="form-horizontal"
+        name="viewRepairHistoryForm"
+        ng-submit="ctrl.SearchViewRepairHistory(ctrl.viewRepairHistoryForm)"
+        novalidate
+        role="form">
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="col-md-5 col-lg-4">
+                  <label class="control-label" for="registrationNo">{{ 'LABEL.regNo.' + ctrl.selectedCompany | translate }}
+                    <span class="murali-asterisk"> *</span>
+                  </label>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                  <input
+                    class="form-control"
+                    id="registrationNo"
+                    name="registrationno"
+                    focus-if
+                    ng-required="!ctrl.viewRepairHistoryForm.marketchassisno && !ctrl.viewRepairHistoryForm.chassisseries && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval && !ctrl.viewRepairHistoryForm.marketingtype && !ctrl.viewRepairHistoryForm.marketingchassisno && !ctrl.viewRepairHistoryForm.selectedbrandunitkeyval && !ctrl.viewRepairHistoryForm.brandunitno"
+                    ng-disabled="ctrl.viewRepairHistoryForm.marketchassisno || ctrl.viewRepairHistoryForm.chassisseries || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval || ctrl.viewRepairHistoryForm.marketingtype || ctrl.viewRepairHistoryForm.marketingchassisno || ctrl.viewRepairHistoryForm.selectedbrandunitkeyval || ctrl.viewRepairHistoryForm.brandunitno"
+                    ng-model="ctrl.viewRepairHistoryForm.registrationno"
+                    placeholder="{{ 'LABEL.regNo.' + ctrl.selectedCompany | translate }}"
+                    ng-maxlength="9"
+                    type="text"/>
+                  <div ng-if="viewRepairHistoryForm.registrationno.$touched && viewRepairHistoryForm.registrationno.$error"
+                       class="has-error"
+                       ng-messages="viewRepairHistoryForm.registrationno.$error">
+                    <div ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="col-md-5 col-lg-4">
+                  <label class="control-label" for="chassisSeries">
+                    {{ 'LABEL.CHASSI.' + ctrl.selectedCompany | translate }}
+                    <span class="murali-asterisk"> *</span>
+                  </label>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                  <div ng-class="ctrl.isVce ? 'col-sm-8' : 'col-sm-4'" class="noleftpad">
+                    <input
+                      class="form-control"
+                      id="chassisSeries"
+                      name="chassisseries"
+                      ng-required="!ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval && !ctrl.viewRepairHistoryForm.marketingtype && !ctrl.viewRepairHistoryForm.marketingchassisno && !ctrl.viewRepairHistoryForm.selectedbrandunitkeyval && !ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-disabled="ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval || ctrl.viewRepairHistoryForm.marketingtype || ctrl.viewRepairHistoryForm.marketingchassisno || ctrl.viewRepairHistoryForm.selectedbrandunitkeyval || ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-model="ctrl.viewRepairHistoryForm.chassisseries"
+                      placeholder="Series"
+                      ng-pattern="ctrl.AlphaNumeric"
+                      ng-maxlength="ctrl.chassiSerieMaxlength"
+                      type="text"/>
+                    <div
+                      class="has-error"
+                      ng-if="!viewRepairHistoryForm.chassisseries.$error.pattern && viewRepairHistoryForm.chassisseries.$error && viewRepairHistoryForm.chassisseries.$touched"
+                      ng-messages="viewRepairHistoryForm.chassisseries.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                    <div
+                      class="has-error"
+                      ng-if="viewRepairHistoryForm.chassisseries.$error.pattern && viewRepairHistoryForm.chassisseries.$touched">
+                      <div>
+                        <p class="help-block">{{"VALIDATION.ERROR.ALPHANUMERIC" | translate}}</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div ng-class="ctrl.isVce ? 'col-sm-4' : 'col-sm-8'" class="nopad">
+                    <input
+                      class="form-control"
+                      id="marketchassisno"
+                      name="marketchassisno"
+                      placeholder="Number"
+                      ng-required="!ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval && !ctrl.viewRepairHistoryForm.marketingtype && !ctrl.viewRepairHistoryForm.marketingchassisno && !ctrl.viewRepairHistoryForm.selectedbrandunitkeyval && !ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-disabled="ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval || ctrl.viewRepairHistoryForm.marketingtype || ctrl.viewRepairHistoryForm.marketingchassisno || ctrl.viewRepairHistoryForm.selectedbrandunitkeyval || ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-model="ctrl.viewRepairHistoryForm.marketchassisno"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-maxlength="ctrl.chassiNoMaxlength"
+                      type="text"/>
+                    <div ng-if="viewRepairHistoryForm.marketchassisno.$touched && viewRepairHistoryForm.marketchassisno.$error"
+                         class="has-error"
+                         ng-messages="viewRepairHistoryForm.marketchassisno.$error">
+                      <div ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                  <div class="col-md-5 col-lg-4">
+                    <label class="control-label" for="vin">{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}
+                      <span class="murali-asterisk"> *</span>
+                    </label>
+                  </div>
+                  <div class="col-md-7 col-lg-8">
+                    <input
+                      class="form-control"
+                      id="vin"
+                      name="vehiclevin"
+                      ng-required="!ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.marketchassisno && !ctrl.viewRepairHistoryForm.chassisseries && !ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval && !ctrl.viewRepairHistoryForm.marketingtype && !ctrl.viewRepairHistoryForm.marketingchassisno && !ctrl.viewRepairHistoryForm.selectedbrandunitkeyval && !ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-disabled="ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.marketchassisno || ctrl.viewRepairHistoryForm.chassisseries || ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval || ctrl.viewRepairHistoryForm.marketingtype || ctrl.viewRepairHistoryForm.marketingchassisno || ctrl.viewRepairHistoryForm.selectedbrandunitkeyval || ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-model="ctrl.viewRepairHistoryForm.vehiclevin"
+                      placeholder="{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}"
+                      ng-maxlength="17"
+                      type="text"/>
+                    <div ng-if="viewRepairHistoryForm.vehiclevin.$touched && viewRepairHistoryForm.vehiclevin.$error"
+                         class="has-error"
+                         ng-messages="viewRepairHistoryForm.vehiclevin.$error">
+                      <div ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="col-md-5 col-lg-4">
+                  <label class="control-label" for="droplistMenuBrandMarket">{{ 'VIEW_REPAIR_HISTORY.MODAL.BRAND' | translate }}
+                    <span class="murali-asterisk"> *</span>
+                  </label>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                  <select
+                    class="form-control"
+                    id="droplistMenuBrandMarket"
+                    name="selectedbrandmarketkeyval"
+                    ng-required="!ctrl.isVpcOrVce && !ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.marketchassisno && !ctrl.viewRepairHistoryForm.chassisseries && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandunitkeyval && !ctrl.viewRepairHistoryForm.brandunitno"
+                    ng-disabled="ctrl.isVpcOrVce || ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.marketchassisno || ctrl.viewRepairHistoryForm.chassisseries || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandunitkeyval || ctrl.viewRepairHistoryForm.brandunitno"
+                    ng-model="ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval"
+                    ng-options="option.key as option.displayText for option in ctrl.brandlist">
+                  </select>
+                  <div
+                    class="has-error"
+                    ng-if="viewRepairHistoryForm.selectedbrandmarketkeyval.$error && viewRepairHistoryForm.selectedbrandmarketkeyval.$touched"
+                    ng-messages="viewRepairHistoryForm.selectedbrandmarketkeyval.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                  <div class="col-md-5 col-lg-4">
+                    <label class="control-label" for="marketingType">{{ 'VIEW_REPAIR_HISTORY.MODAL.MARKETINGTYPE' | translate }}
+                      <span class="murali-asterisk"> *</span>
+                    </label>
+                  </div>
+                  <div class="col-md-7 col-lg-8">
+                    <input
+                      class="form-control"
+                      id="marketingType"
+                      name="marketingtype"
+                      ng-required="!ctrl.isVpcOrVce && !ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.marketchassisno && !ctrl.viewRepairHistoryForm.chassisseries && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandunitkeyval && !ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-disabled="ctrl.isVpcOrVce || ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.marketchassisno || ctrl.viewRepairHistoryForm.chassisseries || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandunitkeyval || ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-model="ctrl.viewRepairHistoryForm.marketingtype"
+                      placeholder="{{ 'VIEW_REPAIR_HISTORY.MODAL.MARKETINGTYPE' | translate }}"
+                      ng-maxlength="8"
+                      type="text"/>
+                    <div ng-if="viewRepairHistoryForm.marketingtype.$touched && viewRepairHistoryForm.marketingtype.$error"
+                         class="has-error"
+                         ng-messages="viewRepairHistoryForm.marketingtype.$error">
+                      <div ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            <div class="col-md-4">
+                <div class="form-group">
+                  <div class="col-md-5 col-lg-4">
+                    <label class="control-label" for="chassisNo">{{ 'LABEL.CHASSI_NO.' + ctrl.selectedCompany | translate }}
+                      <span class="murali-asterisk"> *</span>
+                    </label>
+                  </div>
+                  <div class="col-md-7 col-lg-8">
+                    <input
+                      class="form-control"
+                      id="chassisNo"
+                      name="marketingchassisno"
+                      ng-required="!ctrl.isVpcOrVce && !ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.marketchassisno && !ctrl.viewRepairHistoryForm.chassisseries && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandunitkeyval && !ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-disabled="ctrl.isVpcOrVce || ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.marketchassisno || ctrl.viewRepairHistoryForm.chassisseries || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandunitkeyval || ctrl.viewRepairHistoryForm.brandunitno"
+                      ng-model="ctrl.viewRepairHistoryForm.marketingchassisno"
+                      placeholder="{{ 'LABEL.CHASSI_NO.' + ctrl.selectedCompany | translate }}"
+                      ng-pattern="ctrl.OnlyNumbers"
+                      ng-maxlength="6"
+                      type="text"/>
+                    <div ng-if="viewRepairHistoryForm.marketingchassisno.$touched && viewRepairHistoryForm.marketingchassisno.$error"
+                         class="has-error"
+                         ng-messages="viewRepairHistoryForm.marketingchassisno.$error">
+                      <div ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="col-md-5 col-lg-4">
+                  <label class="control-label" for="droplistMenuBrandUnit">{{ 'VIEW_REPAIR_HISTORY.MODAL.BRAND' | translate }}
+                    <span class="murali-asterisk"> *</span>
+                  </label>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                  <select
+                    class="form-control"
+                    id="droplistMenuBrandUnit"
+                    name="droplistMenuBrandUnit"
+                    ng-required="!ctrl.isVpcOrVce && !ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.marketchassisno && !ctrl.viewRepairHistoryForm.chassisseries && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval && !ctrl.viewRepairHistoryForm.marketingtype && !ctrl.viewRepairHistoryForm.marketingchassisno"
+                    ng-disabled="ctrl.isVpcOrVce || ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.marketchassisno || ctrl.viewRepairHistoryForm.chassisseries || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval || ctrl.viewRepairHistoryForm.marketingtype || ctrl.viewRepairHistoryForm.marketingchassisno"
+                    ng-model="ctrl.viewRepairHistoryForm.selectedbrandunitkeyval"
+                    ng-options="option.key as option.displayText for option in ctrl.brandlist">
+                  </select>
+                  <div
+                    class="has-error"
+                    ng-if="viewRepairHistoryForm.droplistMenuBrandUnit.$error && viewRepairHistoryForm.droplistMenuBrandUnit.$touched"
+                    ng-messages="viewRepairHistoryForm.droplistMenuBrandUnit.$error">
+                    <div
+                      ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <div class="col-md-5 col-lg-4">
+                  <label class="control-label" for="brandunitno">{{ 'VIEW_REPAIR_HISTORY.MODAL.UNITNO' | translate }}
+                    <span class="murali-asterisk"> *</span>
+                  </label>
+                </div>
+                <div class="col-md-7 col-lg-8">
+                  <input
+                    class="form-control"
+                    id="brandUnitNo"
+                    name="brandunitno"
+                    ng-required="!ctrl.isVpcOrVce && !ctrl.viewRepairHistoryForm.registrationno && !ctrl.viewRepairHistoryForm.marketchassisno && !ctrl.viewRepairHistoryForm.chassisseries && !ctrl.viewRepairHistoryForm.vehiclevin && !ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval && !ctrl.viewRepairHistoryForm.marketingtype && !ctrl.viewRepairHistoryForm.marketingchassisno"
+                    ng-disabled="ctrl.isVpcOrVce || ctrl.viewRepairHistoryForm.registrationno || ctrl.viewRepairHistoryForm.marketchassisno || ctrl.viewRepairHistoryForm.chassisseries || ctrl.viewRepairHistoryForm.vehiclevin || ctrl.viewRepairHistoryForm.selectedbrandmarketkeyval || ctrl.viewRepairHistoryForm.marketingtype || ctrl.viewRepairHistoryForm.marketingchassisno"
+                    ng-model="ctrl.viewRepairHistoryForm.brandunitno"
+                    placeholder="{{ 'VIEW_REPAIR_HISTORY.MODAL.UNITNO' | translate }}"
+                    ng-maxlength="16"
+                    type="text"/>
+                  <div ng-if="viewRepairHistoryForm.brandunitno.$touched"
+                       class="has-error"
+                       ng-messages="viewRepairHistoryForm.brandunitno.$error && viewRepairHistoryForm.brandunitno.$error">
+                    <div ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        <div class="row content-footer">
+          <button
+            class="btn btn-success btn-sm"
+            ng-disabled="viewRepairHistoryForm.$invalid"
+            type="submit">
+            Search
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<!-- END search-filter-form -->

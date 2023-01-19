@@ -1,0 +1,24 @@
+<!-- START grid -->
+<div class="relative" ng-cloak>
+  <div class="custom-loader" ng-if="ctrl.loading">
+    <h3 class="shine">Loading</h3>
+    <div class="multiple-balls">
+      <div class="ball1"></div>
+      <div class="ball2"></div>
+      <div class="ball3"></div>
+    </div>
+  </div>
+  <div class="row" ng-if="ctrl.showTable">
+    <div class="col-xs-12 text-right">
+      <input
+        type="checkbox"
+        id="mark-all-items-notfinished"
+        ng-click="ctrl.selectAllrows(checked)"
+        ng-model="checked" />
+      {{ 'LIST_CLAIM_JOBS.MARKALLITEMS' | translate }}
+    </div>
+  </div>
+  <div ng-if="ctrl.showTable" id="not_finished" ui-grid="ctrl.gridOptions" ui-grid-selection ui-grid-pagination ui-grid-auto-resize
+       class="gridStyle"></div>
+</div>
+<!-- END grid -->

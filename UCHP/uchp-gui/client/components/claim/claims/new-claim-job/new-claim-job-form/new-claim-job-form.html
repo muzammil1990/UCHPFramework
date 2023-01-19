@@ -1,0 +1,515 @@
+<!-- TODO: Spacings and bootstrap low resolutions-->
+<div class="new-claim-job-form" ng-cloak>
+  <div class="claim-job-header">
+    <form
+      name="ctrl.newClaimForm"
+      novalidate="novalidate"
+      ng-submit="ctrl.postForm()">
+      <div class="row form-inline text-right" ng-if="ctrl.activeTab == 1">
+        <button
+          class="btn btn-success"
+          id="claimjobsavebtn"
+          ng-click=""
+          ng-disabled=""
+          type="button">
+          <i aria-hidden="true" class="fa fa-floppy-o"></i>
+          {{"CLAIM.SAVE_CLAIM_JOB" | translate}}
+        </button>
+        <button
+          class="btn btn-success"
+          id="claimjobreleasebtn"
+          ng-click=""
+          ng-disabled="true"
+          type="button">
+          <i aria-hidden="true" class="fa fa-paper-plane"></i>
+          {{"CLAIM.RELEASE_CLAIM_JOB" | translate}}
+        </button>
+        <button
+          class="btn btn-success"
+          id="newclaimjobbtn"
+          type="button"
+          ui-sref="app.new-claim-job">
+          <i aria-hidden="true" class="fa fa-plus"></i>
+          {{"CLAIM.NEW_CLAIM_JOB" | translate}}
+        </button>
+        <button
+          class="btn btn-danger"
+          id="deleteclaimbtn"
+          ng-click=""
+          ng-disabled="true"
+          type="button">
+          <i aria-hidden="true" class="fa fa-trash"></i>
+          {{"CLAIM.DELETE_CLAIM_JOB" | translate}}
+        </button>
+      </div>
+      <div class="row form-inline text-right" ng-if="ctrl.activeTab == 0">
+        <div class="form-group">
+
+          <ol
+            class="nya-bs-select"
+            name="selectedClaimJobType"
+            ng-model="ctrl.selectedClaimJobType"
+            required="required">
+            <li
+              data-value="option.key"
+              nya-bs-option="option in ctrl.newClaimJobData.claimJobTypes">
+              <a>
+                {{option.displayText}}
+              </a>
+            </li>
+          </ol>
+          <div
+            class="has-error"
+            ng-if="ctrl.newClaimForm.selectedClaimJobType.$error && ctrl.newClaimForm.selectedClaimJobType.$touched"
+            ng-messages="ctrl.newClaimForm.selectedClaimJobType.$error">
+            <div
+              ng-messages-include="components/common/validation-error/validation-error.html"></div>
+          </div>
+        </div>
+        <div
+          class="form-group"
+          ng-class="{'group-error': ctrl.newClaimForm.selectedClaimJobType.$error && ctrl.newClaimForm.selectedClaimJobType.$touched && !ctrl.newClaimForm.selectedClaimJobType.$valid}">
+          <button
+            class="btn btn-success btn-sm"
+            ng-disabled="ctrl.newClaimForm.$invalid"
+            type="submit">
+            <i aria-hidden="true" class="fa fa-plus"></i>
+            Continue
+          </button>
+        </div>
+      </div>
+
+      <uib-tabset active="ctrl.activeTab" class="murali-tabs">
+        <uib-tab disable="ctrl.activeTab == 1" heading="Header" index="0">
+          <div class="">
+            <div class="header-murali">
+              <h5>{{"CLAIM.REPAIR_HEADER_INFORMATION" | translate}}</h5>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="Importer">
+                        {{'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        class="form-control"
+                        id="Importer"
+                        name="Importer"
+                        focus-if
+                        ng-maxlength="7"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.repairingImporter"
+                        placeholder="{{ 'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}"
+                        required="required"
+                        type="text">
+                      <div
+                        class="has-error"
+                        ng-if="ctrl.newClaimForm.Importer.$error && ctrl.newClaimForm.Importer.$touched"
+                        ng-messages="ctrl.newClaimForm.Importer.$error">
+                        <div
+                          ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="Dealer">
+                        {{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        class="form-control"
+                        id="Dealer"
+                        name="Dealer"
+                        ng-maxlength="6"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.repairingDealer"
+                        ng-pattern="ctrl.DealerPattern"
+                        placeholder="{{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}"
+                        required="required"
+                        type="text">
+                      <div
+                        class="has-error"
+                        ng-if="ctrl.newClaimForm.Dealer.$error && ctrl.newClaimForm.Dealer.$touched"
+                        ng-messages="ctrl.newClaimForm.Dealer.$error">
+                        <div ng-if="ctrl.newClaimForm.Dealer.$error.pattern">
+                          <p class="help-block">{{"VALIDATION.ERROR.ALPHANUMERIC" | translate}}</p>
+                        </div>
+                        <div
+                          ng-if="!ctrl.newClaimForm.Dealer.$error.pattern">
+                        <div
+                          ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="RepairOrderNumber">
+                        {{"CLAIM.REPAIR_ORDER_NO" | translate}}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        class="form-control"
+                        id="RepairOrderNumber"
+                        name="RepairOrderNumber"
+                        ng-maxlength="10"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.repairOrderNo"
+                        placeholder="{{'CLAIM.REPAIR_ORDER_NO' | translate}}"
+                        type="text">
+                      <div
+                        class="has-error"
+                        ng-if="ctrl.newClaimForm.RepairOrderNumber.$error && ctrl.newClaimForm.RepairOrderNumber.$touched"
+                        ng-messages="ctrl.newClaimForm.RepairOrderNumber.$error">
+                        <div
+                          ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group has-feedback">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="RepairDate">Repair date</label>
+                    </div>
+                    <div class="col-sm-5">
+                      <div
+                        class="input-group"
+                        datetimepicker="datetimepicker"
+                        id="RepairDate"
+                        name="RepairDate"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.repairDate"
+                        options="ctrl.datePickerOptions">
+                        <input class="form-control" placeholder="dd/mm/yy" type="text">
+                        <span class="input-group-addon">
+                          <i class="fa fa-calendar" aria-hidden="true"></i>
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="checkbox">
+                      <label>
+                        <input ng-model="forceheader" type="checkbox">
+                        {{"CLAIM.FORCE_HEADER_INFORMATION" | translate}}
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <br/><br/><br/>
+                <div class="row">
+                  <div class="col-sm-4 col-md-4 col-lg-3">
+                    <label class="control-label">{{"CLAIM.COMPANY" | translate}}</label>
+                  </div>
+                  <div class="col-sm-8 col-md-8 col-lg-9">
+                    <span class="fieldValue" id="companyNo">
+                      {{ctrl.selectCompanies[ctrl.selectedCompany - 1].name}}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="">
+            <div class="header-murali">
+              <h5>{{"CLAIM.VEHICLE_IDENTIFICATION" | translate}}</h5>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-horizontal">
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="Novehicle">
+                        {{"CLAIM.NO_VEHICLE" | translate}}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <div class="checkbox">
+                        <input
+                          class="noleftmarg"
+                          id="Novehicle"
+                          name="Novehicle"
+                          ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle"
+                          type="checkbox">
+                      </div>
+                    </div>
+                  </div>
+                  <div
+                    class="form-group"
+                    ng-if="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="Brand_1">{{"CLAIM.SELECT_BRAND" | translate}}</label>
+                    </div>
+                    <div class="col-sm-5">
+                      <select
+                        class="form-control"
+                        nya-selectpicker
+                        id="Brand_1"
+                        name="Brand_1"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.make">
+                        <option ng-repeat="option in ctrl.brandlist" value="{{option.key}}">{{option.displayText}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="RegistrationNumber">
+                        {{ 'VIEW_REPAIR_HISTORY.MODAL.REGISTRATIONNO' | translate }}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        class="form-control"
+                        clear-on-disabled="clear-on-disabled"
+                        id="RegistrationNumber"
+                        name="RegistrationNumber"
+                        ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisSeries || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin || ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                        ng-maxlength="9"
+                        ng-model-options="{ allowInvalid: false }"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo"
+                        ng-required="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisSeries && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin && !ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                        placeholder="{{ 'VIEW_REPAIR_HISTORY.MODAL.REGISTRATIONNO' | translate }}"
+                        type="text">
+                      <div
+                        class="has-error"
+                        ng-if="ctrl.newClaimForm.RegistrationNumber.$error && ctrl.newClaimForm.RegistrationNumber.$touched"
+                        ng-messages="ctrl.newClaimForm.RegistrationNumber.$error">
+                        <div
+                          ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="ChassisIdFrom">
+                        {{ 'LABEL.CHASSI.' + ctrl.selectedCompany | translate }}
+                      </label>
+                    </div>
+                    <div class="col-sm-5 nopad">
+                      <div class="col-sm-5 norightpad">
+                        <input
+                          class="form-control"
+                          id="ChassisIdFrom"
+                          name="ChassisIdFrom"
+                          ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin || ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                          ng-maxlength="5"
+                          ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisSeries"
+                          ng-required="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin && !ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                          type="text">
+                        <div
+                          class="has-error"
+                          ng-if="ctrl.newClaimForm.ChassisIdFrom.$error && ctrl.newClaimForm.ChassisIdFrom.$touched"
+                          ng-messages="ctrl.newClaimForm.ChassisIdFrom.$error">
+                          <div
+                            ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                        </div>
+                      </div>
+                      <div class="col-sm-2 text-center">to</div>
+                      <div class="col-sm-5 noleftpad pull-right">
+                        <input
+                          class="form-control"
+                          id="ChassisIdTo"
+                          name="ChassisIdTo"
+                          ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin || ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                          ng-maxlength="6"
+                          ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo"
+                          ng-required="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin && !ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                          type="text">
+                        <div
+                          class="has-error"
+                          ng-if="ctrl.newClaimForm.ChassisIdTo.$error && ctrl.newClaimForm.ChassisIdTo.$touched"
+                          ng-messages="ctrl.newClaimForm.ChassisIdTo.$error">
+                          <div
+                            ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="VIN">
+                        {{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        class="form-control"
+                        id="VIN"
+                        name="VIN"
+                        ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisSeries || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo || ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                        ng-maxlength="17"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin"
+                        ng-required="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisSeries && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo && !ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                        placeholder="{{ 'LABEL.VIN.' + ctrl.selectedCompany | translate }}"
+                        type="text">
+                      <div
+                        class="has-error"
+                        ng-if="ctrl.newClaimForm.VIN.$error && ctrl.newClaimForm.VIN.$touched"
+                        ng-messages="ctrl.newClaimForm.VIN.$error">
+                        <div
+                          ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="Brand_2">
+                        {{ 'VIEW_REPAIR_HISTORY.MODAL.BRAND' | translate }}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <select
+                        ng-if="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle"
+                        nya-selectpicker
+                        class="form-control"
+                        id="empty_placeholder_brand_select"
+                        ng-disabled="true"
+                        name="empty_placeholder_brand_select">
+                        <option value="">{{ctrl.brandlist[0].displayText}}</option>
+                      </select>
+                      <select
+                        ng-if="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle"
+                        class="form-control"
+                        nya-selectpicker
+                        id="Brand_2"
+                        name="Brand_2"
+                        ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisSeries || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo || ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                        ng-required="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisSeries && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.registrationNo && !ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vin">
+                        <option ng-repeat="option in ctrl.brandlist" value="{{option.key}}">{{option.displayText}}</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="Mileage">{{ 'CLAIM.MILEAGE' | translate }}</label>
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        class="form-control"
+                        id="Mileage"
+                        name="Mileage"
+                        ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle"
+                        ng-maxlength="7"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.vehicleMilage"
+                        type="text">
+                      <div
+                        class="has-error"
+                        ng-if="ctrl.newClaimForm.Mileage.$error && ctrl.newClaimForm.Mileage.$touched"
+                        ng-messages="ctrl.newClaimForm.Mileage.$error">
+                        <div
+                          ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                      </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <select
+                        class="form-control"
+                        nya-selectpicker
+                        name="mileageUnit"
+                        ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.mileageUnit"
+                        ng-options="opt.key as opt.displayText for opt in ctrl.newClaimJobData.mileageUnitList"></select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <div class="col-sm-4 col-md-4 col-lg-3">
+                      <label class="control-label" for="OperatingHours">
+                        {{ 'CLAIM.OPERATING_HOURS' | translate }}
+                      </label>
+                    </div>
+                    <div class="col-sm-5">
+                      <input
+                        class="form-control"
+                        id="OperatingHours"
+                        name="OperatingHours"
+                        ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle"
+                        ng-maxlength="5"
+                        ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.operatingHours"
+                        type="text">
+                      <div
+                        class="has-error"
+                        ng-if="ctrl.newClaimForm.OperatingHours.$error && ctrl.newClaimForm.OperatingHours.$touched"
+                        ng-messages="ctrl.newClaimForm.OperatingHours.$error">
+                        <div
+                          ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Right Column -->
+              <div class="col-md-4">
+                <div class="row">
+                  <div class="col-sm-5 col-md-5 col-lg-4">
+                    <label class="control-label" for="MarketingType">
+                      {{ 'VIEW_REPAIR_HISTORY.MODAL.MARKETINGTYPE' | translate }}
+                    </label>
+                  </div>
+                  <div class="col-sm-7 col-md-7 col-lg-8">
+                    <input
+                      class="form-control"
+                      id="MarketingType"
+                      name="MarketingType"
+                      ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle || !ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                      ng-maxlength="8"
+                      ng-minlength="2"
+                      ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.marketType"
+                      ng-required="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle && ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                      placeholder="{{ 'VIEW_REPAIR_HISTORY.MODAL.MARKETINGTYPE' | translate }}"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="ctrl.newClaimForm.MarketingType.$error && ctrl.newClaimForm.MarketingType.$touched"
+                      ng-messages="ctrl.newClaimForm.MarketingType.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+                <br/><br/><br/>
+                <div class="row">
+                  <div class="col-sm-5 col-md-5 col-lg-4">
+                    <label class="control-label" for="ChassisNo">
+                      {{ 'LABEL.CHASSI_NO.' + ctrl.selectedCompany | translate }}
+                    </label>
+                  </div>
+                  <div class="col-sm-7 col-md-7 col-lg-8">
+                    <input
+                      class="form-control"
+                      id="ChassisNo"
+                      name="ChassisNo"
+                      ng-disabled="ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle || !ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                      ng-maxlength="6"
+                      ng-model="ctrl.newClaimJobData.claimRepairHeaderDTO.vehicleDTO.chassisNo"
+                      ng-required="!ctrl.newClaimJobData.claimRepairHeaderDTO.noVehicle && ctrl.newClaimJobData.claimRepairHeaderDTO.make"
+                      placeholder="{{ 'LABEL.CHASSI_NO.' + ctrl.selectedCompany | translate }}"
+                      type="text">
+                    <div
+                      class="has-error"
+                      ng-if="ctrl.newClaimForm.ChassisNo.$error && ctrl.newClaimForm.ChassisNo.$touched"
+                      ng-messages="ctrl.newClaimForm.ChassisNo.$error">
+                      <div
+                        ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </uib-tab>
+        <uib-tab heading="1" index="1">
+          <claim-job-item fresh="true"></claim-job-item>
+        </uib-tab>
+        <!--  <uib-tab heading="2" index="2">
+          <claim-job-item></claim-job-item>
+        </uib-tab> -->
+      </uib-tabset>
+    </form>
+  </div>
+</div>

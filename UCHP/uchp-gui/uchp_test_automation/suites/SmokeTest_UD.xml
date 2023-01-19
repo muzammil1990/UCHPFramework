@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SmokeTestSuite" parallel="false">
+  <parameter name="userName" value="XY45607" />
+  <parameter name="passWord" value="baldo123" />
+  <parameter name="Company" value="UD Trucks Corporation" />
+  <parameter name="userContextForImporter" value="TextBox" />
+  <parameter name="userContextForDealer" value="TextBox" />
+ <!--=======================================================================================================================-->  
+   <test name="DealerRoleMenuSubMenuVerification_VTC">
+  <parameter name="Company" value="Volvo Truck Corporation" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_01_MenuAndSubMenuVerification_Dealer"/> 
+        </methods>
+        </class>
+    </classes>
+  </test>  
+  
+   <test name="CentralRoleMenuSubMenuVerification">
+  <parameter name="userName" value="XY45608" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_02_MenuAndSubMenuVerification_Central"/>  
+        </methods>
+        </class>
+    </classes>
+  </test>
+    
+  <test name="SystemAdministratorRoleMenuSubMenuVerification">
+  <parameter name="userName" value="XY45620" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_03_MenuAndSubMenuVerification_SystemAdministrator"/>  
+        </methods>
+        </class>
+    </classes>
+  </test> 
+  
+  <test name="CampaignAdminRoleMenuSubMenuVerification">
+  <parameter name="userName" value="XY45623" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_04_MenuAndSubMenuVerification_CampaignAdminCentral"/> 
+        </methods>
+        </class>
+    </classes>
+  </test> 
+  
+ <test name="ClaimAdminCentralMenuSubMenuVerification">
+  <parameter name="userName" value="XY45626" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_05_MenuAndSubMenuVerification_ClaimAdminCentral"/>  
+        </methods>
+        </class>
+    </classes>
+  </test>
+  
+ <test name="CoverageAdminRoleMenuSubMenuVerification">
+  <parameter name="userName" value="XY45615" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_06_MenuAndSubMenuVerification_CoverageAdmin"/>  
+        </methods>
+        </class>
+    </classes>
+  </test>  
+  
+   <test name="CreditingeAdminRoleMenuSubMenuVerification">
+  <parameter name="userName" value="XY45616" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_07_MenuAndSubMenuVerification_CreditingAdmCentral"/>  
+        </methods>
+        </class>
+    </classes>
+  </test>
+  
+  <test name="InspectorRoleMenuSubMenuVerification">
+  <parameter name="userName" value="XY45618" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_08_MenuAndSubMenuVerification_Inspector"/>  
+        </methods>
+        </class>
+    </classes>
+  </test>
+  
+    <test name="TMARoleMenuSubMenuVerification">
+  <parameter name="userName" value="XY45621" />
+    <parameter name="testDataFileName" value="MenuSubMenuVerification.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.MenuSubMenuVerification_TC">
+        <methods>
+          <include name="TC_09_MenuAndSubMenuVerification_TMAAdministrator"/> 
+        </methods>
+        </class>
+    </classes>
+  </test> 
+  
+  <test name="TC_01_Login_LogoVerification_VTC">
+  <parameter name="Company" value="Volvo Truck Corporation" />
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.WelcomePage_TC"/>
+    </classes>
+  </test>
+  
+  <test name="TC_01_Login_LogoVerification_VBC">
+  <parameter name="Company" value="Volvo Bus Corporation" />
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.WelcomePage_TC"/>
+    </classes>
+  </test>
+  
+  <test name="TC_01_Login_LogoVerification_VCE">
+  <parameter name="Company" value="Volvo Construction Equipment" />
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.WelcomePage_TC"/>
+    </classes>
+  </test>
+  
+   <test name="TC_01_Login_LogoVerification_UD">
+  <parameter name="Company" value="UD Trucks Corporation" />
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.WelcomePage_TC"/>
+    </classes>
+  </test>
+  
+     <test name="TC_01_Login_LogoVerification_NAT">
+  <parameter name="Company" value="TSM Americas" />
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.WelcomePage_TC"/>
+    </classes>
+  </test>
+  
+    <test name="TC_01_Login_LogoVerification_Penta">
+    <parameter name="testDataFileName" value="WelcomePage.xlsx" />	
+  <parameter name="Company" value="Volvo Penta Corporation" />
+    <classes>
+        <class name="com.volvo.in.welcomepage.WelcomePage_TC"/>
+    </classes>
+  </test>
+  
+  <test name="TC_01_switchToCompanies">
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.switchcompany.SwitchCompany_TC">
+        <methods>
+          <include name="TC_01_switchToCompanies" />
+        </methods>	
+        </class> 
+    </classes>
+  </test>
+  
+
+  
+  <test name="TC_02_SetPreferredCompanyForXY45987User">
+  <parameter name="userName" value="XY45987" />
+    <parameter name="Company" value="Volvo Bus Corporation"/>
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.switchcompany.SwitchCompany_TC">
+        <methods>
+          <include name="TC_02_SetAndVerifyPreferredCompany_VBC" />
+        </methods>	
+        </class> 
+    </classes>
+  </test>
+  
+  <test name="TC_03_SetPreferredCompanyForXY45608User">
+  <parameter name="userName" value="XY45608" />
+  <parameter name="Company" value="TSM Americas"/>
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.switchcompany.SwitchCompany_TC">
+        <methods>
+          <include name="TC_03_SetAndVerifyPreferredCompany_NAT" />
+        </methods>	
+        </class> 
+    </classes>
+  </test>
+  
+   <test name="TC_04_VerifyPreferredCompanyForXY45987User">
+  <parameter name="userName" value="XY45987" />
+  <parameter name="Company" value="Volvo Bus Corporation"/>
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.switchcompany.SwitchCompany_TC">
+        <methods>
+          <include name="TC_04_VerifyPreferredCompanyNewSession_VBC" />
+        </methods>	
+        </class> 
+    </classes>
+  </test>
+  
+  <test name="TC_05_VerifyPreferredCompanyForXY45608User">
+  <parameter name="userName" value="XY45608" />
+  <parameter name="Company" value="TSM Americas"/>
+  <parameter name="testDataFileName" value="WelcomePage.xlsx" />
+    <classes>
+        <class name="com.volvo.in.switchcompany.SwitchCompany_TC">
+        <methods>
+          <include name="TC_05_VerifyPreferredCompanyNewSession_NAT" />
+        </methods>	
+        </class> 
+    </classes>
+  </test>
+  
+  </suite>

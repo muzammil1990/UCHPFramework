@@ -1,0 +1,10 @@
+{
+  "MAINTAIN.DESCRIPTION"                   : "Description",
+  "MAINTAIN.SAVE"                          : "Save",
+  "MAINTAIN.DELETE"                        : "Delete",
+  "MAINTAIN.COUNTRY"                       : "Country",
+  "MAINTAIN.MODIFIED_BY"                   : "Modified by",
+  "MAINTAIN.LANGUAGE_CODE"                 : "Language code",
+  "MAINTAIN.MODIFY_TIME"                   : "Modify time",
+  "MAINTAIN.LANGUAGE_CODE3"                : "Language code 3"
+}

@@ -1,0 +1,79 @@
+<form name="ctrl.form">
+  <div class="table-responsive murali-table">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:5%">{{'CLAIM.QUANTITY' | translate}}</th>
+        <th style="width:5%">{{'CLAIM.PRICE' | translate}}
+          ({{ctrl.currency}})</th>
+        <th style="width:80%">{{'CLAIM.DESCRIPTION' | translate}}</th>
+        <th style="width:4%">{{'CLAIM.CATEGORY' | translate}}</th>
+        <th style="width:5%">{{'CLAIM.NET_COST' | translate}}
+          ({{ctrl.currency}})</th>
+        <th style="width:1%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr id="row_{{$index}}" ng-repeat="row in ctrl.costList">
+        <td><input
+          class="form-control"
+          ng-disabled="row.deletedInGUI"
+          ng-model="row.quantity"
+          type="text"/></td>
+        <td><input
+          class="form-control"
+          ng-disabled="row.deletedInGUI"
+          ng-model="row.unitPrice"
+          type="text"/></td>
+        <td><input
+          class="form-control"
+          ng-disabled="row.deletedInGUI"
+          ng-model="row.description"
+          type="text"/></td>
+        <td>
+          <select
+            class="form-control"
+            ng-disabled="row.deletedInGUI || !row.otherCostCategoryList">
+            <option
+              ng-if="!row.otherCostCategoryList || row.otherCostCategoryList.length < 0">N/A</option>
+            <option
+              ng-if="row.otherCostCategoryList && row.otherCostCategoryList.length > 0"
+              ng-repeat="option in row.otherCostCategoryList"
+              value="option.key">{{option.displayText}}</option>
+          </select>
+        </td>
+        <td><input
+          class="form-control"
+          ng-disabled="row.deletedInGUI"
+          ng-model="row.netCost"
+          type="text"/></td>
+        <td>
+          <button
+            cancel-button-type="default"
+            cancel-text="{{ 'NO' | translate }}"
+            class="btn btn-sm btn-danger"
+            confirm-button-type="danger"
+            confirm-text="{{ 'YES' | translate }}"
+            message="{{'DELETE.ITEM.QUESTION' | translate }}"
+            mwl-confirm="mwl-confirm"
+            ng-disabled="row.deletedInGUI"
+            on-cancel=""
+            on-confirm="ctrl.deleteRowInGui($index)"
+            placement="left"
+            title="{{'DELETE' | translate }}">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 text-left">
+      <button class="btn btn-primary" ng-click="ctrl.addRow()">
+        <i aria-hidden="true" class="fa fa-plus"></i>
+        Add row
+      </button>
+    </div>
+  </div>
+</form>

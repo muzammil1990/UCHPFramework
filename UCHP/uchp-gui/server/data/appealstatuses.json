@@ -1,0 +1,14 @@
+[
+  {
+    "key": "1",
+    "displayText": "Appeal request"
+  },
+  {
+    "key": "2",
+    "displayText": "Appeal response"
+  },
+  {
+    "key": "3",
+    "displayText": "Appeal closed"
+  }
+]

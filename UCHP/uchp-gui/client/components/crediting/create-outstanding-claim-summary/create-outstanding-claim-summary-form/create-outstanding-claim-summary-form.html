@@ -1,0 +1,125 @@
+<!-- START search-filter-form -->
+<div class="panel panel-murali panel-default create-outstanding-claim-summary">
+  <div class="panel-heading">
+    <span class="">Filter dealers</span>
+  </div>
+  <div class="panel-body">
+    <form
+      class="form-horizontal"
+      name="ctrl.outStandingClaimDocumentForm"
+      novalidate="novalidate"
+      ng-submit="ctrl.OpenModal();"
+      role="form">
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-md-5 col-lg-4">
+              <label class="control-label">
+                {{ 'CREATE_OUTSTANDING_CLAIM_SUMMARY.MODAL.COMPANY' | translate }}
+                <span class="murali-asterisk"> *</span>
+              </label>
+            </div>
+            <div class="col-md-7 col-lg-8 fieldValueCellalignment">
+              <span id="companyNo">{{ctrl.selectCompanies[ctrl.selectedCompany - 1].name}}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-md-5 col-lg-4">
+              <label class="control-label" for="repairingImporter">
+                {{'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}
+                <span class="murali-asterisk"> *</span>
+              </label>
+            </div>
+            <div class="col-md-7 col-lg-8"><input
+              class="form-control"
+              id="repairingImporter"
+              name="repairingImporter"
+              focus-if
+              ng-maxlength="7"
+              ng-model="ctrl.outStandingClaimDocumentModel.repairingImporter"
+              ng-trim="true"
+              ng-pattern="ctrl.OnlyNumbers"
+              placeholder="{{ 'LABEL.IMPORTER.' + ctrl.selectedCompany | translate }}"
+              required="required"
+              type="text">
+              <div
+                class="has-error"
+                ng-if="ctrl.outStandingClaimDocumentForm.repairingImporter.$error && ctrl.outStandingClaimDocumentForm.repairingImporter.$touched"
+                ng-messages="ctrl.outStandingClaimDocumentForm.repairingImporter.$error">
+                <div
+                  ng-messages-include="components/common/validation-error/validation-error.html"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-md-5 col-lg-4">
+              <label class="control-label" for="repairingDealer">
+                {{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate}}
+                <span class="murali-asterisk"> *</span>
+              </label>
+            </div>
+            <div class="col-md-7 col-lg-8"><input
+              class="form-control"
+              id="repairingDealer"
+              name="repairingDealer"
+              ng-maxlength="6"
+              ng-model="ctrl.outStandingClaimDocumentModel.repairingDealer"
+              ng-trim="true"
+              ng-pattern="ctrl.DealerPattern"
+              placeholder="{{ 'LABEL.DEALER.' + ctrl.selectedCompany | translate }}"
+              required="required"
+              type="text">
+              <div
+                class="has-error"
+                ng-if="ctrl.outStandingClaimDocumentForm.repairingDealer.$error && ctrl.outStandingClaimDocumentForm.repairingDealer.$touched"
+                ng-messages="ctrl.outStandingClaimDocumentForm.repairingDealer.$error">
+                <div ng-if="ctrl.outStandingClaimDocumentForm.repairingDealer.$error.pattern">
+                  <p class="help-block">{{"VALIDATION.ERROR.ALPHANUMERIC" | translate}}</p>
+                </div>
+                <div
+                  ng-if="!ctrl.outStandingClaimDocumentForm.repairingDealer.$error.pattern">
+                <div
+                  ng-messages-include="components/common/validation-error/validation-error.html"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="form-group">
+            <div class="col-md-5 col-lg-4">
+              <label class="control-label" for="droplistMenuBrand">{{ 'CREATE_OUTSTANDING_CLAIM_SUMMARY.MODAL.BRAND' |
+                translate }}
+              </label>
+            </div>
+            <div class="col-md-7 col-lg-8">
+              <select
+                class="form-control"
+                id="droplistMenuBrand"
+                ng-model="ctrl.outStandingClaimDocumentModel.make"
+                ng-options="option.key as option.displayText for option in ctrl.brandlist"></select>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <button
+            class="btn btn-success btn-sm"
+            ng-disabled="ctrl.outStandingClaimDocumentForm.$invalid"
+            type="submit">Create document
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

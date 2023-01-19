@@ -1,0 +1,43 @@
+[
+    {
+      "coverageId": "T01",
+      "companyNo": 1,
+      "coverageDescription": "CoverageDescription1",
+      "coverageStartDate": "2011-11-10T18:30:00.000+0000",
+      "coverageEndDate": "2012-12-11T18:30:00.000+0000"
+    },
+    {
+    "coverageId": "T02",
+    "companyNo": 1,
+    "coverageDescription": "CoverageDescription2",
+    "coverageStartDate": "2011-11-10T18:30:00.000+0000",
+    "coverageEndDate": "2012-12-11T18:30:00.000+0000",
+    "coverageAttachmentId": "CoverageAttachmentId2",
+    "coverageAttachmentName": "CoverageAttachmentName2"
+    },
+    {
+    "coverageId": "T03",
+    "companyNo": 1,
+    "coverageDescription": "CoverageDescription3",
+    "coverageStartDate": "2011-11-10T18:30:00.000+0000",
+    "coverageEndDate": "2012-12-11T18:30:00.000+0000"
+
+    },
+    {
+    "coverageId": "T04",
+    "companyNo": 1,
+    "coverageDescription": "CoverageDescription4",
+    "coverageStartDate": "2011-11-10T18:30:00.000+0000",
+    "coverageEndDate": "2012-12-11T18:30:00.000+0000",
+    "coverageAttachmentId": "CoverageAttachmentId4",
+    "coverageAttachmentName": "CoverageAttachmentName4"
+    },
+    {
+    "coverageId": "T05",
+    "companyNo": 1,
+    "coverageDescription": "CoverageDescription5",
+    "coverageStartDate": "2011-11-10T18:30:00.000+0000",
+    "coverageEndDate": "2012-12-11T18:30:00.000+0000"
+
+    }
+]

@@ -1,0 +1,4 @@
+<h4 class="page-title" ng-if="ctrl.showView">{{'PRINT_OUTSTANDING_CLAIM_SUMMARY_TITLE.' + ctrl.selectedCompany | translate }}</h4>
+<ncy-breadcrumb ng-if="ctrl.showView"></ncy-breadcrumb>
+<print-outstanding-claim-summary-search-filter ng-if="ctrl.showView"></print-outstanding-claim-summary-search-filter>
+<print-outstanding-claim-summary-list ng-if="ctrl.showView"></print-outstanding-claim-summary-list>

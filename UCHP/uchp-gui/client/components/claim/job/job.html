@@ -1,0 +1,67 @@
+<h4 class="page-title" ng-if="ctrl.existingClaim">claim job</h4>
+<h4 class="page-title" ng-if="!ctrl.existingClaim">new claim job</h4>
+<ncy-breadcrumb></ncy-breadcrumb>
+<div class="row form-inline text-right">
+  <button
+    class="btn btn-success"
+    id="claimjobsavebtn"
+    ng-disabled="ctrl.saveDisabled"
+    ng-click="ctrl.saveClaimJob()"
+    type="button">
+    <i aria-hidden="true" class="fa fa-floppy-o"></i>
+    Save claim job
+  </button>
+  <button
+    class="btn btn-success"
+    id="claimjobreleasebtn"
+    ng-disabled="ctrl.releaseDisabled"
+    ng-click="ctrl.releaseClaimJob()"
+    type="button">
+    <i aria-hidden="true" class="fa fa-paper-plane"></i>
+    Release claim job
+  </button>
+  <div class="form-group">
+    <ol
+      class="nya-bs-select"
+      name="selectedTypeOfClaim"
+      ng-model="ctrl.selectedTypeOfClaim">
+      <li
+        data-value="option.key"
+        nya-bs-option="option in ctrl.typeOfClaims">
+        <a>
+          {{option.displayText}}
+        </a>
+      </li>
+    </ol>
+  </div>
+  <button
+    class="btn btn-success"
+    id="newclaimjobbtn"
+    ng-disabled="ctrl.newDisabled"
+    ng-click="ctrl.newClaimJob()"
+    type="button">
+    <i aria-hidden="true" class="fa fa-plus"></i>
+    New claim job
+  </button>
+  <button
+    class="btn btn-danger"
+    id="deleteclaimbtn"
+    ng-disabled="ctrl.deleteDisabled"
+    ng-click="ctrl.deleteClaimJob()"
+    type="button">
+    <i aria-hidden="true" class="fa fa-trash"></i>
+    Delete claim job
+  </button>
+</div>
+<div class="row claim-job">
+  <div class="col-md-12">
+    <uib-tabset active="ctrl.selectedTab">
+      <uib-tab heading="Header" index="0" select="ctrl.selectTab('0')">
+        <claim-job-header></claim-job-header>
+      </uib-tab>
+      <uib-tab heading="1" index="1" select="ctrl.selectTab('1')">
+        <claim-job-item></claim-job-item>
+      </uib-tab>
+      </uib-tabset>
+  </div>
+</div>

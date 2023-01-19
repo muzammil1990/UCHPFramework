@@ -1,0 +1,67 @@
+{
+  "metadata": {
+    "count": 10
+  },
+  "returnCodeDTOList": [
+    {
+      "returnCode": "101",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "102",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "103",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "104",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "105",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "106",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "107",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "108",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "109",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    },
+    {
+      "returnCode": "1010",
+      "description": "Repair Date Incorrect",
+      "typeOfConcern": 1,
+      "companyNo": 1
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+<div>
+  <div class="modal-header" ng-if="!vm.content">
+    <div class="row">
+      <div class="col-xs-9">
+        <h4 class="modal-title">Labour list</h4>
+      </div>
+      <div class="col-xs-3 text-right">
+        <button class="btn btn-default btn-sm modal-labour-cross" type="button" ng-click="vm.cancel()">
+          <i class="fa fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="modal-body">
+      <div class="row modal-labour-row-top">
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-4">
+              <label for="modal-labour-from">From</label>
+            </div>
+            <div class="col-sm-8">
+              <input type="text" class="form-control" id="modal-labour-from" />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="row">
+            <div class="col-sm-4">
+              <label for="modal-labour-to">To</label>
+            </div>
+            <div class="col-sm-8">
+              <input class="form-control" type="text" id="modal-labour-to" />
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-4 text-right">
+          <button class="btn-murali btn btn-sm">
+            <i class="fa fa-search" aria-hidden="true"></i> Search
+          </button>
+        </div>
+      </div>
+      <div style="background-color: lightcyan;" id="grid" ui-grid="vm.gridOptions"
+           ui-grid-pagination
+           class="gridStyle">
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-footer">
+  <button class="btn btn-default" type="button" ng-click="vm.cancel()">
+    Cancel
+  </button>
+  <button class="btn hide btn-success" type="button" ng-click="vm.ok()">
+    confirm
+  </button>
+</div>

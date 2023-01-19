@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite thread-count="2" guice-stage="DEVELOPMENT" name="Failed suite [RegressionTestSuite]" allow-return-values="true">
+  <parameter name="passWord" value="baldo123"/>
+  <parameter name="Company" value="Volvo Truck Corporation"/>
+  <parameter name="userContextForImporter" value="TextBox"/>
+  <parameter name="userContextForDealer" value="TextBox"/>
+  <parameter name="appURL" value="https://uchp-test1.got.volvo.net/uchp/client/"/>
+  <parameter name="userName" value="XY45607"/>
+  <listeners>
+    <listener class-name="com.volvo.in.commonlibrary.ListenerClass"/>
+  </listeners>
+  <test name="ValidationModule_NewScenario(failed)">
+    <parameter name="testDataFileName" value="NewScenario.xlsx"/>
+    <parameter name="userName" value="XY45626"/>
+    <parameter name="browserType" value="chrome"/>
+    <classes>
+      <class name="com.volvo.in.validation.NewScenario_TC">
+        <methods>
+          <include name="loginBeforeMethod"/>
+          <include name="afterSuite"/>
+          <include name="TC_003_06_NewScenario_Save"/>
+          <include name="logoutAfterMethod"/>
+          <include name="setUp"/>
+          <include name="beforeSuite"/>
+          <include name="afterSuite"/>
+        </methods>
+      </class> <!-- com.volvo.in.validation.NewScenario_TC -->
+    </classes>
+  </test> <!-- ValidationModule_NewScenario(failed) -->
+</suite> <!-- Failed suite [RegressionTestSuite] -->

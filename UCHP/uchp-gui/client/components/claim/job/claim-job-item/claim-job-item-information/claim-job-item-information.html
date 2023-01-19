@@ -1,0 +1,312 @@
+<div class="panel panel-default repair-header-information">
+  <div class="panel-heading">
+    <span class="">Information</span>
+  </div>
+  <div class="panel-body">
+
+    <div class="table-responsive murali-table">
+      <table class="table">
+        <col style="width:10%">
+        <col style="width:20%">
+        <col ng-if="ctrl.campaign" style="width:10%">
+        <col ng-if="ctrl.campaign" style="width:10%">
+        <col ng-if="ctrl.parts" style="width:10%">
+        <col ng-if="ctrl.parts" style="width:10%">
+        <col style="width:10%">
+        <col style="width:1%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:10%">
+        <col style="width:19%">
+        <col ng-if="ctrl.common" style="width:10%">
+        <col ng-if="ctrl.common" style="width:10%">
+        <tbody>
+        <tr>
+          <td>
+            <b>{{"CLAIM.STATUS" | translate}}</b>
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.claimJobStateText}}
+          </td>
+          <td ng-if="ctrl.campaign">
+            <b>{{"CLAIM.SCC_CODE" | translate}}</b>
+          </td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.parts">
+            <b>{{"CLAIM.PARTS_FITTED_DATE" | translate}}</b>
+          </td>
+          <td ng-if="ctrl.parts">
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.partsFittedDate}}
+            <!--   <div
+            class="input-group"
+            datetimepicker="datetimepicker"
+            ng-readonly=""
+            ng-model="ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.partsFittedDate"
+            options="ctrl.datePickerOptions">
+            <input class="form-control" placeholder="dd/MM/yy" type="text"/>
+      <span class="input-group-addon">
+        <i class="fa fa-calendar" aria-hidden="true"></i>
+      </span>
+          </div> -->
+          </td>
+          <td>
+            <div class="checkbox">
+              <b>
+                {{"CLAIM.FORCE_CLAIM_JOB" | translate}}
+              </b>
+            </div>
+          </td>
+          <td>
+            <div class="checkbox">
+              <input
+                ng-model="ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.forced"
+                ng-readonly=""
+                type="checkbox">
+            </div>
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.common"></td>
+          <td ng-if="ctrl.common"></td>
+        </tr>
+
+        <tr>
+          <td>
+            <b>{{"CLAIM.TYPE" | translate}}</b>
+          </td>
+          <td>
+            <select
+              class="form-control"
+              ng-change="ctrl.setType()"
+              ng-model="ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.typeOfClaim"
+              ng-options="option.key as option.displayText for option in ctrl.claimJob.claimJobTypes">
+              <!-- number to string
+            <option ng-repeat="option in ctrl.claimJob.claimJobTypes" ng-value="option.key">{{option.displayText}}</option>-->
+            </select>
+          </td>
+          <td ng-if="ctrl.campaign">
+            <b>{{"CLAIM.SCC_DESCRIPTION" | translate}}</b>
+          </td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.parts">
+            <b>{{"CLAIM.PARTS_MILEAGE" | translate}}</b>
+          </td>
+          <td ng-if="ctrl.parts">
+            <!-- <input
+         class="form-control"
+         ng-readonly=""
+         type="number"
+         ng-model="ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.partsMilage"> -->
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.partsMilage}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.common"></td>
+          <td ng-if="ctrl.common"></td>
+        </tr>
+
+        <tr>
+          <td>
+            <b>{{"CLAIM.SCENARIO_CODE" | translate}}</b>
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.scenarioCode}}
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.scenarioDescription}}
+          </td>
+          <td ng-if="ctrl.campaign">
+            <b></b>
+          </td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.parts">
+            <b>{{"CLAIM.PARTS_OPERATING_HOURS" | translate}}</b>
+          </td>
+          <td ng-if="ctrl.parts">
+            <input
+              class="form-control"
+              ng-model="ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.partOperatingHours"
+              ng-readonly=""
+              type="number">
+          </td>
+          <td>
+            <b>{{"CLAIM.FOLLOW_UP_CODE" | translate}}</b>
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.followUpCode}}
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.followUpCodeDescription}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.common"></td>
+          <td ng-if="ctrl.common"></td>
+        </tr>
+
+        <tr>
+          <td>
+            <b></b>
+          </td>
+          <td></td>
+          <td ng-if="ctrl.campaign">
+            <b></b>
+          </td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.parts">
+            <b>{{"CLAIM.PART_AGE" | translate}}</b>
+          </td>
+          <td ng-if="ctrl.parts"></td>
+          <td>
+            <b>{{"CLAIM.MI_NAME" | translate}}</b>
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.materialInst}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.common"></td>
+          <td ng-if="ctrl.common"></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.parts"></td>
+          <td ng-if="ctrl.parts"></td>
+          <td>
+            <b>{{"CLAIM.CASE_NO_SOURCE" | translate}}</b>
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.claimSupplementDTO.caseSourceCode}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.common"></td>
+          <td ng-if="ctrl.common"></td>
+        </tr>
+
+        <tr>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.campaign"></td>
+          <td ng-if="ctrl.parts"></td>
+          <td ng-if="ctrl.parts"></td>
+          <td>
+            <b>{{"CLAIM.CASE_NO" | translate}}</b>
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.claimSupplementDTO.caseNo}}
+          </td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td ng-if="ctrl.common"></td>
+          <td ng-if="ctrl.common"></td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
+    <div class="murali-table table-responsive">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th colspan="2" style="width: 30%">{{'CLAIM.MAIN_OPERATION' | translate }}</th>
+          <th colspan="2" style="width: 30%">{{'CLAIM.CAUSAL_PART' | translate }}</th>
+          <th style="width: 10%">{{'CLAIM.FUNC_GROUP' | translate }}</th>
+          <th colspan="2" style="width: 30%">{{'CLAIM.NEW_PART' | translate }}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>
+              <span
+                ng-if="ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.operationFormat == 1">
+                {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.operationNo}}
+              </span>
+              <span
+                ng-if="ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.operationFormat == 2">
+                {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.operationId}}
+              </span>
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.operationNoDescription}}
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.causalPart.partNo}}
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.materialDescr}}
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.causalPart.functionGroup}}
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.newPartNo}}
+          </td>
+          <td>
+            {{ctrl.claimJob.claimRepairHeaderDTO.activeClaimJobDTO.newPartDescription}}
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="table-responsive murali-table">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th style="width: 10%">{{'CLAIM.SUMMARY' | translate }}</th>
+          <th style="width: 10%">{{'CLAIM.NET' | translate }}({{ctrl.claimRepairHeaderDTO.currency}})</th>
+          <th style="width: 10%">{{'CLAIM.HOURS' | translate }}</th>
+          <th style="width: 70%"></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{'CLAIM.LABOUR' | translate }}</td>
+          <td>
+            {{ctrl.claimRepairHeaderDTO.activeClaimJobDTO.claimDebitSummariesVO.claimLabourDebitSummaryVO.netCostTotal}}
+          </td>
+          <td>
+            {{ctrl.claimRepairHeaderDTO.activeClaimJobDTO.claimDebitSummariesVO.claimLabourDebitSummaryVO.hours}}
+          </td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>{{'CLAIM.MATERIAL' | translate }}</td>
+          <td>{{ctrl.claimRepairHeaderDTO.activeClaimJobDTO.claimDebitSummariesVO.claimMaterialDebitSummaryVO.netCostTotal}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>{{'CLAIM.OTHER_COSTS' | translate }}</td>
+          <td>
+            {{ctrl.claimRepairHeaderDTO.activeClaimJobDTO.claimDebitSummariesVO.claimCostDebitSummaryVO.netCostTotal}}
+          </td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>{{'CLAIM.GRAND_TOTAL' | translate }}</td>
+          <td>{{ctrl.claimRepairHeaderDTO.activeClaimJobDTO.claimDebitSummariesVO.grandTotal}}</td>
+          <td></td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

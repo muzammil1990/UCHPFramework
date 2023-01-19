@@ -1,0 +1,105 @@
+<div class="claim-job-item-remarks">
+  <form name="ctrl.form">
+    <div class="row form-group">
+      <div class="col-sm-8"></div>
+      <div class="col-sm-3 text-right">
+        <select class="form-control" disabled="disabled">
+          <option value="">{{'SELECT_APPEAL_STATUS' | translate}}</option>
+        </select>
+      </div>
+      <div class="col-sm-1">
+        <button class="btn btn-default" ng-click="ctrl.showAppealStatesLog()">
+          <i aria-hidden="true" class="fa fa-info"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label for="Complaint">{{'COMPLAINT' | translate}}</label>
+      </div>
+      <div class="col-sm-9">
+        <textarea
+          class="form-control"
+          cols="30"
+          id="Complaint"
+          name="remarkComplaint"
+          ng-model="ctrl.remarks.remarkComplaint"
+          ng-readonly="ctrl.readOnly"
+          rows="10"></textarea>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label for="Cause">{{'CAUSE' | translate}}</label>
+      </div>
+      <div class="col-sm-9">
+        <textarea
+          class="form-control"
+          cols="30"
+          id="Cause"
+          name="remarkCause"
+          ng-model="ctrl.remarks.remarkCause"
+          ng-readonly="ctrl.readOnly"
+          rows="10"></textarea>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label for="Correction">{{'CORRECTION' | translate}}</label>
+      </div>
+      <div class="col-sm-9">
+        <textarea
+          class="form-control"
+          cols="30"
+          id="Correction"
+          name="remarkCorrection"
+          ng-model="ctrl.remarks.remarkCorrection"
+          ng-readonly="ctrl.readOnly"
+          rows="10"></textarea>
+      </div>
+      <div class="col-sm-1"></div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label for="ClaimComment">{{'COMMENT' | translate}}</label>
+      </div>
+      <div class="col-sm-9">
+        <textarea
+          class="form-control"
+          cols="30"
+          id="ClaimComment"
+          name="claimComment"
+          ng-model="ctrl.remarks.claimComment"
+          ng-readonly="ctrl.readOnly"
+          rows="10"></textarea>
+      </div>
+      <div class="col-sm-1">
+        <button class="btn btn-default" ng-click="ctrl.showCommentHistoryLog()">
+          <i aria-hidden="true" class="fa fa-info"></i>
+        </button>
+      </div>
+    </div>
+    <div class="row form-group" ng-if="ctrl.remarks.internalComment">
+      <div class="col-sm-2">
+        <label for="InternalComment">{{'COMMENT.INTERNAL' | translate}}</label>
+      </div>
+      <div class="col-sm-9">
+        <textarea
+          class="form-control"
+          cols="30"
+          id="InternalComment"
+          name="internalComment"
+          ng-model="ctrl.remarks.internalComment"
+          ng-readonly="ctrl.readOnly"
+          rows="10"></textarea>
+      </div>
+      <div class="col-sm-1">
+        <button class="btn btn-default" ng-click="ctrl.showCommentHistoryLog()">
+          <i aria-hidden="true" class="fa fa-info"></i>
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

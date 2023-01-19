@@ -1,0 +1,44 @@
+<urlrewrite default-match-type="wildcard">
+
+<!--Write every state dependent on your project url-->
+    <rule>
+        <from>/print-credit-document</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/create-outstanding-claim-summary</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/print-outstanding-claim-summary</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/view-repair-history</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/view-coverage</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/view-campaign</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/new-claim-job</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/list-claim-jobs</from>
+        <to>/</to>
+    </rule>
+    <rule>
+        <from>/claim-job</from>
+        <to>/</to>
+    </rule>
+  <rule>
+    <from>/authenticated/finish.html</from>
+    <to>/</to>
+  </rule>
+</urlrewrite>

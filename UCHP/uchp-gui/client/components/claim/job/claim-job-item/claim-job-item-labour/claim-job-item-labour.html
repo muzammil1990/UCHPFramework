@@ -1,0 +1,115 @@
+<form class="claim-job-item-labour" name="ctrl.form">
+  <div class="table-responsive murali-table">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:3%">{{'CLAIM.MAIN' | translate }}</th>
+        <th style="width:2%">{{'CLAIM.VST' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.OPERATION_NUMBER' | translate }}</th>
+        <th style="width:41%">{{'CLAIM.DESCRIPTION' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.QUANTITY' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.HOURS' | translate }}</th>
+        <th style="width:10%">{{'CLAIM.COST_HOUR' | translate }}
+          ({{ctrl.currency}})</th>
+        <th style="width:10%">{{'CLAIM.NET' | translate }}
+          ({{ctrl.currency}})</th>
+        <th style="width:2%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr id="row_{{$index}}" ng-repeat="row in ctrl.labourList">
+        <td>
+          <div class="box">
+            <input
+              name="materialRows"
+              ng-disabled="row.deletedInGUI"
+              ng-model="ctrl.radio"
+              ng-value="$index"
+              type="radio">
+          </div>
+        </td>
+        <td>
+          <div class="box">
+            <input
+              name="vst"
+              ng-disabled="row.deletedInGUI"
+              ng-model="row.vst"
+              type="checkbox">
+          </div>
+        </td>
+        <td>
+          <div class="input-group">
+            <input
+              class="form-control"
+              ng-disabled="row.deletedInGUI"
+              ng-model="row.operationNo"
+              type="text"/>
+              <span
+                class="input-group-addon btn btn default"
+                ng-click="ctrl.showOperationNumberModal($index)"
+                ng-disabled="row.deletedInGUI">
+                <i aria-hidden="true" class="fa fa-list"></i>
+              </span>
+          </div>
+        </td>
+        <td><input
+          class="form-control"
+          ng-disabled="row.deletedInGUI"
+          ng-model="row.description"
+          ng-readonly="row.vst"
+          type="text"/></td>
+        <td><input
+          class="form-control"
+          ng-disabled="row.deletedInGUI"
+          ng-model="row.quantity"
+          type="text"/></td>
+        <td><input
+          class="form-control"
+          ng-disabled="row.deletedInGUI"
+          ng-model="row.hours"
+          ng-readonly="row.vst"
+          type="text"/></td>
+        <td>{{row.labourNetCostOriginal}}</td>
+        <td>{{row.labourNetCost}}</td>
+        <td>
+          <button
+            cancel-button-type="default"
+            cancel-text="{{ 'NO' | translate }}"
+            class="btn btn-sm btn-danger"
+            confirm-button-type="danger"
+            confirm-text="{{ 'YES' | translate }}"
+            message="{{'DELETE.ITEM.QUESTION' | translate }}"
+            mwl-confirm="mwl-confirm"
+            ng-disabled="row.deletedInGUI"
+            on-cancel=""
+            on-confirm="ctrl.deleteRowInGui($index)"
+            placement="left"
+            title="{{'DELETE' | translate }}">
+            <i class="fa fa-trash"></i>
+          </button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="row">
+    <div class="col-xs-9">
+      &nbsp;
+    </div>
+    <div class="col-xs-3 text-right">
+      <span>{{'CLAIM.LABOUR_NET_TOTAL' | translate }}
+      </span>
+      <span>
+        <strong>{{ctrl.factoryLabourNetTotal}}</strong>
+      </span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-2 text-left">
+      <button class="btn btn-primary" ng-click="ctrl.addRow()">
+        <i aria-hidden="true" class="fa fa-plus"></i>
+        Add row
+      </button>
+    </div>
+  </div>
+</form>

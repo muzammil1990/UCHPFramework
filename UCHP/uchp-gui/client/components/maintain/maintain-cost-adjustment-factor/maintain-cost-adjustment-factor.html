@@ -1,0 +1,74 @@
+<div class="row">
+  <div class="col-sm-12">
+    <button
+      class="btn btn-success btn-sm"
+      ng-disabled="ctrl.saveDisabled"
+      ng-click="ctrl.updateLanguage()"
+      type="button">
+      <i aria-hidden="true" class="fa fa-save"></i>{{'MAINTAIN.SAVE' | translate }}
+    </button>
+    <button
+      class="btn btn-success btn-sm"
+      ng-click="ctrl.deleteLanguage()"
+      ng-disabled="ctrl.deleteDisabled"
+      type="button">
+      <i aria-hidden="true" class="fa fa-trash"></i>{{'MAINTAIN.DELETE' | translate }}
+    </button>
+  </div>
+</div>
+<form name="ctrl.form" class="maintain-country-language">
+  <div class="table-responsive murali-table">
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th style="width:10%">{{'MAINTAIN.DESCRIPTION' | translate }}</th>
+        <th style="width:50%"></th>
+        <th style="width:10%"></th>
+        <th style="width:30%"></th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td>
+          {{'MAINTAIN.COUNTRY' | translate }}
+        </td>
+        {{ctrl.language.countryCode}}
+        <td>
+          {{'MAINTAIN.MODIFIED_BY' | translate }}
+        </td>
+        <td>
+          {{ctrl.language.modifiedBy}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{'MAINTAIN.LANGUAGE_CODE' | translate }}
+        </td>
+        {{ctrl.language.languageCode}}
+        <td>
+          {{'MAINTAIN.MODIFY_TIME' | translate }}
+        </td>
+        <td>
+          {{ctrl.language.modifyTime | date:'dd-MM-yy HH:mm'}}
+        </td>
+      </tr>
+      <tr>
+        <td>
+          {{'MAINTAIN.LANGUAGE_CODE3' | translate }}
+        </td>
+        <input
+          class="form-control"
+          id="languageCode_3"
+          name="languageCode_3"
+          focus-if
+          ng-model="ctrl.language.languageCode_3"
+          type="text">
+        <td>
+        </td>
+        <td>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</form>

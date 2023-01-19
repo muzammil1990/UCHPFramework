@@ -1,0 +1,10 @@
+[
+  {
+    "key": "application/pdf",
+    "displayText": "PDF"
+  },
+  {
+    "key": "application/vnd.ms-excel",
+    "displayText": "Excel"
+  }
+]

@@ -1,0 +1,15 @@
+.new-claim-job-form {
+  .group-error {
+    height: 60px;
+  }
+  .form-horizontal .form-group {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .fieldValue {
+    line-height: 30px;
+  }
+  .ng-leave.ng-leave-active {
+    display: none !important;
+  }
+}

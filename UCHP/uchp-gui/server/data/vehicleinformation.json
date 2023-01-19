@@ -1,0 +1,35 @@
+[
+  {
+    "vin": "YV2VBL0A27B463420",
+    "chassisSeries": "B",
+    "chassisNo": "463420",
+    "countryOfOperation": "FRA",
+    "registrationNo": "646AVK35",
+    "deliveringImporter": 1320,
+    "deliveringDate": "2007-04-03T18:30:00.000+0000",
+    "deliveringDealer": "1008",
+    "latestKnownMileageDate": "2009-04-03T18:30:00.000+0000",
+    "latestKnownMileageKm": 9999999,
+    "latestKnownMileageMiles": 6213709,
+    "vehicleOperation": 43,
+    "vehicleOperationDesc": "vehicleOperationDesc",
+    "companyNo": 1,
+    "customerNo": "85",
+    "customerName": "customerName 11",
+    "marketingType": "FES7 42R",
+    "ageVehicle": 999,
+    "demoDeliveringDate": "2007-03-03T18:30:00.000+0000",
+    "shippedInvoicedDate": "2009-10-03T18:30:00.000+0000",
+    "operatingMeasureType": 1,
+    "latestKnownOperatingHours": 8773287,
+    "brand": 100,
+    "deliveryMileageKm": 12321323,
+    "deliveryMileageMiles": 7656112,
+    "unitNo": "1213",
+    "operatingHoursDate": "2009-03-03T18:30:00.000+0000",
+    "coverageList": [],
+    "RepairHistory": [],
+    "CampaignList": []
+  }
+
+]

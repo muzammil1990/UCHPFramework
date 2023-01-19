@@ -1,0 +1,36 @@
+<div class="create-document-modal murali-modal text-center">
+  <div>
+    <div class="modal-header" ng-if="vm.content">
+      <div class="modal-title-container">
+        <h3 class="modal-title-header">
+          <i aria-hidden="true" class="fa fa-file-text"></i>
+          {{vm.content.title | translate}}
+        </h3>
+      </div>
+      <div class="modal-body">
+        <div class="modal-message-header">
+          {{vm.content.message | translate}}
+        </div>
+        <br>
+        <div class="row">
+          <div class="col-sm-8 col-sm-offset-2">
+            {{vm.content.subMessage | translate}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="modal-header" ng-if="!vm.content">
+      <h4 class="modal-title">Vehicle</h4>
+      <div class="modal-body">
+        <div
+          class="gridStyle"
+          id="grid"
+          style="background-color: lightcyan;"
+          ui-grid-pagination="ui-grid-pagination"
+          ui-grid-selection="ui-grid-selection"
+          ui-grid="vm.gridOptions"></div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer"></div>
+</div>
